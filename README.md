@@ -3,7 +3,7 @@
 ## elle.gr
 
 [Slider template](https://alpha-editions.github.io/custom-templates/slider)\
-[Quiz template](https://alpha-editions.github.io/custom-templates/quiz)
+[Quiz template]()
 
 ## hello.gr
 
