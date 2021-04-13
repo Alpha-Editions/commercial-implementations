@@ -1,4 +1,4 @@
-# custom-templates
+# Alpha Editions custom templates
 
 ## elle.gr
 
