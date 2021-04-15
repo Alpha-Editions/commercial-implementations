@@ -8,10 +8,10 @@
     </head>
     <body class="h-100">
         <div class="position-relative h-100 overflow-hidden">
-            <video class="w-100" src="video.mp4" autoplay loop muted preload="auto" playsinline></video>
+            <video class="h-100 w-100" style="object-fit: cover; object-position: center;" src="video.mp4" autoplay loop muted preload="auto" playsinline></video>
             <div class="position-absolute w-100 h-100 top-0 text-center pt-5" style="background-color: #00000088;">
                 <h1 class="text-white mb-5">Quiz title</h1>
-                <p class="text-white px-1 mx-auto mb-5" style="max-width: 600px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aperiam eum dignissimos quos asperiores dolorum temporibus ut eligendi corporis blanditiis, corrupti molestias autem quam cupiditate molestiae possimus hic! Libero, recusandae.</p>
+                <p class="text-white px-3 mx-auto mb-5" style="max-width: 600px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aperiam eum dignissimos quos asperiores dolorum temporibus ut eligendi corporis blanditiis, corrupti molestias autem quam cupiditate molestiae possimus hic! Libero, recusandae.</p>
                 <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#quiz-modal">Start the quiz!</button>
             </div>
         </div>
@@ -19,12 +19,12 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" onClick="window.location.reload();" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div id="quiz-slider" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
                             <div class="carousel-inner">
-                                <div class="carousel-item pl-1 active">
+                                <div class="carousel-item active">
                                     <h2>Question 1</h2>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="q1a" id="q1a1">
