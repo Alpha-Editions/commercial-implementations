@@ -2,10 +2,12 @@
 
 ## elle.gr
 
-[Slider template](https://alpha-editions.github.io/custom-templates/slider)\
-[Quiz template](https://alpha-editions.github.io/custom-templates/quiz)
+[Quiz template](https://alpha-editions.github.io/custom-templates/el-quiz)
 
 ## hello.gr
+
+[Slider template](https://alpha-editions.github.io/custom-templates/hl-slider)\
+[Promo template](https://alpha-editions.github.io/custom-templates/hl-promo)
 
 ## 4troxoi.gr
 

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Spring Beauty Bag | sponsored by hello.gr</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <style>
+            :root {
+                --animate-delay: 0.4s;
+            }
+            .logo {
+                width: 128px;
+            }
+            .link {
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                min-height: 250px;
+            }
+            #link-1 {
+                background-image: url("assets/prosopo.jpg");
+            }
+            #link-2 {
+                background-image: url("assets/makigiaz.jpg");
+            }
+            #link-3 {
+                background-image: url("assets/mallia.jpg");
+            }
+            #link-4 {
+                background-image: url("assets/antiliaki-prostasia.jpg");
+            }
+            .indicator {
+                background-color: #00000080;
+                transform: translate(-50%,-50%) scale(0, 0);
+            }
+            .literal {
+                background-color: #00000080;
+                opacity: 1;
+            }
+            @media (min-width: 576px) {
+                header .col-sm-auto, header .col-auto {
+                    width: 128px;
+                }
+                h1 {
+                    line-height: 0.9;
+                }
+            }
+            @media (min-width: 992px) {
+                .indicator {
+                    transform: translate(-50%,-50%) scale(1, 1);
+                    transition: transform 0.3s;
+                }
+                .literal {
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                .link:hover .indicator {
+                    transform: translate(-50%,-50%) scale(0, 0);
+                    transition: transform 0.3s;
+                }
+                .link:hover .literal {
+                    opacity: 1;
+                    transition: opacity 0.3s;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="container-fluid pb-2 pt-3">
+            <div class="row g-3">
+                <div class="col-12 col-sm-auto text-center">
+                    <img src="assets/hello.png" class="logo" alt="Hello! Greece logo">
+                </div>
+                <div class="col-12 col-sm">
+                    <h1 class="text-center">
+                        <span>Spring Beauty Bag</span>
+                        <br>
+                        <small class="text-muted h4">sponsored by hello.gr</small>
+                    </h1>
+                </div>
+                <div class="col-auto d-none d-md-block"></div>
+            </div>
+        </header>
+        <main>
+            <p class="container text-center pb-5 mb-0 pt-3 animate__animated animate__fadeInDown">Η άνοιξη, ειδικά η φετινή, απαιτεί ανανέωση. Μικρές αλλαγές και προσθήκες στο στιλ μας είναι απαραίτητες και ο πιο εύκολος τρόπος για να κάνουμε την αρχή είναι ανανεώνοντας το beauty look μας. Περιποίηση προσώπου, σώματος και μαλλιών, hairstyling και μακιγιάζ είναι οι βασικοί άξονες που θα κινηθούμε. Πώς θα εφοδιάσουμε το μπάνιο μας λοιπόν; Με τι ξεκινάμε; Τι θα βάλουμε στο νεσεσέρ μας, τι θα αντικαταστήσουμε και τι θα πετάξουμε για να δώσουμε έναν αέρα ανανέωσης στο beauty look μας;</p>
+            <div id="links" class="container">
+                <div class="row g-5 h-100">
+                    <div class="col-12 col-md-6 h-50">
+                        <a href="#" id="link-1" class="link d-block h-100 position-relative animate__animated animate__fadeInDown animate__delay-1s">
+                            <div class="indicator position-absolute top-50 start-50 rounded-circle p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#ffffff" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                                </svg>
+                            </div>
+                            <div class="literal position-absolute w-100 h-100">
+                                <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΠΡΟΣΩΠΟ</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 h-50">
+                        <a href="#" id="link-2" class="link d-block h-100 position-relative animate__animated animate__fadeInDown animate__delay-2s">
+                            <div class="indicator position-absolute top-50 start-50 rounded-circle p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#ffffff" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                                </svg>
+                            </div>
+                            <div class="literal position-absolute w-100 h-100">
+                                <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΚΙΓΙΑΖ</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 h-50">
+                        <a href="#" id="link-3" class="link d-block h-100 position-relative animate__animated animate__fadeInDown animate__delay-3s">
+                            <div class="indicator position-absolute top-50 start-50 rounded-circle p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#ffffff" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                                </svg>
+                            </div>
+                            <div class="literal position-absolute w-100 h-100">
+                                <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΛΛΙΑ</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 h-50">
+                        <a href="#" id="link-4" class="link d-block h-100 position-relative animate__animated animate__fadeInDown animate__delay-4s">
+                            <div class="indicator position-absolute top-50 start-50 rounded-circle p-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#ffffff" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                                </svg>
+                            </div>
+                            <div class="literal position-absolute w-100 h-100">
+                                <span class="h2 text-white position-absolute top-50 start-50 translate-middle text-center">ΑΝΤΗΛΙΑΚΗ ΠΡΟΣΤΑΣΙΑ</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script>
+            let deviceTier, deviceOrientation;
+
+            setTierAndOrientation();
+            setLinksContainerHeight();
+            //addFadeEffect();
+
+            window.addEventListener('resize', (e) => {
+                setTierAndOrientation();
+                setLinksContainerHeight();
+            });
+
+            function setTierAndOrientation() {
+                if (window.innerWidth < 576) {
+                    deviceTier = 'xs';
+                }
+                else if (window.innerWidth < 768) {
+                    deviceTier = 'sm';
+                }
+                else if (window.innerWidth < 992) {
+                    deviceTier = 'md';
+                }
+                else if (window.innerWidth < 1200) {
+                    deviceTier = 'lg';
+                }
+                else if (window.innerWidth < 1400) {
+                    deviceTier = 'xl';
+                }
+                else {
+                    deviceTier = 'xxl';
+                }
+                if (window.innerHeight >= window.innerWidth) {
+                    deviceOrientation = 'portrait';
+                }
+                else {
+                    deviceOrientation = 'landscape';
+                }
+                const body = document.querySelector('body');
+                body.classList.remove('xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'portrait', 'landscape');
+                body.classList.add(deviceTier, deviceOrientation);
+            }
+
+            function setLinksContainerHeight() {
+                const links = document.getElementById('links');
+                if ((deviceTier == 'xs') || (deviceTier == 'sm')) {
+                    links.style.height = 'auto';
+                    links.style.paddingBottom = '1rem';
+                }
+                else {
+                    links.style.height = (window.innerHeight - document.querySelector('header').clientHeight - document.querySelector('p').clientHeight - 64) + 'px';
+                    links.style.paddingBottom = '0';
+                }
+            }
+
+            function addFadeEffect() {
+                const animatedElements = Array.from(document.getElementsByClassName('animate__animated'));
+                animatedElements.forEach(element => {
+                    setTimeout(function() {
+                        element.classList.add('animate__fadeInDown');
+                    }, 1000);
+                });
+            }
+        </script>
+    </body>
+</html>
