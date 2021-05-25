@@ -3318,9 +3318,13 @@ var mkdfPerPageVars = {"vars":{"mkdfMobileHeaderHeight":70,"mkdfStickyScrollAmou
 	window.document.addEventListener("scroll", function(){
 		scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		if(scrollTop > 100){
-			bodyElement.classList.add("body--scrolled")
+			bodyElement.classList.add("body--scrolled");
+            if(scrollTop > 800) {
+                jQuery('#banner-wrapper, #banner-drawer').addClass('closed');
+            }
 		}else{
-			bodyElement.classList.remove("body--scrolled")
+			bodyElement.classList.remove("body--scrolled");
+            jQuery('#banner-wrapper, #banner-drawer').removeClass('closed');
 		}
 	});
 
