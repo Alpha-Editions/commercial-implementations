@@ -11,5 +11,5 @@
 
 ## 4troxoi.gr
 
-[Longform article](https://alpha-editions.github.io/custom-templates/4t-longform)
+[Longform article](https://alpha-editions.github.io/custom-templates/4t-longform)\
 [Billboard drawer](https://alpha-editions.github.io/custom-templates/4t-billboard)
