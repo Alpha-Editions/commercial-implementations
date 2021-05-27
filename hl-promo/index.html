@@ -6,6 +6,8 @@
         <title>Summer Beauty Bag</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">
         <style>
             :root {
                 --animate-delay: 0.4s;
@@ -15,7 +17,8 @@
             }
             h1 {
                 text-shadow: 3px 3px 3px #ffc107;
-                color: #6610f2;
+                color: #8540F5;
+                font-family: "Permanent Marker", cursive;
             }
             #logo {
                 width: 128px;
@@ -56,8 +59,13 @@
                 background-color: #00000040;
                 opacity: 1;
             }
+            #title-icon {
+                transform: rotate(20deg);
+                width: 40px;
+                right: 0;
+            }
             @media (min-width: 576px) {
-                header [class*="auto"] {
+                .w-128 {
                     width: 128px;
                 }
             }
@@ -81,6 +89,10 @@
                     opacity: 1;
                     transition: opacity 0.3s;
                 }
+                #title-icon {
+                    width: 70px;
+                    right: -35px;
+                }
             }
         </style>
     </head>
@@ -89,29 +101,32 @@
             <div class="col-auto">
                 <header class="p-3 pb-0">
                     <div class="row g-0">
-                        <div class="col-12 col-sm-auto text-center mb-2">
-                            <img id="logo" src="assets/hello.png" alt="Hello! Greece logo">
+                        <div class="w-128 col-12 col-sm-auto text-center mb-2">
+                            <img id="logo" src="assets/hello.png" alt="Λογότυπο Hello! Greece">
                         </div>
-                        <div class="col-12 col-sm mb-5">
-                            <h1 class="text-center display-5">Summer Beauty Bag</h1>
+                        <div class="col-12 col-sm mb-5 text-center">
+                            <div class="d-inline-block position-relative">
+                                <!-- <img src="assets/sun.png" alt="Εικονίδιο τσάντας" id="title-icon" class="position-absolute"> -->
+                                <h1 class="d-inline-block position-relative display-4">Summer Beauty Bag</h1>
+                            </div>
                         </div>
-                        <div class="col-auto d-none d-md-block"></div>
+                        <div class="w-128 col-auto d-none d-md-block"></div>
                     </div>
                 </header>
             </div>
             <div class="col">
                 <main class="container rh-100 px-4 pb-3 pb-lg-0">
                     <div class="row g-5 rh-100">
-                        <div id="introduction" class="d-inline-block p-3 rounded animate__animated animate__fadeInDown">
-                            <p class="text-center mb-0 fw-bold">Το καλοκαίρι πλησιάζει και απαιτεί ανανέωση. Μικρές αλλαγές και προσθήκες στο στιλ μας είναι απαραίτητες και ο πιο εύκολος τρόπος για να κάνουμε την αρχή είναι ανανεώνοντας το beauty look μας. Περιποίηση προσώπου, σώματος και μαλλιών, hairstyling και μακιγιάζ είναι οι βασικοί άξονες που θα κινηθούμε. Πώς θα εφοδιάσουμε το μπάνιο μας λοιπόν; Με τι ξεκινάμε; Τι θα βάλουμε στο νεσεσέρ μας, τι θα αντικαταστήσουμε και τι θα πετάξουμε για να δώσουμε έναν αέρα ανανέωσης στο beauty look μας; Ανακάλυψε όλα τα νέα trends και προϊόντα παρακάτω και... Καλό Καλοκαίρι!</p>
+                        <div id="introduction" class="d-inline-flex align-items-center p-3 rounded animate__animated animate__fadeInDown">
+                            <p class="text-center mb-0 fw-bold">Το καλοκαίρι απαιτεί ανανέωση. Περιποίηση προσώπου, σώματος και μαλλιών, hairstyling και μακιγιάζ είναι τα βασικά που θα κινηθούμε. Με τι ξεκινάμε; Τι θα βάλουμε στο νεσεσέρ μας, τι κρατάμε και τι πετάμε; Ανακαλύψτε όλα τα νέα trends και προϊόντα για ένα ανανεωμένο beauty look.</p>
                         </div>
                         <div class="col-12 col-sm-6">
                             <a href="#" id="link-1" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-1s">
-                                <div class="indicator position-absolute top-0 start-100 rounded-circle">
+                                <!-- <div class="indicator position-absolute top-0 start-100 rounded-circle">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" class="bi bi-arrow-up-right-square position-absolute" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
                                     </svg>
-                                </div>
+                                </div> -->
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΠΡΟΣΩΠΟ</span>
                                 </div>
@@ -119,11 +134,11 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             <a href="#" id="link-2" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-2s">
-                                <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
+                                <!-- <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" class="bi bi-arrow-up-right-square position-absolute" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
                                     </svg>
-                                </div>
+                                </div> -->
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΚΙΓΙΑΖ</span>
                                 </div>
@@ -131,11 +146,11 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             <a href="#" id="link-3" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-3s">
-                                <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
+                                <!-- <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" class="bi bi-arrow-up-right-square position-absolute" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
                                     </svg>
-                                </div>
+                                </div> -->
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΛΛΙΑ</span>
                                 </div>
@@ -143,13 +158,13 @@
                         </div>
                         <div class="col-12 col-sm-6">
                             <a href="#" id="link-4" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-4s">
-                                <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
+                                <!-- <div class="indicator position-absolute top-0 start-100 rounded-circle p-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" class="bi bi-arrow-up-right-square position-absolute" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
                                     </svg>
-                                </div>
+                                </div> -->
                                 <div class="literal position-absolute w-100 h-100">
-                                    <span class="h2 text-white position-absolute top-50 start-50 translate-middle text-center">ΑΝΤΗΛΙΑΚΗ ΠΡΟΣΤΑΣΙΑ</span>
+                                    <span class="h2 text-white position-absolute top-50 start-50 translate-middle text-center">SUMMER MUST HAVE</span>
                                 </div>
                             </a>
                         </div>
