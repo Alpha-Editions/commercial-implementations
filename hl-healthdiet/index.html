@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="el" class="rh-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Health & diet | HELLO GREECE</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <style>
+            :root {
+                --animate-delay: 0.4s;
+            }
+            header {
+                border-bottom: 18px solid #fcdeea;
+            }
+            #title {
+                letter-spacing: 10px;
+            }
+            #logo {
+                max-width: 350px;
+            }
+            #introduction {
+                background-color: #fef2f6;
+                border: 1px solid #fcdeea;
+            }
+            .link {
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                min-height: 250px;
+            }
+            #link-1 {
+                background-image: url("assets/exetaseis2.jpg");
+            }
+            #link-2 {
+                background-image: url("assets/diaita.jpg");
+            }
+            #link-3 {
+                background-image: url("assets/lipos2.jpg");
+            }
+            #link-4 {
+                background-image: url("assets/emminopausi.jpg");
+            }
+            .literal {
+                background-color: #00000060;
+                opacity: 1;
+            }
+            @media (min-width: 576px) {
+                .w-128 {
+                    width: 128px;
+                }
+            }
+            @media (min-width: 768px) {
+                #title {
+                    position: absolute;
+                    font-size: 70px;
+                    bottom: -32px;
+                }
+            }
+            @media (min-width: 1200px) {
+                .rh-100 {
+                    height: 100%;
+                }
+                .literal {
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                .link:hover .literal {
+                    opacity: 1;
+                    transition: opacity 0.3s;
+                }
+            }
+        </style>
+    </head>
+    <body class="rh-100">
+        <div class="row g-0 flex-column rh-100">
+            <div class="col-auto">
+                <header class="p-3 pb-0 mb-5">
+                    <div class="container-fluid position-relative text-center text-md-end">
+                        <img id="logo" src="assets/logo.png" alt="Health & diet" class="w-100 mb-3">
+                        <h1 id="title" class="d-inline-block mb-0 start-0 bg-white text-center">ΕΥΕΞΙΑ</h1>
+                    </div>
+                </header>
+            </div>
+            <div class="col">
+                <main class="container-fluid rh-100 px-4 pb-3 pb-lg-0">
+                    <div class="row g-5 rh-100">
+                        <div class="col-12 col-lg-3 d-flex align-items-center">
+                            <div id="introduction" class="p-3 rounded text-center fw-bold animate__animated animate__fadeInDown">
+                                <p>Μία λέξη που σχεδόν είναι συνώνυμη με την ποιότητα ζωής.</p>
+                                <p>Μία απόφαση αρκεί για να την αποκτήσεις.</p>
+                                <p>Μία απόφαση και μικρές αλλαγές στην καθημερινότητά σου.</p>
+                                <p>Από τη διατροφή και την άσκηση, μέχρι την ομορφιά και την υγεία, όλα όσα χρειάζεσαι θα τα βρεις εδώ.</p>
+                                <p>Μία υπενθύμιση για τις ιατρικές εξετάσεις, μία πρόταση για την περιποίηση της επιδερμίδας σου, μία συμβουλή για να πετύχει η διατροφή είναι στη διάθεσή σου.</p>
+                                <p>Βαθιά ανάσα και... ξεκινάμε!</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9">
+                            <div class="row g-5 rh-100">
+                                <div class="col-12 col-sm-6">
+                                    <a href="#" id="link-1" class="link rounded d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-1s">
+                                        <div class="literal position-absolute w-100 h-100">
+                                            <span class="p-4 h2 text-white position-absolute bottom-0 start-0">Οι εξετάσεις που πρέπει να κάνει κάθε γυναίκα</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <a href="#" id="link-2" class="link rounded d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-2s">
+                                        <div class="literal position-absolute w-100 h-100">
+                                            <span class="p-4 h2 text-white position-absolute bottom-0 start-0">6 κόλπα για να πετύχει η δίαιτα</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <a href="#" id="link-3" class="link rounded d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-3s">
+                                        <div class="literal position-absolute w-100 h-100">
+                                            <span class="p-4 h2 text-white position-absolute bottom-0 start-0">Σε 20' βάλτε φωτιά στο λίπος</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <a href="#" id="link-4" class="link rounded d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-4s">
+                                        <div class="literal position-absolute w-100 h-100">
+                                            <span class="p-4 h2 text-white position-absolute bottom-0 start-0 text-center">Σε εμμηνόπαυση; Ναι, και λοιπόν;</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
