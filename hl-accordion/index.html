@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+            .accordion__item {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 250px;
+                flex: 0 0 auto;
+                width: 100%;
+                transition: all .5s;
+            }
+            .accordion__item--1 {
+                background-image: url("photo2.jpg");
+            }
+            .accordion__item--2 {
+                background-image: url("photo3.jpg");
+            }
+            .accordion__item--3 {
+                background-image: url("photo4.jpg");
+            }
+            .accordion__item--4 {
+                background-image: url("photo5.jpg");
+            }
+            .overlay {
+                background-color: #00000060;
+            }
+            @media (min-width: 992px) {
+                .accordion__item {
+                    width: 25%;
+                }
+                .accordion:hover .accordion__item {
+                    width: 16.6666666667%;
+                }
+                .accordion:hover .accordion__item:hover {
+                    width: 50%;
+                }
+                h2 {
+                    opacity: 0;
+                }
+                .accordion__item:hover h2 {
+                    opacity: 1;
+                    transition: opacity .5s .5s;
+                }
+                .overlay {
+                    opacity: 0;
+                    transition: opacity .5s;
+                }
+                .accordion__item:hover .overlay {
+                    opacity: 1;
+                    transition: opacity .5s;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="accordion row g-0">
+            <a href="#" class="accordion__item accordion__item--1 position-relative mb-3">
+                <div class="overlay position-absolute w-100 h-100"></div>
+                <h2 class="position-absolute text-white p-3 bottom-0">SUN DEFENSE FLUID MOISTURIZING CREAM SPF 30 HIGH PROTECTION της Radiant</h2>
+            </a>
+            <a href="#" class="accordion__item accordion__item--2 position-relative mb-3">
+                <div class="overlay position-absolute w-100 h-100"></div>
+                <h2 class="position-absolute text-white p-3 bottom-0">SUN DEFENSE FLUID MOISTURIZING CREAM SPF 30 TINTED HIGH PROTECTION της Radiant</h2>
+            </a>
+            <a href="#" class="accordion__item accordion__item--3 position-relative mb-3">
+                <div class="overlay position-absolute w-100 h-100"></div>
+                <h2 class="position-absolute text-white p-3 bottom-0">SUN DEFENSE FLUID MOISTURIZING CREAM SPF 50 HIGH PROTECTION της Radiant</h2>
+            </a>
+            <a href="#" class="accordion__item accordion__item--4 position-relative">
+                <div class="overlay position-absolute w-100 h-100"></div>
+                <h2 class="position-absolute text-white p-3 bottom-0">SUN DEFENSE FLUID MOISTURIZING CREAM SPF 50 TINTED HIGH PROTECTION της Radiant</h2>
+            </a>
+        </div>
+    </body>
+</html>

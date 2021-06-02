@@ -9,7 +9,8 @@
 
 [Slider template](https://alpha-editions.github.io/custom-templates/hl-slider)\
 [Hellenica](https://alpha-editions.github.io/custom-templates/hl-hellenica)\
-[Health & diet](https://alpha-editions.github.io/custom-templates/hl-healthdiet)
+[Health & diet](https://alpha-editions.github.io/custom-templates/hl-healthdiet)\
+[Accordion for longform](https://alpha-editions.github.io/custom-templates/hl-accordion)
 
 ## 4troxoi.gr
 
