@@ -7,8 +7,8 @@
 ## hello.gr
 
 [Slider template](https://alpha-editions.github.io/custom-templates/hl-slider)\
-[Hellenica](https://alpha-editions.github.io/custom-templates/hl-hellenica)
-[Health & diet](https://alpha-editions.github.io/custom-templates/hl-healthdiet)
+[Hellenica](https://alpha-editions.github.io/custom-templates/hl-hellenica)\
+[Health & diet](https://alpha-editions.github.io/custom-templates/hl-healthdiet)\
 [Green days](https://alpha-editions.github.io/custom-templates/hl-greendays)
 
 ## 4troxoi.gr
