@@ -7,8 +7,8 @@ if (variant == 0) {
 }
 else {
     variant = 'b';
-    differenciators.forEach(function() {
-        this.classList.remove('d-none');
+    differenciators.forEach(function(element) {
+        element.classList.remove('d-none');
     });
 }
 
@@ -27,6 +27,11 @@ const database = firebase.database();
 
 const project = document.getElementsByTagName('html')[0].id;
 
+const clickPath = database.ref(project + '/variant-' + variant + '/clicks');
+
 function registerClick() {
-    database.ref(project + '/variant-' + variant + '/clicks').set(ServerValue.increment(1));
+    clickPath.get().then(function(snapshot) {
+        console.log(snapshot.val());
+        //clickPath.set(snapshot.val() + 1);
+    });
 }
