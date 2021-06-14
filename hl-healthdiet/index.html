@@ -266,7 +266,7 @@
             const clickPath = database.ref(project + '/variant-' + variant + '/clicks');
 
             function registerClick() {
-                clickPath.once('value').then(function(snapshot) {
+                clickPath.get().then(function(snapshot) {
                     console.log(snapshot.val());
                     //clickPath.set(snapshot.val() + 1);
                 });
