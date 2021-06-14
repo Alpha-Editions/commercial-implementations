@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="el" id="health-and-diet" class="rh-100">
     <head>
-        <!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-K5BG626"></script> -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="follow, index"/>
@@ -251,6 +250,7 @@
             const firebaseConfig = {
                 apiKey: "AIzaSyBxc9MFFJhK8zCHeWZDM-SKygfFVePRluY",
                 authDomain: "alpha-editions-ab-testing.firebaseapp.com",
+                databaseURL: "https://alpha-editions-ab-testing-default-rtdb.europe-west1.firebasedatabase.app",
                 projectId: "alpha-editions-ab-testing",
                 storageBucket: "alpha-editions-ab-testing.appspot.com",
                 messagingSenderId: "150792598647",
@@ -263,12 +263,17 @@
 
             const project = document.getElementsByTagName('html')[0].id;
 
+            const viewPath = database.ref(project + '/variant-' + variant + '/views');
+
+            viewPath.get().then(function(snapshot) {
+                viewPath.set(snapshot.val() + 1);
+            });
+
             const clickPath = database.ref(project + '/variant-' + variant + '/clicks');
 
             function registerClick() {
                 clickPath.get().then(function(snapshot) {
-                    console.log(snapshot.val());
-                    //clickPath.set(snapshot.val() + 1);
+                    clickPath.set(snapshot.val() + 1);
                 });
             }
         </script>
