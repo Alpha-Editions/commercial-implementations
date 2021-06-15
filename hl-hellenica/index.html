@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="el" class="rh-100">
+<html lang="el" id="hellenica" class="rh-100">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,7 +134,7 @@
                             <p class="text-center mb-0 fw-bold">Το καλοκαίρι απαιτεί ανανέωση. Περιποίηση προσώπου, σώματος και μαλλιών, hairstyling και μακιγιάζ είναι τα βασικά που θα κινηθούμε. Με τι ξεκινάμε; Τι θα βάλουμε στο νεσεσέρ μας, τι κρατάμε και τι πετάμε; Ανακαλύψτε όλα τα νέα trends και προϊόντα για ένα ανανεωμένο beauty look.</p>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="#" target="_blank" onclick="registerClick()" id="link-1" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-1s">
+                            <a href="https://gr.hellomagazine.com/omorfia/summer-peripoiisi-tis-epidermidas/" target="_blank" onclick="registerClick()" id="link-1" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-1s">
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΠΡΟΣΩΠΟ</span>
                                 </div>
@@ -146,7 +146,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="#" target="_blank" onclick="registerClick()" id="link-2" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-2s">
+                            <a href="https://gr.hellomagazine.com/omorfia/sun-kissed-foteino-summer-makeup/" target="_blank" onclick="registerClick()" id="link-2" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-2s">
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΚΙΓΙΑΖ</span>
                                 </div>
@@ -158,7 +158,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6">
-                            <a href="#" target="_blank" onclick="registerClick()" id="link-3" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-3s">
+                            <a href="https://gr.hellomagazine.com/omorfia/kalokairino-hair-kit-teleia-mallia/" target="_blank" onclick="registerClick()" id="link-3" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-3s">
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle">ΜΑΛΛΙΑ</span>
                                 </div>
@@ -170,7 +170,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-sm-6">
-                            <a href="#" target="_blank" onclick="registerClick()" id="link-4" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-4s">
+                            <a href="https://gr.hellomagazine.com/omorfia/must-haves-tou-kalokairiou/" target="_blank" onclick="registerClick()" id="link-4" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-4s">
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle text-center">SUMMER MUST HAVE</span>
                                 </div>
@@ -248,17 +248,17 @@
 
             const viewPath = database.ref(project + '/variant-' + variant + '/views');
 
-            // viewPath.get().then(function(snapshot) {
-            //     viewPath.set(snapshot.val() + 1);
-            // });
+            viewPath.get().then(function(snapshot) {
+                viewPath.set(snapshot.val() + 1);
+            });
 
             const clickPath = database.ref(project + '/variant-' + variant + '/clicks');
 
-            // function registerClick() {
-            //     clickPath.get().then(function(snapshot) {
-            //         clickPath.set(snapshot.val() + 1);
-            //     });
-            // }
+            function registerClick() {
+                clickPath.get().then(function(snapshot) {
+                    clickPath.set(snapshot.val() + 1);
+                });
+            }
         </script>
     </body>
 </html>
