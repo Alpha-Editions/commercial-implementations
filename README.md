@@ -16,3 +16,7 @@
 
 [Longform article](https://alpha-editions.github.io/custom-templates/4t-longform)\
 [Billboard drawer](https://alpha-editions.github.io/custom-templates/4t-billboard)
+
+## A/B testing
+
+[Reports](https://alpha-editions.github.io/custom-templates/ab-reports)
