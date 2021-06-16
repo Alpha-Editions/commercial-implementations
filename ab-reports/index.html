@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <title>Alpha Edition A/B testing reports</title>
+    </head>
+    <body>
+        <div class="row g-0" style="height: 100vh;">
+            <div class="col-12 col-lg-3 col-xxl-2 bg-danger pt-3">
+                <h2 class="mb-5 text-white text-center">Implementations</h2>
+                <nav class="nav flex-column px-3">
+                    <button id="home" class="tab d-none active" data-bs-toggle="tab" data-bs-target="#home-tab" type="button">Home</button>
+                    <button id="health-and-diet" class="tab text-white btn px-0 nav-link" data-bs-toggle="tab" data-bs-target="#health-and-diet-tab" type="button">Health & diet</button>
+                    <!-- <button class="tab text-white btn px-0 nav-link" data-bs-toggle="tab" data-bs-target="#hellenica" type="button" aria-selected="false">Hellenica</button> -->
+                </nav>
+            </div>
+            <div class="col-12 col-lg-9 col-xxl-10 pt-3">
+                <div id="tabs px-3" class="tab-content">
+                    <div id="home-tab" class="tab-pane fade active show">
+                        <div class="container">
+                            <h1 class="mb-5">Alpha Editions A/B testing reports</h1>
+                            <div class="display-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                                </svg>
+                                <span>Select an implementation from the sidebar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="health-and-diet-tab" class="tab-pane fade">
+                        <div class="container">
+                            <h1 class="mb-5">Alpha Editions A/B testing reports</h1>
+                            <h2 class="mb-5">Health & diet</h2>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-5 text-center">
+                                    <h3 class="mb-5">
+                                        <span class="d-block">Variant A / original</span>
+                                        <small class="d-block">(without link icons)</small>
+                                    </h3>
+                                    <canvas id="health-and-diet-chart-variant-a" class="chart chart-variant-a" width="400" height="400"></canvas>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-5 offset-lg-2 text-center">
+                                    <h3 class="mb-5">
+                                        <span class="d-block">Variant B / challenger</span>
+                                        <small class="d-block">(with link icons)</small>
+                                    </h3>
+                                    <canvas id="health-and-diet-chart-variant-b" class="chart chart-variant-b" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js" integrity="sha256-qoN08nWXsFH+S9CtIq99e5yzYHioRHtNB9t2qy1MSmc=" crossorigin="anonymous"></script>
+        <script>
+            const firebaseConfig = {
+                apiKey: "AIzaSyBxc9MFFJhK8zCHeWZDM-SKygfFVePRluY",
+                authDomain: "alpha-editions-ab-testing.firebaseapp.com",
+                databaseURL: "https://alpha-editions-ab-testing-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "alpha-editions-ab-testing",
+                storageBucket: "alpha-editions-ab-testing.appspot.com",
+                messagingSenderId: "150792598647",
+                appId: "1:150792598647:web:ce4e624fc9bd0cb23d4272"
+            };
+
+            firebase.initializeApp(firebaseConfig);
+
+            const database = firebase.database();
+           
+            const tabs = document.querySelectorAll('.tab');
+
+            let project, projectVariantAViews, projectVariantAClicks, projectVariantBViews, projectVariantBClicks;
+
+            tabs.forEach(function(tab) {
+
+                    tab.addEventListener('shown.bs.tab', function(event) {
+
+                    project = event.target.id;
+
+                    if ((project != 'home') && (document.getElementById(project + '-chart-variant-a').innerHTML == '')) {
+
+                        database.ref(project + '/variant-a').get().then(function(snapshot) {
+
+                            projectVariantAViews = snapshot.child('views').val();
+
+                            projectVariantAClicks = snapshot.child('clicks').val();
+
+                            let chartVariantA = new Chart(document.getElementById(project + '-chart-variant-a'), {
+                                type: 'bar',
+                                data: {
+                                    labels: ['Views', 'Clicks'],
+                                    datasets: [{
+                                        data: [projectVariantAViews, projectVariantAClicks],
+                                        backgroundColor: ['#0D6EFD', '#268753']
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            });
+                        });
+
+                        database.ref(project + '/variant-b').get().then(function(snapshot) {
+
+                            projectVariantBViews = snapshot.child('views').val();
+
+                            projectVariantBClicks = snapshot.child('clicks').val();
+                            
+                            let chartVariantB = new Chart(document.getElementById(project + '-chart-variant-b'), {
+                                type: 'bar',
+                                data: {
+                                    labels: ['Views', 'Clicks'],
+                                    datasets: [{
+                                        data: [projectVariantBViews, projectVariantBClicks],
+                                        backgroundColor: ['#0D6EFD', '#268753']
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
