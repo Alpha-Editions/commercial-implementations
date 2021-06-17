@@ -9,12 +9,12 @@
     <body>
         <div class="row g-0">
             <aside class="col-4 col-xxl-2 vh-100 sticky-top d-none d-lg-block">
-                <div class="bg-danger pt-3 sticky-top h-100">
+                <div id="sidebar" class="bg-danger pt-3 sticky-top h-100 invisible">
                     <h2 class="mb-5 text-white text-center">Implementations</h2>
                     <nav class="nav flex-column px-3">
                         <button id="home" class="tab d-none active" data-bs-toggle="tab" data-bs-target="#home-tab" type="button">Home</button>
                         <button id="health-and-diet" class="tab text-white btn btn-danger px-0 nav-link" data-bs-toggle="tab" data-bs-target="#health-and-diet-tab" type="button">Health & diet</button>
-                        <!-- <button class="tab text-white btn px-0 nav-link" data-bs-toggle="tab" data-bs-target="#hellenica" type="button" aria-selected="false">Hellenica (Summer Beauty Bag)</button> -->
+                        <button id="hellenica" class="tab text-white btn btn-danger px-0 nav-link" data-bs-toggle="tab" data-bs-target="#hellenica-tab" type="button">Summer Beauty Bag</button>
                     </nav>
                 </div>
             </aside>
@@ -70,27 +70,85 @@
                             </div>
                         </div>
                     </div>
+                    <div id="hellenica-tab" class="tab-pane fade">
+                        <div class="container-xl p-3">
+                            <button class="btn text-danger p-0 mb-5 d-lg-none" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </button>
+                            <h1 class="mb-5">Alpha Editions A/B testing reports</h1>
+                            <h2 class="mb-5">Summer Beauty Bag</h2>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-xl-5 col-xxl-4 text-center mb-5">
+                                    <h3 class="mb-3">
+                                        <span class="d-block">Variant A / original</span>
+                                        <small class="d-block">(without link icons)</small>
+                                    </h3>
+                                    <canvas id="hellenica-chart-variant-a" width="400" height="400"></canvas>
+                                </div>
+                                <div class="col-12 col-sm-6 col-xl-5 offset-xl-2 col-xxl-4 offset-xxl-0 text-center mb-5">
+                                    <h3 class="mb-3">
+                                        <span class="d-block">Variant B / challenger</span>
+                                        <small class="d-block">(with link icons)</small>
+                                    </h3>
+                                    <canvas id="hellenica-chart-variant-b" width="400" height="400"></canvas>
+                                </div>
+                                <div class="col-12 col-sm-6 offset-sm-3 col-xl-6 col-xxl-4 offset-xxl-0 text-center">
+                                    <h3 class="mb-3">
+                                        <span class="d-block">Comparison</span>
+                                        <small class="d-none d-xxl-block">&nbsp;</small>
+                                    </h3>
+                                    <canvas id="hellenica-chart-comparison" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
         <div id="offcanvas" class="offcanvas offcanvas-start bg-danger" tabindex="-1">
             <div class="offcanvas-header">
-                <button id="close" type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button id="close-offcanvas" type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body p-0">
                 <h2 class="mb-5 text-white text-center">Implementations</h2>
                 <nav class="nav flex-column px-3">
                     <button id="home" class="tab d-none active" data-bs-toggle="tab" data-bs-target="#home-tab" type="button">Home</button>
                     <button id="health-and-diet" class="tab text-white btn btn-danger px-0 nav-link" data-bs-toggle="tab" data-bs-target="#health-and-diet-tab" type="button" onclick="closeOffcanvas()">Health & diet</button>
-                    <!-- <button class="tab text-white btn px-0 nav-link" data-bs-toggle="tab" data-bs-target="#hellenica" type="button" aria-selected="false" onclick="closeOffcanvas()">Hellenica (Summer Beauty Bag)</button> -->
+                    <button id="hellenica" class="tab text-white btn btn-danger px-0 nav-link" data-bs-toggle="tab" data-bs-target="#hellenica-tab" type="button" onclick="closeOffcanvas()">Summer Beauty Bag</button>
                 </nav>
             </div>
         </div>
+        <button type="button" id="login-button" class="d-none" data-bs-toggle="modal" data-bs-target="#login-modal"></button>
+        <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="login-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <button id="close-modal" type="button" class="d-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <strong class="modal-title d-block text-center mb-3" id="login-title">Login</strong>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <button type="button" class="btn btn-danger w-100" onclick="authenticate()">Submit</button>
+                        <span id="login-error" class="d-block text-danger mt-3"></span>
+                    </div>
+                </div>
+            </div>
+          </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js" integrity="sha256-qoN08nWXsFH+S9CtIq99e5yzYHioRHtNB9t2qy1MSmc=" crossorigin="anonymous"></script>
         <script>
+            document.getElementById('login-button').click();
+
             const firebaseConfig = {
                 apiKey: "AIzaSyBxc9MFFJhK8zCHeWZDM-SKygfFVePRluY",
                 authDomain: "alpha-editions-ab-testing.firebaseapp.com",
@@ -103,95 +161,108 @@
 
             firebase.initializeApp(firebaseConfig);
 
-            const database = firebase.database();
-           
-            const tabs = document.querySelectorAll('.tab');
+            firebase.auth().onAuthStateChanged(function(user) {
 
-            let project, projectVariantAViews, projectVariantAClicks, projectVariantBViews, projectVariantBClicks, chartVariantA, chartVariantB, chartComparison, projectClicks, projectVariantAPercentage, projectVariantBPercentage;
+                if (user) {
 
-            tabs.forEach(function(tab) {
+                    const database = firebase.database();
+                
+                    const tabs = document.querySelectorAll('.tab');
 
-                    tab.addEventListener('shown.bs.tab', function(event) {
+                    let project, projectVariantAViews, projectVariantAClicks, projectVariantBViews, projectVariantBClicks, chartVariantA, chartVariantB, chartComparison, projectClicks, projectVariantAPercentage, projectVariantBPercentage;
 
-                    project = event.target.id;
+                    tabs.forEach(function(tab) {
 
-                    if ((project != 'home') && (document.getElementById(project + '-chart-variant-a').innerHTML == '')) {
+                        tab.addEventListener('shown.bs.tab', function(event) {
 
-                        database.ref(project + '/variant-a').get().then(function(snapshot) {
+                            project = event.target.id;
 
-                            projectVariantAViews = snapshot.child('views').val();
+                            if ((project != 'home')) {
 
-                            projectVariantAClicks = snapshot.child('clicks').val();
+                                database.ref(project + '/variant-a').get().then(function(snapshot) {
 
-                            chartVariantA = new Chart(document.getElementById(project + '-chart-variant-a'), {
-                                type: 'bar',
-                                data: {
-                                    labels: ['Views', 'Clicks'],
-                                    datasets: [{
-                                        data: [projectVariantAViews, projectVariantAClicks],
-                                        backgroundColor: ['#0D6EFD', '#268753']
-                                    }]
-                                },
-                                options: {
-                                    plugins: {
-                                        legend: {
-                                            display: false
+                                    projectVariantAViews = snapshot.child('views').val();
+
+                                    projectVariantAClicks = snapshot.child('clicks').val();
+
+                                    chartVariantA = new Chart(document.getElementById(project + '-chart-variant-a'), {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ['Views', 'Clicks'],
+                                            datasets: [{
+                                                data: [projectVariantAViews, projectVariantAClicks],
+                                                backgroundColor: ['#0D6EFD', '#268753']
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            }
                                         }
-                                    }
-                                }
-                            });
-                        });
+                                    });
+                                });
 
-                        database.ref(project + '/variant-b').get().then(function(snapshot) {
+                                database.ref(project + '/variant-b').get().then(function(snapshot) {
 
-                            projectVariantBViews = snapshot.child('views').val();
+                                    projectVariantBViews = snapshot.child('views').val();
 
-                            projectVariantBClicks = snapshot.child('clicks').val();
-                            
-                            chartVariantB = new Chart(document.getElementById(project + '-chart-variant-b'), {
-                                type: 'bar',
-                                data: {
-                                    labels: ['Views', 'Clicks'],
-                                    datasets: [{
-                                        data: [projectVariantBViews, projectVariantBClicks],
-                                        backgroundColor: ['#0D6EFD', '#268753']
-                                    }]
-                                },
-                                options: {
-                                    plugins: {
-                                        legend: {
-                                            display: false
+                                    projectVariantBClicks = snapshot.child('clicks').val();
+                                    
+                                    chartVariantB = new Chart(document.getElementById(project + '-chart-variant-b'), {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ['Views', 'Clicks'],
+                                            datasets: [{
+                                                data: [projectVariantBViews, projectVariantBClicks],
+                                                backgroundColor: ['#0D6EFD', '#268753']
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: {
+                                                    display: false
+                                                }
+                                            }
                                         }
-                                    }
-                                }
-                            });
+                                    });
 
-                            projectClicks = projectVariantAClicks + projectVariantBClicks;
-                            projectVariantAPercentage = projectVariantAClicks * 100 / projectClicks;
-                            projectVariantBPercentage = projectVariantBClicks * 100 / projectClicks;
+                                    projectClicks = projectVariantAClicks + projectVariantBClicks;
+                                    projectVariantAPercentage = projectVariantAClicks * 100 / projectClicks;
+                                    projectVariantBPercentage = projectVariantBClicks * 100 / projectClicks;
 
-                            chartComparison = new Chart(document.getElementById(project + '-chart-comparison'), {
-                                type: 'doughnut',
-                                data: {
-                                    labels: ['Variant A clicks %', 'Variant B clicks %'],
-                                    datasets: [{
-                                        data: [Math.round(projectVariantAPercentage), Math.round(projectVariantBPercentage)],
-                                        backgroundColor: ['#dc3545', '#b02a37']
-                                    }]
-                                }
-                            });
+                                    chartComparison = new Chart(document.getElementById(project + '-chart-comparison'), {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ['Variant A clicks %', 'Variant B clicks %'],
+                                            datasets: [{
+                                                data: [Math.round(projectVariantAPercentage), Math.round(projectVariantBPercentage)],
+                                                backgroundColor: ['#dc3545', '#b02a37']
+                                            }]
+                                        }
+                                    });
+                                });
+                            }
                         });
-                    }
-                });
+                    });
+                }
             });
 
             function closeOffcanvas() {
-                document.getElementById('close').click();
+                document.getElementById('close-offcanvas').click();
+            }
+
+            function authenticate() {
+                firebase.auth().signInWithEmailAndPassword(document.getElementById('email').value, document.getElementById('password').value)
+                .then(function() {
+                        document.getElementById('sidebar').classList.remove('invisible');
+                        document.getElementById('close-modal').click();
+                })
+                .catch(function(error) {
+                    document.getElementById('login-error').textContent = error.message;
+                });
             }
         </script>
     </body>
 </html>
-
-
-
-
