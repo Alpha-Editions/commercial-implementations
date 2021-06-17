@@ -76,7 +76,7 @@
                 background-color: #00000040;
                 opacity: 1;
             }
-            @media (min-width: 576px) {
+            @media (min-width: 768px) {
                 .w-128 {
                     width: 128px;
                 }
@@ -102,28 +102,33 @@
                 .rh-100 {
                     height: 100%;
                 }
-                .share {
-                    position: fixed;
-                    right: 1rem;
-                    bottom: 1rem;
-                }
             }
         </style>
     </head>
     <body class="rh-100">
+        <div id="fb-root"></div>
         <div class="row g-0 flex-column rh-100">
             <div class="col-auto">
                 <header class="p-3 pb-0">
                     <div class="row g-0">
-                        <div class="w-128 col-12 col-sm-auto text-center mb-2">
+                        <div class="w-128 col-12 col-md-auto text-center mb-2">
                             <img id="logo" src="assets/hello.png" alt="Λογότυπο Hello! Greece">
                         </div>
-                        <div class="col-12 col-sm mb-5 text-center">
+                        <div class="col-12 col-md mb-2 mb-md-5 text-center">
                             <div class="d-inline-block position-relative">
                                 <h1 class="d-inline-block position-relative display-4">Summer Beauty Bag</h1>
                             </div>
                         </div>
-                        <div class="w-128 col-auto d-none d-md-block"></div>
+                        <div class="w-128 col-12 col-md-auto text-center text-md-end mb-3 md-md-0">
+                            <div class="share d-flex d-md-block align-items-center justify-content-center pt-md-2">
+                                <div class="fb-share-button pe-2 pe-md-0 pb-md-2 d-inline-block d-md-block" data-href="https://elle.gr/green-days/" data-layout="button" data-size="small" style="margin-top: -10px;">
+                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Felle.gr%2Fgreen-days%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                                </div>
+                                <div class="d-inline-block d-md-block ps-2 ps-md-0">
+                                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </header>
             </div>
@@ -169,7 +174,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-12 col-sm-6">
+                        <div class="col-12 col-md-6">
                             <a href="https://gr.hellomagazine.com/omorfia/must-haves-tou-kalokairiou/" target="_blank" onclick="registerClick()" id="link-4" class="link d-block h-100 position-relative overflow-hidden animate__animated animate__fadeInDown animate__delay-4s">
                                 <div class="literal position-absolute w-100 h-100">
                                     <span class="h2 text-white position-absolute top-50 start-50 translate-middle text-center">SUMMER MUST HAVE</span>
