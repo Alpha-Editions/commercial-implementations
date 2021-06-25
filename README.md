@@ -17,6 +17,10 @@
 [Longform article](https://alpha-editions.github.io/custom-templates/4t-longform)\
 [Billboard drawer](https://alpha-editions.github.io/custom-templates/4t-billboard)
 
+## 4moms.gr
+
+[InterMed](https://alpha-editions.github.io/custom-templates/4m-intermed)
+
 ## A/B testing
 
 [Reports](https://alpha-editions.github.io/custom-templates/ab-reports)
