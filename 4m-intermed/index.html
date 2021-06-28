@@ -19,7 +19,7 @@
                 fill: black;
             }
             .card {
-                height: 37vh;
+                height: 36vh;
             }
             #board {
                 padding-top: 280.98px;
@@ -31,7 +31,7 @@
             }
         </style>
     </head>
-    <body class="position-relative">
+    <body id="body" class="position-relative overflow-hidden">
         <header class="position-absolute top-0 start-0 w-100" style="z-index: 2;">
             <div class="container-fluid pt-3 position-relative">
                 <div class="row justify-content-center">
@@ -62,15 +62,15 @@
                     <span class="d-block h3 mb-5">Παίξε το διασκεδαστικό παιχνίδι με τις κάρτες. Βρες τους σωστούς συνδυασμούς και ταίριαξε τις δύο κάρτες.</span>
                     <span class="d-block fw-light fs-4 fst-italic">Φτάσε το παιχνίδι στο τέλος και μπες στην κλήρωση για καλοκαιρινά δώρα!</span>
                 </div>
-                <div class="position-absolute translate-middle-x bottom-0 start-50 pb-3">
-                    <button type="button" class="btn fs-3 text-white mb-5 px-5" style="background-color: var(--pink);" onclick="removeOverlay()">Παίξε!</button>
+                <div class="position-absolute translate-middle-x bottom-0 start-50 pb-5">
+                    <button type="button" class="btn fs-3 text-white mb-3 px-5" style="background-color: var(--pink);" onclick="removeOverlay()">Παίξε!</button>
                     <small class="d-block">
                         <span>Όροι συμμετοχής</span>
                         <a href="#" style="color: var(--pink);">εδώ</a>
                     </small>
                 </div>
             </div>
-            <div id="board" class="position-relative" style="background-image: url('assets/bg.jpg'); background-size: cover; background-position: center;">
+            <div id="board" class="position-relative min-vh-100" style="background-image: url('assets/bg.jpg'); background-size: cover; background-position: center;">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="card-col col-6 col-sm-4 col-lg-3 col-xxl-2 pb-5" style="perspective: 1000px;">
@@ -348,6 +348,7 @@
             function removeOverlay() {
                 document.getElementById('overlay').classList.add('closed');
                 document.getElementById('share-icon').setAttribute('fill', 'black');
+                document.getElementById('body').classList.remove('overflow-hidden');
             }
 
             function gameMechanism(card) {
