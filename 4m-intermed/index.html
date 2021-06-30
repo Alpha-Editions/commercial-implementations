@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div id="board" class="position-relative min-vh-100" style="background-image: url('assets/bg.jpg'); background-size: cover; background-position: center;">
-                <div class="container-fluid">
+                <div class="container-fluid position-relative">
                     <div class="row">
                         <div class="card-col col-6 col-sm-4 col-lg-3 col-xxl-2 pb-5" style="perspective: 1000px;">
                             <div id="card-1" class="card text-center border-0 shadow position-relative" role="button" tabindex="0" aria-pressed="false" style="transition: transform 0.8s; transform-style: preserve-3d;" data-match="1">
@@ -327,11 +327,12 @@
                         </div>
                     </div>
                 </div>
+                <div id="click-blocker" class="position-absolute w-100 h-100 d-none top-0 start-0"></div>
             </div>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script>
-            let flippedCards = 0, cardsFound = 0, card1, card2, card1Match, card2Match;
+            let flippedCards = 0, cardsFound = 0, card1, card2, card1Match, card2Match, clickBlocker = document.getElementById('click-blocker');
 
             document.querySelectorAll('.card').forEach(function(card) {
                 card.addEventListener('click', function() {
@@ -353,6 +354,7 @@
 
             function gameMechanism(card) {
                 if (!card.classList.contains('flipped')) {
+                    clickBlocker.classList.remove('d-none');
                     card.classList.add('flipped');
                     card.setAttribute('aria-pressed', 'true');
                     flippedCards++;
@@ -373,14 +375,17 @@
                         }
                         else {
                             cardsFound += 2;
-                            setTimeout(function() {
-                                if (cardsFound == 12) {
+                            if (cardsFound == 12) {
+                                setTimeout(function() {
                                     alert("You won!!!");
-                                }
-                            }, 800);
+                                }, 800);
+                            }
                         }
                         flippedCards = 0;
                     }
+                    setTimeout(function() {
+                        clickBlocker.classList.add('d-none');
+                    }, 800);
                 }
             }
 
