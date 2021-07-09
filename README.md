@@ -15,7 +15,8 @@
 ## 4troxoi.gr
 
 [Longform article](https://alpha-editions.github.io/custom-templates/4t-longform)\
-[Billboard drawer](https://alpha-editions.github.io/custom-templates/4t-billboard)
+[Billboard drawer](https://alpha-editions.github.io/custom-templates/4t-billboard)\
+[Top Trumps](https://alpha-editions.github.io/custom-templates/4t-toptrumps)
 
 ## 4moms.gr
 
