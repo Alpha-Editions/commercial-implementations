@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="el" class="h-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Ανδρέας Κουρνούτας | Andreas Kournoutas">
+        <meta name="robots" content="follow, index"/>
+        <title></title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="">
+        <meta property="og:site_name" content="">
+        <meta property="og:type" content="website">
+        <meta property="fb:app_id" content="333401318348405">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image:alt" content="">
+        <meta name="google-site-verification" content="">
+        <link rel="icon" type="image/png" sizes="32x32" href="">
+	    <link rel="icon" type="image/png" sizes="16x16" href="">
+        <link rel="shortcut icon" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/transition-style">
+        <style>
+            header {
+                background-color: #00000088;
+            }
+            .active-card {
+                aspect-ratio: 5/7;
+                transition: transform 1s;
+                transform-style: preserve-3d;
+            }
+            .card-back {
+                background-image: url("https://via.placeholder.com/500x700.webp?text=CARD");
+                background-size: 100% 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                transform: rotateY(180deg);
+            }
+            .card-front {
+                background-size: 100% 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            #active-card-bottom .card-back {
+                transform: rotateY(0);
+            }
+            #active-card-bottom .card-front {
+                transform: rotateY(180deg);
+            }
+            .deck {
+                width: 50px;
+            }
+            .deck-card {
+                aspect-ratio: 5/7;
+                background-image: url("https://via.placeholder.com/500x700.webp?text=CARD");
+                background-size: 100% 100%;
+                width: 50px;
+                position: absolute;
+            }
+            #board {
+                /* background-image: url("https://www.pngitem.com/pimgs/m/681-6818856_transparent-tire-tracks-png-marcas-de-llantas-vector.png"); */
+                background-size: cover;
+                padding-top: 136px;
+            }
+            @media (min-width: 768px) {
+                .deck {
+                    width: 200px;
+                }
+                .deck-card {
+                    width: 200px;
+                }
+            }
+        </style>
+    </head>
+    <body id="body" class="h-100 position-relative overflow-hidden">
+        <header class="position-absolute w-100" style="z-index: 1;">
+            <div class="container-fluid pt-3 position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-sm-3 mb-3 justify-content-center justify-content-sm-start d-flex align-items-center">
+                        <a href="#" target="_blank" class="px-5 px-sm-0">
+                            <img src="https://www.4troxoi.gr/wp-content/uploads/2021/04/LOGO-4T_wh.png" alt="" style="max-width: 300px; width: 100%;">
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3">
+                        <h1 class="text-white text-center">
+                            <span class="d-block">Σύγκρινε & κέρδισε!</span>
+                            <div>
+                                <small class="fw-light fs-4 fst-italic">sponsored by</small>
+                            </div>
+                        </h1>
+                    </div>
+                    <div class="col-12 col-sm-3 mb-3"></div>
+                </div>
+                <button type="button" id="share-button" class="btn position-absolute top-0 end-0 p-4" onclick="share()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" id="share-icon" fill="white" class="bi bi-share-fill" viewBox="0 0 16 16">
+                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <main class="h-100 position-relative">
+            <div id="board" class="h-100">
+                <div class="row g-0 h-100">
+                    <div class="col-auto d-flex align-items-center px-3">
+                        <div id="human-deck" class="deck position-relative">
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>
+                        </div>
+                    </div>
+                    <div class="col h-100 d-flex align-items-center justify-content-center">
+                        <div id="play-area" class="h-100 position-relative">
+                            <div class="h-50 py-3 text-center">
+                                <div id="active-card-top" class="card active-card border-0 shadow position-relative h-100 animate__animated invisible">
+                                    <div id="active-card-top-front" class="card border-0 card-front position-absolute w-100 h-100"></div>
+                                </div>
+                            </div>
+                            <div class="h-50 py-3 text-center" style="perspective: 1000px;">
+                                <div id="active-card-bottom" class="card active-card border-0 shadow position-relative h-100 animate__animated invisible">
+                                    <div id="active-card-bottom-front" class="card border-0 card-front position-absolute w-100 h-100"></div>
+                                    <div class="card border-0 card-back position-absolute w-100 h-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto d-flex align-items-center px-3">
+                        <div id="software-deck" class="deck position-relative">
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                            <div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- <div id="overlay" class="position-absolute w-100 vh-100 text-white text-center">
+            <div class="position-absolute translate-middle top-50 start-50 w-75">
+                <span class="d-block h3 mb-5">Παίξε το διασκεδαστικό παιχνίδι με τις κάρτες. Βρες τους σωστούς συνδυασμούς και ταίριαξε τις δύο κάρτες.</span>
+                <span class="d-block fw-light fs-4 fst-italic">Φτάσε το παιχνίδι στο τέλος και μπες στην κλήρωση για καλοκαιρινά δώρα!</span>
+            </div>
+            <div class="position-absolute translate-middle-x bottom-0 start-50 pb-5">
+                <button type="button" class="btn fs-3 text-white mb-3 px-5" style="background-color: var(--pink);" onclick="removeOverlay()">Παίξε!</button>
+                <small class="d-block pb-3">
+                    <span>Όροι συμμετοχής</span>
+                    <a href="#" style="color: var(--pink);">εδώ</a>
+                </small>
+            </div>
+        </div> -->
+        <button id="instructions-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#instructions"></button>
+        <div class="modal fade" id="instructions" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong class="d-block modal-title text-center mb-3">Instructions</strong>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus perspiciatis soluta, tempore nesciunt veniam dolore corporis odit eaque, commodi quidem perferendis sint fuga! Nihil consectetur incidunt repellendus voluptas animi nostrum.</p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="distributeCards()">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="player1-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#player1"></button>
+        <div class="modal fade" id="player1" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong id="player1-text" class="d-block modal-title text-center mb-3"></strong>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="startGame()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="attribute-select-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#attribute-select"></button>
+        <div class="modal fade" id="attribute-select" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered align-items-end">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong class="d-block modal-title text-center mb-3">Διάλεξε το χαρακτηριστικό που θέλεις για να διαγωνιστείς:</strong>
+                        <div id="attribute-select-options" class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="human-wins-the-round-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#human-wins-the-round"></button>
+        <div class="modal fade" id="human-wins-the-round" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong class="d-block modal-title text-center mb-3">Human wins the round</strong>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="humanWinsTheRound()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="software-wins-the-round-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#software-wins-the-round"></button>
+        <div class="modal fade" id="software-wins-the-round" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong class="d-block modal-title text-center mb-3">Software wins the round</strong>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="softwareWinsTheRound()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="next-round-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#next-round"></button>
+        <div class="modal fade" id="next-round" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong id="next-round-text" class="d-block modal-title text-center mb-3"></strong>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="nextRound()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="end-game-message-button" type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#end-game-message"></button>
+        <div class="modal fade" id="end-game-message" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <strong id="end-game-message-text" class="d-block modal-title text-center mb-3"></strong>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.reload();">Παίξε ξανά!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script>
+            updateDecks();
+
+            window.onresize = updateDecks;
+
+            document.getElementById('instructions-button').click();
+
+            let cards = [
+                {
+                    id: '1',
+                    image: 'https://via.placeholder.com/500x700.webp?text=1',
+                    attributes: [1, 1, 1, 1]
+                },
+                {
+                    id: '2',
+                    image: 'https://via.placeholder.com/500x700.webp?text=2',
+                    attributes: [2, 2, 2, 2]
+                },
+                {
+                    id: '3',
+                    image: 'https://via.placeholder.com/500x700.webp?text=3',
+                    attributes: [3, 3, 3, 3]
+                },
+                {
+                    id: '4',
+                    image: 'https://via.placeholder.com/500x700.webp?text=4',
+                    attributes: [4, 4, 4, 4]
+                },
+                {
+                    id: '5',
+                    image: 'https://via.placeholder.com/500x700.webp?text=5',
+                    attributes: [5, 5, 5, 5]
+                },
+                {
+                    id: '6',
+                    image: 'https://via.placeholder.com/500x700.webp?text=6',
+                    attributes: [6, 6, 6, 6]
+                },
+                {
+                    id: '7',
+                    image: 'https://via.placeholder.com/500x700.webp?text=7',
+                    attributes: [7, 7, 7, 7]
+                },
+                {
+                    id: '8',
+                    image: 'https://via.placeholder.com/500x700.webp?text=8',
+                    attributes: [8, 8, 8, 8]
+                },
+                {
+                    id: '9',
+                    image: 'https://via.placeholder.com/500x700.webp?text=9',
+                    attributes: [9, 9, 9, 9]
+                },
+                {
+                    id: '10',
+                    image: 'https://via.placeholder.com/500x700.webp?text=10',
+                    attributes: [10, 10, 10, 10]
+                },
+                {
+                    id: '11',
+                    image: 'https://via.placeholder.com/500x700.webp?text=11',
+                    attributes: [11, 11, 11, 11]
+                },
+                {
+                    id: '12',
+                    image: 'https://via.placeholder.com/500x700.webp?text=12',
+                    attributes: [12, 12, 12, 12]
+                },
+            ];
+
+            const attributeNames = ['attribute1', 'attribute2', 'attribute3', 'attribute4'];
+
+            attributeNames.forEach(function(attribute, index) {
+                document.getElementById('attribute-select-options').innerHTML += '<button type="button" class="btn btn-secondary m-1" data-bs-dismiss="modal" onclick="applySelectedAttribute(' + index + ')">' + attribute + '</button>';
+            });
+
+            let humanPlayerCards = [], softwarePlayerCards = [], firstPlayer, round = 2, currentPlayer, humanPlayerActiveCard, softwarePlayerActiveCard, activeAttribute;
+
+            let humanDeckCardElement = '<div class="card deck-card border-0 shadow human-deck-card animate__animated"></div>';
+
+            let softwareDeckCardElement = '<div class="card deck-card border-0 shadow software-deck-card animate__animated"></div>';
+
+            function distributeCards() {
+                let selectedIndex, selectedCard;
+                for (i = 0; i < 12; i++) {
+                    selectedIndex = Math.floor(Math.random() * (cards.length));
+                    selectedCard = cards[selectedIndex];
+                    cards.splice(selectedIndex, 1);
+                    if (i % 2 == 1) {
+                        humanPlayerCards.push(selectedCard);
+                    }
+                    else {
+                        softwarePlayerCards.push(selectedCard);
+                    }
+                }
+                updateDecks();
+                selectFirstPlayer();
+                document.getElementById('player1-text').textContent = 'Player 1 is: ' + firstPlayer;
+                document.getElementById('player1-button').click();
+            }
+
+            function selectFirstPlayer() {
+                if (Math.floor(Math.random() * (2)) == 0) {
+                    firstPlayer = 'human';
+                }
+                else {
+                    firstPlayer = 'software';
+                }
+            }
+
+            function updateDecks() {
+                document.querySelectorAll('.deck').forEach(function(deck) {
+                    deck.querySelectorAll('.deck-card').forEach(function(card, index) {
+                        card.style.top = index + 'rem';
+                        deck.style.height = card.offsetHeight + (index * 16) + 'px';
+                    });
+                });
+            }
+
+            function startGame() {
+                if (firstPlayer == 'human') {
+                    roundForHuman();
+                }
+                else {
+                    roundForSoftware();
+                }
+            }
+
+            function nextRound() {
+                if (currentPlayer == 'human') {
+                    roundForSoftware();
+                }
+                else {
+                    roundForHuman();
+                }
+            }
+
+            function roundForHuman() {
+                setActiveCards();
+                selectAttributeForHuman();
+            }
+
+            function roundForSoftware() {
+                setActiveCards();
+                selectAttributeForSoftware();
+            }
+
+            function setActiveCards() {
+                humanPlayerActiveCard = humanPlayerCards[0];
+                console.log(humanPlayerActiveCard);
+                softwarePlayerActiveCard = softwarePlayerCards[0];
+                console.log(softwarePlayerActiveCard);
+                setActiveCardsEffect();                
+            }
+
+            function selectAttributeForHuman() {
+                currentPlayer = 'human';
+                setTimeout(function() {
+                    document.getElementById('attribute-select-button').click();
+                }, 4000);
+            }
+
+            function applySelectedAttribute(attr) {
+                activeAttribute = attr;
+                compareCards();
+            }
+
+            function selectAttributeForSoftware() {
+                currentPlayer = 'software';
+                activeAttribute = Math.floor(Math.random() * attributeNames.length);
+                compareCards();
+            }
+
+            function compareCards() {
+                if (currentPlayer == 'software'){
+                    setTimeout(function() {
+                        document.getElementById('active-card-bottom').style.transform = 'rotateY(180deg)';
+                    }, 3000);
+                    if (humanPlayerActiveCard.attributes[activeAttribute] > softwarePlayerActiveCard.attributes[activeAttribute]) {
+                        setTimeout(function() {
+                            document.getElementById('human-wins-the-round-button').click();
+                        }, 5000);
+                    }
+                    else {
+                        setTimeout(function() {
+                            document.getElementById('software-wins-the-round-button').click();
+                        }, 5000);
+                    }
+                }
+                else {
+                    document.getElementById('active-card-bottom').style.transform = 'rotateY(180deg)';
+                    if (humanPlayerActiveCard.attributes[activeAttribute] > softwarePlayerActiveCard.attributes[activeAttribute]) {
+                        setTimeout(function() {
+                            document.getElementById('human-wins-the-round-button').click();
+                        }, 2000);
+                    }
+                    else {
+                        setTimeout(function() {
+                            document.getElementById('software-wins-the-round-button').click();
+                        }, 2000);
+                    }
+                }
+            }
+
+            function humanWinsTheRound() {
+                humanPlayerCards.push(softwarePlayerActiveCard);
+                softwarePlayerCards.splice(0, 1);
+                humanPlayerCards.push(humanPlayerCards.shift());
+                setHumanWinsRoundEffect();
+            }
+
+            function softwareWinsTheRound() {
+                softwarePlayerCards.push(humanPlayerActiveCard);
+                humanPlayerCards.splice(0, 1);
+                softwarePlayerCards.push(softwarePlayerCards.shift());
+                setSoftwareWinsRoundEffect();
+            }
+
+            function checkForGameEnd() {
+                if (humanPlayerCards.length == 12) {
+                    document.getElementById('end-game-message-button').click();
+                }
+                else if (softwarePlayerCards.length == 12) {
+                    document.getElementById('end-game-message-button').click();
+                }
+                else {
+                    document.getElementById('next-round-text').textContent = 'Round: ' + round++;
+                    document.getElementById('next-round-button').click();
+                }
+            }
+
+            function setActiveCardsEffect() {
+                setTimeout(function() {
+                    document.querySelectorAll('.human-deck-card')[0].classList.add('animate__fadeOutUp');
+                    document.querySelectorAll('.software-deck-card')[0].classList.add('animate__fadeOutUp');
+                    setTimeout(function() {
+                        document.querySelectorAll('.human-deck-card')[0].remove();
+                        document.querySelectorAll('.software-deck-card')[0].remove();
+                    }, 1000);
+                    document.getElementById('active-card-top-front').style.backgroundImage = 'url(' + humanPlayerActiveCard.image + ')';
+                    document.getElementById('active-card-bottom-front').style.backgroundImage = 'url(' + softwarePlayerActiveCard.image + ')';
+                }, 500);
+                setTimeout(function() {
+                    document.getElementById('active-card-top').classList.remove('invisible', 'animate__fadeOutLeft', 'animate__fadeOutRight');
+                    document.getElementById('active-card-top').classList.add('animate__fadeInDown');
+                    document.getElementById('active-card-bottom').classList.remove('invisible', 'animate__fadeOutLeft', 'animate__fadeOutRight');
+                    document.getElementById('active-card-bottom').classList.add('animate__fadeInUp');
+                }, 1500);
+                setTimeout(function() {
+                    document.getElementById('active-card-bottom').classList.remove('animate__fadeInUp');
+                }, 2500);
+            }
+
+            function setHumanWinsRoundEffect() {
+                document.getElementById('active-card-bottom').removeAttribute('style');
+                setTimeout(function() {
+                    document.getElementById('active-card-top').classList.add('animate__fadeOutLeft');
+                    document.getElementById('active-card-bottom').classList.add('animate__fadeOutLeft');
+                }, 1000);
+                setTimeout(function() {
+                    document.getElementById('human-deck').innerHTML += humanDeckCardElement + humanDeckCardElement;
+                    updateDecks();
+                }, 2000);
+                setTimeout(function() {
+                    checkForGameEnd();
+                }, 2500);
+            }
+
+            function setSoftwareWinsRoundEffect() {
+                document.getElementById('active-card-bottom').removeAttribute('style');
+                setTimeout(function() {
+                    document.getElementById('active-card-top').classList.add('animate__fadeOutRight');
+                    document.getElementById('active-card-bottom').classList.add('animate__fadeOutRight');
+                }, 1000);
+                setTimeout(function() {
+                    document.getElementById('software-deck').innerHTML += softwareDeckCardElement + softwareDeckCardElement;
+                    updateDecks();
+                }, 2000);
+                setTimeout(function() {
+                    checkForGameEnd();
+                }, 2500);
+            }
+
+            function share() {
+                if (navigator.share) {
+                    navigator.share({
+                        url: ''
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>
