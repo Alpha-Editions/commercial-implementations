@@ -22,6 +22,6 @@
 
 [InterMed](https://alpha-editions.github.io/custom-templates/4m-intermed)
 
-## A/B testing
+## Experimentations
 
-[Reports](https://alpha-editions.github.io/custom-templates/ab-reports)
+[A/B Reports](https://alpha-editions.github.io/custom-templates/ab-reports)
