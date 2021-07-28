@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="h-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    </head>
+    <body class="d-flex justify-content-center align-items-center h-100">
+        <div style="width: 300px; height: 600px; border: 1px solid black">
+            <img src="assets/dust.png" alt="" class="animate__animated" style="width: 100%; height: 25%; object-fit: cover;" draggable="false">
+            <img src="assets/dust.png" alt="" class="animate__animated" style="width: 100%; height: 25%; object-fit: cover;" draggable="false">
+            <img src="assets/dust.png" alt="" class="animate__animated" style="width: 100%; height: 25%; object-fit: cover;" draggable="false">
+            <img src="assets/dust.png" alt="" class="animate__animated" style="width: 100%; height: 25%; object-fit: cover;" draggable="false">
+        </div>
+        <script>
+            document.querySelectorAll('.animate__animated').forEach(function(el) {
+                el.addEventListener('mouseup', function() {
+                    el.classList.add('animate__fadeOut');
+                });
+                el.addEventListener('touchmove', function() {
+                    el.classList.add('animate__fadeOut');
+                });
+            });
+        </script>
+    </body>
+</html>
