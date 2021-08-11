@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="el" class="h-100">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Ανδρέας Κουρνούτας | Andreas Kournoutas">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/transition-style">
+        <title>The Christmas Ideal Radiant Obliging Calendar by Ciroc</title>
+        <style>
+            :root {
+                --transparent-white: #ffffffe0;
+            }
+            header {
+                background-color: var(--transparent-white);
+            }
+            .logo {
+                width: 100px;
+                -webkit-filter: invert(100%);
+                filter: invert;
+            }
+            .ciroc {
+                width: 100px;
+                -webkit-filter: invert(100%);
+                filter: invert;
+            }
+            body {
+                background-image: url("assets/pexels-photo-9086772.jpeg");
+                background-size: cover;
+                background-position-x: center;
+            }
+            .intro {
+                background-color: var(--transparent-white);
+            }
+            .ratio {
+                background-color: var(--transparent-white);
+                transition: all .5s;
+            }
+            .ratio:hover {
+                -webkit-filter: invert(100%);
+                filter: invert;
+                transition: all .5s;
+            }
+            @media (min-width: 768px) {
+                .logo {
+                    width: 150px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="mb-5">
+            <div class="container-fluid">
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3 col-lg-2 col-xl-1 mb-3">
+                        <a href="#" class="d-block">
+                            <img src="../assets/elle-logo.png" alt="" class="logo">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2 col-xl-1 mb-3 text-end order-md-2">
+                        <button type="button" id="share-button" class="btn p-0 p-md-3" onclick="share()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" id="share-icon" fill="black" class="bi bi-share-fill" viewBox="0 0 16 16" style="transition: fill 1s;">
+                                <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-8 col-xl-10 text-center order-md-1 mb-2">
+                        <span class="d-md-block display-6 mb-3">The Christmas Ideal Radiant Obliging Calendar</span>
+                        <span class="d-md-block">
+                            powered by
+                            <img src="https://www.ciroc.com/images/ciroc-logo.svg" alt="" class="ciroc pb-2">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <p class="intro p-3 p-sm-4 p-lg-5 mb-5 text-center fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic numquam itaque, voluptate adipisci impedit dolorem, minima recusandae deserunt rem aspernatur accusamus incidunt molestiae deleniti magnam reiciendis inventore consectetur a reprehenderit.</p>
+                <div id="calendar" class="row"></div>
+            </div>
+        </main>
+        <script>
+            const calendar = document.getElementById('calendar');
+
+            for (let i = 1; i <= 30; i++) {
+                calendar.innerHTML += '<div class="col-4 col-sm-3 col-lg-2 mb-3"><a href="#" class="d-block ratio ratio-1x1 rounded text-dark"><span class="d-block display-1 ps-2">' + twoDigitNumber(i) + '</span></a></div>'
+            }
+
+            function twoDigitNumber(n) {
+                if (n < 10) {
+                    n = "0" + n;
+                }
+                return n;
+            }
+        </script>
+    </body>
+</html>
