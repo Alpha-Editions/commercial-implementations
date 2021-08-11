@@ -6,7 +6,6 @@
         <meta name="author" content="Ανδρέας Κουρνούτας | Andreas Kournoutas">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <link rel="stylesheet" href="https://unpkg.com/transition-style">
         <title>The Christmas Ideal Radiant Obliging Calendar by Ciroc</title>
         <style>
             :root {
@@ -77,15 +76,17 @@
         </header>
         <main>
             <div class="container">
-                <p class="intro p-3 p-sm-4 p-lg-5 mb-5 text-center fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic numquam itaque, voluptate adipisci impedit dolorem, minima recusandae deserunt rem aspernatur accusamus incidunt molestiae deleniti magnam reiciendis inventore consectetur a reprehenderit.</p>
+                <p class="intro p-3 p-sm-4 p-lg-5 mb-5 text-center fw-bold animate__animated animate__zoomIn">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic numquam itaque, voluptate adipisci impedit dolorem, minima recusandae deserunt rem aspernatur accusamus incidunt molestiae deleniti magnam reiciendis inventore consectetur a reprehenderit.</p>
                 <div id="calendar" class="row"></div>
             </div>
         </main>
         <script>
             const calendar = document.getElementById('calendar');
+            let delay = 0.1;
 
             for (let i = 1; i <= 30; i++) {
-                calendar.innerHTML += '<div class="col-4 col-sm-3 col-lg-2 mb-3"><a href="#" class="d-block ratio ratio-1x1 rounded text-dark"><span class="d-block display-1 ps-2">' + twoDigitNumber(i) + '</span></a></div>'
+                calendar.innerHTML += '<div class="col-4 col-sm-3 col-lg-2 mb-3"><a href="#" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: ' + delay + 's"><span class="d-block display-1 ps-2">' + twoDigitNumber(i) + '</span></a></div>'
+                delay += 0.1;
             }
 
             function twoDigitNumber(n) {
