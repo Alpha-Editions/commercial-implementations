@@ -31,13 +31,10 @@
                 --transparent-black: #000000e0;
             }
             body {
-                background-image: url("assets/Background_3.png");
+                background-image: url("assets/Background_4.png");
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
-            }
-            header {
-                background-color: var(--transparent-white);
             }
             .logo {
                 width: 100px;
@@ -52,6 +49,11 @@
             .ratio {
                 background-color: var(--transparent-white);
                 /* transition: all .5s; */
+            }
+            .fixed-bottom {
+                left: auto;
+                right: 1rem;
+                bottom: 1rem;
             }
             /* .ratio:hover {
                 -webkit-filter: invert(100%);
@@ -68,36 +70,32 @@
     <body>
         <header>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-5 col-lg-3">
+                <div class="row mb-5">
+                    <div class="col-5 col-sm-6">
                         <div class="d-flex w-100 h-100 align-items-center">
                             <a href="https://gr.hellomagazine.com/">
                                 <img src="https://alpha-editions.github.io/custom-templates/hl-hellenica/assets/hello.png" alt="Λογότυπο Hello!" class="logo">
                             </a>
                         </div>
                     </div>
-                    <div class="col-7 col-lg-3 order-lg-2">
+                    <div class="col-7 col-sm-6">
                         <div class="d-flex w-100 h-100 align-items-center justify-content-end">
-                            <span>powered by</span>
+                            <span class="text-white">powered by</span>
                             <a href="https://www.ciroc.com/en-row/">
-                                <img src="assets/ciroc.png" alt="Λογότυπο Ciroc" class="ciroc">
+                                <img src="assets/ciroc-w.png" alt="Λογότυπο Ciroc" class="ciroc">
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 order-lg-1">
-                        <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-                            <h1 class="display-6 text-center">The <b>C</b>hristmas <b>I</b>deal <b>R</b>adiant <b>O</b>bliging <b>C</b>alendar</h1>
-                        </div>
-                    </div>
                 </div>
+                <h1 class="display-5 text-center text-white mb-4">The <b>C</b>hristmas <b>I</b>deal <b>R</b>adiant <b>O</b>bliging <b>C</b>alendar</h1>
             </div>
         </header>
         <main class="position-relative py-5">
             <div class="container-lg">
-                <div class="px-5 text-center">
-                    <p class="intro mb-5 text-center h4 text-white fw-light p-4 d-inline-block rounded lh-lg">Welcome... στο πιο λαμπερό online advent calendar.<br>Κάθε μέρα κι ένα κουτί ανοιχτό.<br>Κάθε μέρα και μία ωραία χριστουγεννιάτικη ιδέα.</p>
+                <div class="text-center">
+                    <p class="mb-5 text-center h4 text-white fw-light d-inline-block rounded lh-lg">Welcome... στο πιο λαμπερό online advent calendar!<br>Κάθε μέρα κι ένα κουτί ανοιχτό.<br>Κάθε μέρα και μία ωραία χριστουγεννιάτικη ιδέα.</p>
                 </div>
-                <div class="row g-3 justify-content-center">
+                <div class="row g-3 justify-content-center pt-5">
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
                         <a href="#" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 0.1s; background-image: url('assets/box1.jpg'); background-size: cover;">
                             <div class="position-relative">
@@ -247,7 +245,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn p-2 position-absolute top-0 end-0 text-white" onclick="share()">
+            <button type="button" class="btn btn-primary shadow p-2 fixed-bottom text-white rounded-circle" onclick="share()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" id="share-icon" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                 </svg>
