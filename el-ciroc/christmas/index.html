@@ -28,6 +28,7 @@
         <style>
             :root {
                 --transparent-white: #ffffffe0;
+                --transparent-black: #000000e0;
             }
             body {
                 background-image: url("assets/Background_3.png");
@@ -43,6 +44,10 @@
             }
             .ciroc {
                 width: 100px;
+            }
+            .intro {
+                background-color: var(--transparent-black);
+                border: 5px solid #f5f171;
             }
             .ratio {
                 background-color: var(--transparent-white);
@@ -89,7 +94,9 @@
         </header>
         <main class="position-relative py-5">
             <div class="container-lg">
-                <p class="mb-5 text-center h3 text-white fw-normal px-5">Welcome... στο πιο λαμπερό online advent calendar.<br>Κάθε μέρα κι ένα κουτί ανοιχτό.<br>Κάθε μέρα και μία ωραία χριστουγεννιάτικη ιδέα.</p>
+                <div class="px-5 text-center">
+                    <p class="intro mb-5 text-center h4 text-white fw-light p-4 d-inline-block rounded lh-lg">Welcome... στο πιο λαμπερό online advent calendar.<br>Κάθε μέρα κι ένα κουτί ανοιχτό.<br>Κάθε μέρα και μία ωραία χριστουγεννιάτικη ιδέα.</p>
+                </div>
                 <div class="row g-3 justify-content-center">
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
                         <a href="#" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 0.1s; background-image: url('assets/box1.jpg'); background-size: cover;">
