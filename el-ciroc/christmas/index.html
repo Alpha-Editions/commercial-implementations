@@ -5,18 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Ανδρέας Κουρνούτας | Andreas Kournoutas">
         <meta name="robots" content="follow, index"/>
-        <meta name="description" content="Stay tuned για να ανοίξουν όλα τα κουτιά για αξέχαστες γιορτές">
+        <meta name="description" content="Τα Χριστούγεννα πλησιάζουν κι εμείς μπαίνουμε στο κλίμα με ένα online advent calendar. Κάθε μέρα θα ανοίγει κι ένα κουτί με ένα γιορτινό θέμα. Stay tuned μέχρι να ανοίξουν όλα τα κουτιά!">
         <meta name="keywords" content="Χριστούγεννα, Πρωτοχρονιά, advent calendar, party, CIROC, HELLO, HELLO Greece, χριστουγεννιάτικες συνταγές, χριστουγεννιάτικα κοκτέιλ, ζώδια, gift guide">
         <meta property="og:title" content="CIROC: Χριστουγεννιάτικο online advent calendar">
-        <meta property="og:description" content="Stay tuned για να ανοίξουν όλα τα κουτιά για αξέχαστες γιορτές">
-        <!-- CHANGE THAT! --><meta property="og:image" content="http://gr.hellomagazine.com/advent-calendar-by-ciroc/assets/webp/social.webp">
-        <meta property="og:url" content="https://gr.hellomagazine.com/summer-beauty-bag">
+        <meta property="og:description" content="Τα Χριστούγεννα πλησιάζουν κι εμείς μπαίνουμε στο κλίμα με ένα online advent calendar. Κάθε μέρα θα ανοίγει κι ένα κουτί με ένα γιορτινό θέμα. Stay tuned μέχρι να ανοίξουν όλα τα κουτιά!">
+        <meta property="og:image" content="http://gr.hellomagazine.com/advent-calendar-by-ciroc/assets/webp/social.webp">
+        <meta property="og:url" content="http://gr.hellomagazine.com/advent-calendar-by-ciroc/">
         <meta property="og:site_name" content="Μάθετε πρώτοι τα νέα για τους Έλληνες & ξένους celebrities | HELLO">
         <meta property="og:type" content="website">
         <meta property="fb:app_id" content="333401318348405">
         <meta name="twitter:title" content="CIROC: Χριστουγεννιάτικο online advent calendar">
-        <meta name="twitter:description" content="Stay tuned για να ανοίξουν όλα τα κουτιά για αξέχαστες γιορτές">
-        <!-- CHANGE THAT! --><meta name="twitter:image" content="http://gr.hellomagazine.com/advent-calendar-by-ciroc/assets/webp/social.webp">
+        <meta name="twitter:description" content="Τα Χριστούγεννα πλησιάζουν κι εμείς μπαίνουμε στο κλίμα με ένα online advent calendar. Κάθε μέρα θα ανοίγει κι ένα κουτί με ένα γιορτινό θέμα. Stay tuned μέχρι να ανοίξουν όλα τα κουτιά!">
+        <meta name="twitter:image" content="http://gr.hellomagazine.com/advent-calendar-by-ciroc/assets/webp/social.webp">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:image:alt" content="CIROC: Χριστουγεννιάτικο online advent calendar">
         <meta name="facebook-domain-verification" content="hxgc6gj2bfrem4jza2grgq2pel52ew">
@@ -26,9 +26,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <title>CIROC: Χριστουγεννιάτικο online advent calendar</title>
         <style>
-            :root {
-                --transparent-white: #ffffffe0;
-            }
             body {
                 background-image: url("assets/webp/Background_4.webp");
                 background-size: cover;
@@ -47,7 +44,7 @@
                 height: 100px;
             }
             .ratio {
-                background-color: var(--transparent-white);
+                background-color: #ffffffe0;
             }
             .number {
                 color: #000115;
@@ -56,6 +53,10 @@
                 left: auto;
                 right: 1rem;
                 bottom: 1rem;
+            }
+            .desktop-share {
+                opacity: 0;
+                display: table;
             }
             @media (min-width: 576px) {
                 .logo {
@@ -253,18 +254,61 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle" onclick="share()" aria-label="Κοινοποίηση σελίδας">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" id="share-icon" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+            <button type="button" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle d-lg-none" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                 </svg>
             </button>
+            <div class="fixed-bottom d-none d-lg-block">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="fb-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" aria-label="Κοινοποίηση σελίδας στο Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                </a>
+                <a href="http://twitter.com/share?url=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="tw-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" aria-label="Κοινοποίηση σελίδας στο Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                </a>
+                <button type="button" class="btn btn-primary shadow p-3 text-white rounded-circle d-block position-relative" onclick="showDesktopShareButtons(this)" aria-label="Εμφάνιση επιλογών κοινοποίησης">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                    </svg>
+                </button>
+            </div>
         </main>
         <script>
-            function share() {
+            const shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16"> <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/> </svg>';
+            const closeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/> <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/></svg>';
+            const fbButton = document.getElementById('fb-share');
+            const twButton = document.getElementById('tw-share');
+            function mobileShare() {
                 if (navigator.share) {
                     navigator.share({
                         url: 'http://gr.hellomagazine.com/advent-calendar-by-ciroc/'
                     });
+                }
+            }
+            function showDesktopShareButtons(el) {
+                if (el.classList.contains('active')) {
+                    fbButton.classList.remove('animate__fadeInUp');
+                    twButton.classList.remove('animate__fadeInUp');
+                    fbButton.classList.add('animate__fadeOutDown');
+                    twButton.classList.add('animate__fadeOutDown');
+                    el.classList.remove('active');
+                    el.classList.remove('btn-secondary');
+                    el.classList.add('btn-primary');
+                    el.innerHTML = shareIcon;
+                }
+                else {
+                    fbButton.classList.remove('animate__fadeOutDown');
+                    twButton.classList.remove('animate__fadeOutDown');
+                    fbButton.classList.add('animate__fadeInUp');
+                    twButton.classList.add('animate__fadeInUp');
+                    el.classList.remove('btn-primary');
+                    el.classList.add('btn-secondary');
+                    el.classList.add('active');
+                    el.innerHTML = closeIcon;
                 }
             }
         </script>
