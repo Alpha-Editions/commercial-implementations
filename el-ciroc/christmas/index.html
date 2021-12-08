@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="el" class="vw-100">
+<html lang="el">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
         <meta name="facebook-domain-verification" content="hxgc6gj2bfrem4jza2grgq2pel52ew">
         <link rel="icon" type="image/png" sizes="32x32" href="https://gr.hellomagazine.com/wp-content/themes/hello/public/favicons/favicon-32x32.png">
 	    <link rel="icon" type="image/png" sizes="16x16" href="https://gr.hellomagazine.com/wp-content/themes/hello/public/favicons/favicon-16x16.png">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <title>CIROC: Χριστουγεννιάτικο online advent calendar</title>
         <style>
@@ -66,7 +66,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="position-relative">
         <header>
             <div class="container-fluid">
                 <div class="row mb-5">
@@ -96,7 +96,7 @@
                 </h1>
             </div>
         </header>
-        <main class="position-relative py-5">
+        <main class="py-5">
             <div class="container-lg">
                 <div class="text-center">
                     <p class="mb-5 text-center h4 text-white fw-light d-inline-block rounded lh-lg">
@@ -134,11 +134,11 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.4s;">
+                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.4s;" data-bs-toggle="modal" data-bs-target="#box-5-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">05</span>
                             </div>
-                        </a>
+                        </button>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
                         <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.5s;">
@@ -254,29 +254,48 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle d-lg-none" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
+        </main>
+        <button type="button" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle d-lg-none" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+            </svg>
+        </button>
+        <div class="fixed-bottom d-none d-lg-block">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="fb-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" aria-label="Κοινοποίηση σελίδας στο Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+            </a>
+            <a href="http://twitter.com/share?url=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="tw-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" style="animation-delay: 0.2s;" aria-label="Κοινοποίηση σελίδας στο Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                </svg>
+            </a>
+            <button type="button" class="btn btn-primary shadow p-3 text-white rounded-circle d-block position-relative" onclick="showDesktopShareButtons(this)" aria-label="Εμφάνιση επιλογών κοινοποίησης">
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
                 </svg>
             </button>
-            <div class="fixed-bottom d-none d-lg-block">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="fb-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" aria-label="Κοινοποίηση σελίδας στο Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                    </svg>
-                </a>
-                <a href="http://twitter.com/share?url=http://gr.hellomagazine.com/advent-calendar-by-ciroc/" target="_blank" id="tw-share" class="btn btn-primary shadow p-2 text-white rounded-circle mb-3 mx-auto desktop-share animate__animated" style="animation-delay: 0.2s;" aria-label="Κοινοποίηση σελίδας στο Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                    </svg>
-                </a>
-                <button type="button" class="btn btn-primary shadow p-3 text-white rounded-circle d-block position-relative" onclick="showDesktopShareButtons(this)" aria-label="Εμφάνιση επιλογών κοινοποίησης">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
-                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
-                    </svg>
-                </button>
+        </div>
+        <div class="modal fade" id="box-5-modal" tabindex="-1" aria-labelledby="box-5-modal-title" aria-hidden="true">
+            <div id="tsparticles" class="w-100 h-100 position-absolute"></div>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
+                        <div class="py-5 text-white text-center">
+                            <h3 id="box-5-modal-title" class="mb-5">
+                                <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
+                                <span class="d-block display-6 fw-normal">for a special event</span>
+                            </h3>
+                            <img src="assets/webp/ciroc-w.webp" alt="Λογότυπο Ciroc" class="ciroc" width="200" height="200">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js" integrity="sha256-vrg2swRnXDq+IRB+eBS+eYV6HqDUTfn6w3yEa+H6f4M=" crossorigin="anonymous"></script>
         <script>
             const shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16"> <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/> </svg>';
             const closeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/> <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/></svg>';
@@ -311,6 +330,14 @@
                     el.innerHTML = closeIcon;
                 }
             }
+            tsParticles
+                .loadJSON("tsparticles", "presets/default.json")
+                .then((container) => {
+                    console.log("callback - tsparticles config loaded");
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         </script>
     </body>
 </html>
