@@ -26,11 +26,15 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <title>CIROC: Χριστουγεννιάτικο online advent calendar</title>
         <style>
+            html {
+                overflow-x: hidden;
+            }
             body {
                 background-image: url("assets/webp/Background_4.webp");
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
+                overflow-x: hidden;
             }
             b {
                 color: #84bad3;
@@ -50,13 +54,15 @@
                 color: #000115;
             }
             .fixed-bottom {
-                left: auto;
-                right: 1rem;
+                left: calc(100vw - 1rem - 60px);
                 bottom: 1rem;
             }
             .desktop-share {
                 opacity: 0;
                 display: table;
+            }
+            .btn.disabled, .btn:disabled, fieldset:disabled .btn {
+                opacity: 1;
             }
             @media (min-width: 576px) {
                 .logo {
@@ -64,9 +70,24 @@
                     height: 70.5px;
                 }
             }
+            @media (min-width: 992px) {
+                .fixed-bottom {
+                    left: auto;
+                    right: 1rem;
+                }
+            }
+            @media screen and (prefers-reduced-motion: reduce) {
+                * {
+                    animation: none !important;
+                    transition: none !important;
+                }
+                #tsparticles {
+                    display: none;
+                }
+            }
         </style>
     </head>
-    <body class="position-relative">
+    <body>
         <header>
             <div class="container-fluid">
                 <div class="row mb-5">
@@ -106,7 +127,7 @@
                 </div>
                 <div class="row g-3 justify-content-center pt-5">
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1s; background-image: url('assets/webp/box1.webp'); background-size: cover;">
+                        <a href="https://gr.hellomagazine.com/lifestyle/time-to-celebrate-me-to-pio-labero-online-advent-calendar/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1s; background-image: url('assets/webp/box1.webp'); background-size: cover;">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2 text-white">01</span>
                             </div>
@@ -134,7 +155,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.4s;" data-bs-toggle="modal" data-bs-target="#box-5-modal">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.4s;" data-bs-toggle="modal" data-bs-target="#box-5-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">05</span>
                             </div>
@@ -169,11 +190,11 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.9s;">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.9s;" data-bs-toggle="modal" data-bs-target="#box-10-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">10</span>
                             </div>
-                        </a>
+                        </button>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
                         <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2s;">
@@ -204,11 +225,11 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2.4s;">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2.4s;" data-bs-toggle="modal" data-bs-target="#box-15-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">15</span>
                             </div>
-                        </a>
+                        </button>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
                         <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2.5s;">
@@ -246,16 +267,16 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 3s;">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 3s;" data-bs-toggle="modal" data-bs-target="#box-21-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">21</span>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
-        <button type="button" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle d-lg-none" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
+        <button type="button" id="mobile-share" class="btn btn-primary shadow p-3 fixed-bottom text-white rounded-circle d-lg-none" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
                 <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
             </svg>
@@ -278,7 +299,7 @@
             </button>
         </div>
         <div class="modal fade" id="box-5-modal" tabindex="-1" aria-labelledby="box-5-modal-title" aria-hidden="true">
-            <div id="tsparticles" class="w-100 h-100 position-absolute"></div>
+            <div id="box-5-modal-background" class="w-100 h-100 position-absolute"></div>
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
@@ -294,13 +315,76 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="box-10-modal" tabindex="-1" aria-labelledby="box-10-modal-title" aria-hidden="true">
+            <div id="box-10-modal-background" class="w-100 h-100 position-absolute"></div>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
+                        <div class="py-5 text-white text-center">
+                            <h3 id="box-10-modal-title" class="mb-5">
+                                <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
+                                <span class="d-block display-6 fw-normal">for a special event</span>
+                            </h3>
+                            <img src="assets/webp/ciroc-w.webp" alt="Λογότυπο Ciroc" class="ciroc" width="200" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="box-15-modal" tabindex="-1" aria-labelledby="box-15-modal-title" aria-hidden="true">
+            <div id="box-15-modal-background" class="w-100 h-100 position-absolute"></div>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
+                        <div class="py-5 text-white text-center">
+                            <h3 id="box-15-modal-title" class="mb-5">
+                                <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
+                                <span class="d-block display-6 fw-normal">for a special event</span>
+                            </h3>
+                            <img src="assets/webp/ciroc-w.webp" alt="Λογότυπο Ciroc" class="ciroc" width="200" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="box-21-modal" tabindex="-1" aria-labelledby="box-21-modal-title" aria-hidden="true">
+            <div id="box-21-modal-background" class="w-100 h-100 position-absolute"></div>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
+                        <div class="py-5 text-white text-center">
+                            <h3 id="box-21-modal-title" class="mb-5">
+                                <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
+                                <span class="d-block display-6 fw-normal">for a special event</span>
+                            </h3>
+                            <img src="assets/webp/ciroc-w.webp" alt="Λογότυπο Ciroc" class="ciroc" width="200" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js" integrity="sha256-vrg2swRnXDq+IRB+eBS+eYV6HqDUTfn6w3yEa+H6f4M=" crossorigin="anonymous"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172340252-1"></script>
         <script>
+            const reducedMotionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
             const shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16"> <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/> </svg>';
             const closeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/> <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/></svg>';
             const fbButton = document.getElementById('fb-share');
             const twButton = document.getElementById('tw-share');
+            const modalEffectContainer = '<div id="tsparticles" class="w-100 h-100"></div>';
+            const box5Modal = document.getElementById('box-5-modal');
+            const box5ModalBackground = document.getElementById('box-5-modal-background');
+            const box10Modal = document.getElementById('box-10-modal');
+            const box10ModalBackground = document.getElementById('box-10-modal-background');
+            const box15Modal = document.getElementById('box-15-modal');
+            const box15ModalBackground = document.getElementById('box-15-modal-background');
+            const box21Modal = document.getElementById('box-21-modal');
+            const box21ModalBackground = document.getElementById('box-21-modal-background');
             function mobileShare() {
                 if (navigator.share) {
                     navigator.share({
@@ -310,34 +394,96 @@
             }
             function showDesktopShareButtons(el) {
                 if (el.classList.contains('active')) {
-                    fbButton.classList.remove('animate__fadeInUp');
-                    twButton.classList.remove('animate__fadeInUp');
-                    fbButton.classList.add('animate__fadeOutDown');
-                    twButton.classList.add('animate__fadeOutDown');
+                    if (!(reducedMotionMediaQuery.matches)) {
+                        fbButton.classList.remove('animate__fadeInUp');
+                        twButton.classList.remove('animate__fadeInUp');
+                        fbButton.classList.add('animate__fadeOutDown');
+                        twButton.classList.add('animate__fadeOutDown');
+                    }
+                    else {
+                        fbButton.style.opacity = '0';
+                        twButton.style.opacity = '0';
+                    }
                     el.classList.remove('active');
                     el.classList.remove('btn-secondary');
                     el.classList.add('btn-primary');
                     el.innerHTML = shareIcon;
                 }
                 else {
-                    fbButton.classList.remove('animate__fadeOutDown');
-                    twButton.classList.remove('animate__fadeOutDown');
-                    fbButton.classList.add('animate__fadeInUp');
-                    twButton.classList.add('animate__fadeInUp');
+                    if (!(reducedMotionMediaQuery.matches)) {
+                        fbButton.classList.remove('animate__fadeOutDown');
+                        twButton.classList.remove('animate__fadeOutDown');
+                        fbButton.classList.add('animate__fadeInUp');
+                        twButton.classList.add('animate__fadeInUp');
+                    }
+                    else {
+                        fbButton.style.opacity = '1';
+                        twButton.style.opacity = '1';
+                    }
                     el.classList.remove('btn-primary');
                     el.classList.add('btn-secondary');
                     el.classList.add('active');
                     el.innerHTML = closeIcon;
                 }
             }
-            tsParticles
-                .loadJSON("tsparticles", "presets/default.json")
-                .then((container) => {
-                    console.log("callback - tsparticles config loaded");
-                })
-                .catch((error) => {
-                    console.error(error);
+            function loadTsParticles() {
+                tsParticles
+                    .loadJSON("tsparticles", "presets/default.json")
+                    .then((container) => {
+                        console.log("callback - tsparticles config loaded");
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            }
+            if (!(reducedMotionMediaQuery.matches)) {
+                box5Modal.addEventListener('show.bs.modal', function (event) {
+                    box5ModalBackground.innerHTML = modalEffectContainer;
+                    loadTsParticles();
                 });
+                box5Modal.addEventListener('hide.bs.modal', function (event) {
+                    box5ModalBackground.innerHTML = '';
+                });
+                box10Modal.addEventListener('show.bs.modal', function (event) {
+                    box10ModalBackground.innerHTML = modalEffectContainer;
+                    loadTsParticles();
+                });
+                box10Modal.addEventListener('hide.bs.modal', function (event) {
+                    box10ModalBackground.innerHTML = '';
+                });
+                box15Modal.addEventListener('show.bs.modal', function (event) {
+                    box15ModalBackground.innerHTML = modalEffectContainer;
+                    loadTsParticles();
+                });
+                box15Modal.addEventListener('hide.bs.modal', function (event) {
+                    box15ModalBackground.innerHTML = '';
+                });
+                box21Modal.addEventListener('show.bs.modal', function (event) {
+                    box21ModalBackground.innerHTML = modalEffectContainer;
+                    loadTsParticles();
+                });
+                box21Modal.addEventListener('hide.bs.modal', function (event) {
+                    box21ModalBackground.innerHTML = '';
+                });
+            }
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-172340252-1');
         </script>
     </body>
 </html>
+
+<!--
+// const tsParticles = new tSpanel.TsParticles({
+//     container: document.getElementById('tsparticles'),
+//     width: '100%',
+//     height: '100%',
+//     background: 'transparent',
+//     fpsLimit: 60,
+//     interactivity: {
+//         detect_on: 'canvas',
+//         events: {
+//             onClick: {
+//                 enable: true,
+-->
