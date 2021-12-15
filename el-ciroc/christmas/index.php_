@@ -1,3 +1,11 @@
+<?php
+    if (($_SERVER['HTTP_HOST'] == 'localhost') || ($_SERVER['HTTP_HOST'] == 'preview.hellomag.gr')) {
+        $preview = true;
+    }
+    else {
+        $preview = false;
+    }
+?>
 <!doctype html>
 <html lang="el">
     <head>
@@ -67,13 +75,6 @@
             .btn.disabled, .btn:disabled, fieldset:disabled .btn {
                 opacity: 1;
             }
-            .modal-content, .modal-body, .carousel, .carousel-iiner, .carousel-item {
-                height: 450px;
-            }
-            .carousel-item {
-                background-size: cover;
-                background-position: center center;
-            }
             @media (min-width: 576px) {
                 .logo {
                     width: 150px;
@@ -137,30 +138,30 @@
                 </div>
                 <div class="row g-3 justify-content-center pt-5">
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a href="https://gr.hellomagazine.com/lifestyle/time-to-celebrate-me-to-pio-labero-online-advent-calendar/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn production" style="animation-delay: 1s; background-image: url('assets/webp/box1.webp');">
+                        <a href="https://gr.hellomagazine.com/lifestyle/time-to-celebrate-me-to-pio-labero-online-advent-calendar/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1s; background-image: url('assets/webp/box1.webp');">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2 text-white">01</span>
                             </div>
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a href="https://gr.hellomagazine.com/lifestyle/xmas-decor-8-ideas/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn production" style="animation-delay: 1.1s; background-image: url('assets/webp/box2.webp');">
+                        <a href="https://gr.hellomagazine.com/lifestyle/xmas-decor-8-ideas/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.1s; background-image: url('assets/webp/box2.webp');">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">02</span>
                             </div>
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a href="https://gr.hellomagazine.com/cuisine/3-syntages-gia-xmas-dinner/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn production" style="animation-delay: 1.2s; background-image: url('assets/webp/box3.webp');">
+                        <a href="https://gr.hellomagazine.com/cuisine/3-syntages-gia-xmas-dinner/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.2s; background-image: url('assets/webp/box3.webp');">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2 text-white">03</span>
                             </div>
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <a href="https://gr.hellomagazine.com/moda/xmas-blue-jeans-outfit/" class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn production" style="animation-delay: 1.3s; background-image: url('assets/webp/box4.webp');">
+                        <a class="d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.3s;">
                             <div class="position-relative">
-                                <span class="number position-absolute end-0 bottom-0 display-3 pe-2 text-white">04</span>
+                                <span class="number position-absolute end-0 bottom-0 display-3 pe-2">04</span>
                             </div>
                         </a>
                     </div>
@@ -172,7 +173,7 @@
                         </button>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.5s;" data-bs-toggle="modal" data-bs-target="#box-6-modal" onclick="showQuiz()">
+                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.5s;" data-bs-toggle="modal" data-bs-target="#box-6-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">06</span>
                             </div>
@@ -200,7 +201,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.9s;" data-bs-toggle="modal" data-bs-target="#box-10-modal">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.9s;" data-bs-toggle="modal" data-bs-target="#box-10-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">10</span>
                             </div>
@@ -235,7 +236,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2.4s;" data-bs-toggle="modal" data-bs-target="#box-15-modal">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 2.4s;" data-bs-toggle="modal" data-bs-target="#box-15-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">15</span>
                             </div>
@@ -277,7 +278,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 3s;" data-bs-toggle="modal" data-bs-target="#box-21-modal">
+                        <button disabled type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 3s;" data-bs-toggle="modal" data-bs-target="#box-21-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">21</span>
                             </div>
@@ -325,98 +326,91 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade p-0" id="box-6-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="box-6-modal-title" aria-hidden="true">
+        <div class="modal fade" id="box-6-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="box-6-modal-title" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content text-white">
-                    <div class="modal-body p-0">
-                        <div id="quiz" class="carousel slide">
+                <div class="modal-content">
+                    <div class="modal-body rounded" style="background-image: url(''); background-size: cover;">
+                        <div id="quiz" class="carousel slide p-5" data-bs-ride="carousel" data-bs-interval="false">
                             <div class="carousel-inner">
-                                <div class="carousel-item p-3 p-md-5 active" style="background-image: url('assets/webp/quizbg1.webp');">
-                                    <div id="quiz-intro" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h2 class="mb-5">Ανακάλυψε ποιο cocktail σου ταιριάζει, μάθε να το φτιάχνεις και απόλαυσέ το όποια στιγμή θες αυτές τις γιορτές.</h2>
-                                            <button type="button" class="btn btn-primary next fs-5">Έναρξη</button>
+                                <div class="carousel-item active">
+                                    <div id="quiz-intro" class="text-center">
+                                        <h2 class="mb-5">Ανακάλυψε ποιο cocktail σου ταιριάζει, μάθε να το φτιάχνεις και απόλαυσέ το όποια στιγμή θες αυτές τις γιορτές.</h2>
+                                        <button type="button" class="btn btn-primary next fs-5">Έναρξη</button>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div id="question-1" class="text-center">
+                                        <h3 class="text-start mb-5">Ποια στιγμή είναι η ιδανική για σένα για να απολαύσεις ένα cocktail;</h3>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Απογευματάκι με καλή παρέα</button>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Μαζί με το φαγητό σου</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary next fs-5">Στη βραδινή σου έξοδο</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5 text-white" style="background-image: url('assets/quiztest.jpg');">
-                                    <div id="question-1" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποια στιγμή είναι η ιδανική για σένα για να απολαύσεις ένα cocktail;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Απογευματάκι με καλή παρέα</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Μαζί με το φαγητό σου</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Στη βραδινή σου έξοδο</button>
-                                            </div>
+                                <div class="carousel-item">
+                                    <div id="question-2" class="text-center">
+                                        <h3 class="text-start mb-5">Ποια είναι η καλύτερη παρέα για να απολαύσεις το αγαπημένο σου cocktail;</h3>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Με το άλλο σου μισό και ένα πλατό εξαιρετικών τυριών</button>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Με την παρέα σου  και δυνατή μουσική</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary next fs-5">Μόνος/η με ένα βιβλίο ή καλή μουσική</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-2" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποια είναι η καλύτερη παρέα για να απολαύσεις το αγαπημένο σου cocktail;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Με το άλλο σου μισό και ένα πλατό εξαιρετικών τυριών</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Με την παρέα σου  και δυνατή μουσική</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Μόνος/η με ένα βιβλίο ή καλή μουσική</button>
-                                            </div>
+                                <div class="carousel-item">
+                                    <div id="question-3" class="text-center">
+                                        <h3 class="text-start mb-5">Ποιο είναι το ιδανικό ρεβεγιόν για σένα;</h3>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Ένα οικογενιακό τραπέζι γεμάτο από μυρωδιές σπιτιού φαγητού</button>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Ένα premium δείπνο σε ένα 5stats ξενοδοχείο</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary next fs-5">Party με τους φίλους σου</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-3" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποιο είναι το ιδανικό ρεβεγιόν για σένα;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Ένα οικογενειακό τραπέζι γεμάτο από μυρωδιές σπιτιού φαγητού</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Ένα premium δείπνο σε ένα 5stars ξενοδοχείο</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Party με τους φίλους σου</button>
-                                            </div>
+                                <div class="carousel-item">
+                                    <div id="question-4" class="text-center">
+                                        <h3 class="text-start mb-5">Τι γεύση θες να έχει το coktail σου;</h3>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Φρουτώδες/Ξινό</button>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Γλυκό</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary next fs-5">Πικρό</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-4" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Τι γεύση θες να έχει το coktail σου;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Φρουτώδες/Ξινό</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Γλυκό</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Πικρό</button>
-                                            </div>
+                                <div class="carousel-item">
+                                    <div id="question-5" class="text-center">
+                                        <h3 class="text-start mb-5">Ιδανικός προορισμός για χριστουγεννιάτικες διακοπές;</h3>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">New York, New York</button>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="button" class="btn btn-primary next fs-5">Εξωτικό νησί</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-primary next fs-5">Paris is always a good idea</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-5" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ιδανικός προορισμός για χριστουγεννιάτικες διακοπές;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary result fs-5">New York, New York</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary result fs-5">Εξωτικό νησί</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary result fs-5">Paris is always a good idea</button>
-                                            </div>
-                                        </div>
+                                <div class="carousel-item">
+                                    <div id="results">
+                                        <h3>Αποτελέσματα</h3>
                                     </div>
                                 </div>
                             </div>
@@ -476,28 +470,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            let productionEnvironment;
-            if ((window.location.hostname) == 'gr.hellomagazine.com') {
-                productionEnvironment = true;
-            }
-            if (productionEnvironment) {
-                let boxElementType;
-                document.querySelectorAll('.ratio').forEach(function(el) {
-                    if (!el.classList.contains('production')) {
-                        el.style.backgroundImage = null;
-                        el.querySelector('.number').classList.remove('text-white');
-                        boxElementType = el.tagName.toLowerCase();
-                        if (boxElementType == 'a') {
-                            el.removeAttribute('href');
-                        }
-                        if (boxElementType == 'button') {
-                            el.setAttribute('disabled', 'disabled');
-                        }
-                    }
-                });
-            }
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/tsparticles.min.js" integrity="sha256-vrg2swRnXDq+IRB+eBS+eYV6HqDUTfn6w3yEa+H6f4M=" crossorigin="anonymous"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172340252-1"></script>
@@ -517,6 +489,12 @@
             const box15ModalBackground = document.getElementById('box-15-modal-background');
             const box21Modal = document.getElementById('box-21-modal');
             const box21ModalBackground = document.getElementById('box-21-modal-background');
+            const quiz = new bootstrap.Carousel(document.getElementById('quiz'));
+            document.querySelectorAll('.next').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    quiz.next();
+                });
+            });
             function mobileShare() {
                 if (navigator.share) {
                     navigator.share({
@@ -568,20 +546,6 @@
                         console.error(error);
                     });
             }
-            function showQuiz() {
-                const quiz = new bootstrap.Carousel(document.getElementById('quiz'), {
-                    interval: false
-                });
-                document.querySelectorAll('.next').forEach(function(el) {
-                    el.addEventListener('click', function() {
-                        quiz.next();
-                    });
-                });
-            }
-            if (new URLSearchParams(window.location.search).get('quiz') == '') {
-                new bootstrap.Modal(document.getElementById('box-6-modal')).show();
-                showQuiz();
-            }
             if (!(reducedMotionMediaQuery.matches)) {
                 box5Modal.addEventListener('show.bs.modal', function (event) {
                     box5ModalBackground.innerHTML = modalEffectContainer;
@@ -612,12 +576,10 @@
                     box21ModalBackground.innerHTML = '';
                 });
             }
-            if (productionEnvironment) {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'UA-172340252-1');
-            }
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-172340252-1');
         </script>
     </body>
 </html>
