@@ -67,12 +67,15 @@
             .btn.disabled, .btn:disabled, fieldset:disabled .btn {
                 opacity: 1;
             }
-            .modal-content, .modal-body, .carousel, .carousel-iiner, .carousel-item {
+            #box-6-modal .modal-content, #box-6-modal .modal-body, #box-6-modal .carousel, #box-6-modal .carousel-inner, #box-6-modal .carousel-item {
                 height: 450px;
             }
             .carousel-item {
                 background-size: cover;
                 background-position: center center;
+            }
+            .overlay {
+                background-color: #000000aa;
             }
             @media (min-width: 576px) {
                 .logo {
@@ -112,7 +115,7 @@
                         <div class="d-flex w-100 h-100 align-items-center justify-content-end">
                             <span class="text-white">powered by</span>
                             <a href="https://www.ciroc.com/en-row/">
-                                <img src="assets/webp/ciroc-w.webp" alt="Λογότυπο Ciroc" class="ciroc" width="200" height="200">
+                                <img src="assets/webp/ciroc-w.webp" alt="Cîroc" class="ciroc" width="200" height="200">
                             </a>
                         </div>
                     </div>
@@ -165,14 +168,14 @@
                         </a>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.4s;" data-bs-toggle="modal" data-bs-target="#box-5-modal">
+                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn production" style="animation-delay: 1.4s; background-image: url('assets/webp/box5.webp');" data-bs-toggle="modal" data-bs-target="#box-5-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">05</span>
                             </div>
                         </button>
                     </div>
                     <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.5s;" data-bs-toggle="modal" data-bs-target="#box-6-modal" onclick="showQuiz()">
+                        <button type="button" class="btn p-0 d-block ratio ratio-1x1 rounded text-dark animate__animated animate__fadeIn" style="animation-delay: 1.5s; background-image: url('assets/webp/box6.webp');" data-bs-toggle="modal" data-bs-target="#box-6-modal">
                             <div class="position-relative">
                                 <span class="number position-absolute end-0 bottom-0 display-3 pe-2">06</span>
                             </div>
@@ -312,9 +315,9 @@
             <div id="box-5-modal-background" class="w-100 h-100 position-absolute"></div>
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
-                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
-                        <div class="py-5 text-white text-center">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></button>
+                        <div class="py-5 px-3 px-md-5 text-white text-center">
                             <h2 id="box-5-modal-title" class="mb-5">
                                 <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
                                 <span class="d-block display-6 fw-normal">for a special event</span>
@@ -331,95 +334,198 @@
                     <div class="modal-body p-0">
                         <div id="quiz" class="carousel slide">
                             <div class="carousel-inner">
-                                <div class="carousel-item p-3 p-md-5 active" style="background-image: url('assets/webp/quizbg1.webp');">
-                                    <div id="quiz-intro" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h2 class="mb-5">Ανακάλυψε ποιο cocktail σου ταιριάζει, μάθε να το φτιάχνεις και απόλαυσέ το όποια στιγμή θες αυτές τις γιορτές.</h2>
-                                            <button type="button" class="btn btn-primary next fs-5">Έναρξη</button>
+                                <div class="carousel-item p-3 p-md-5 active" style="background-image: url('assets/webp/qintro.webp');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="quiz-intro" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h2 id="modal-body" class="mb-5">Ανακάλυψε ποιο cocktail σου ταιριάζει, μάθε να το φτιάχνεις και απόλαυσέ το όποια στιγμή θες αυτές τις γιορτές</h2>
+                                            <button type="button" class="btn btn-primary fs-5" data-result="" onclick="nextQuestion(this)">Έναρξη</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5 text-white" style="background-image: url('assets/quiztest.jpg');">
-                                    <div id="question-1" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποια στιγμή είναι η ιδανική για σένα για να απολαύσεις ένα cocktail;</h3>
+                                <div class="carousel-item p-3 p-md-5" style="background-image: url('assets/q1.jpg');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="question-1" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h3 class="mb-5">Ποια στιγμή είναι η ιδανική για σένα για να απολαύσεις ένα cocktail;</h3>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Απογευματάκι με καλή παρέα</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="ciroc-mule" onclick="nextQuestion(this)">Απογευματάκι με καλή παρέα</button>
                                             </div>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Μαζί με το φαγητό σου</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="hero-serve" onclick="nextQuestion(this)">Μαζί με το φαγητό σου</button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Στη βραδινή σου έξοδο</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-2" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποια είναι η καλύτερη παρέα για να απολαύσεις το αγαπημένο σου cocktail;</h3>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Με το άλλο σου μισό και ένα πλατό εξαιρετικών τυριών</button>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Με την παρέα σου  και δυνατή μουσική</button>
-                                            </div>
-                                            <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Μόνος/η με ένα βιβλίο ή καλή μουσική</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="cosmo" onclick="nextQuestion(this)">Στη βραδινή σου έξοδο</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-3" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ποιο είναι το ιδανικό ρεβεγιόν για σένα;</h3>
+                                <div class="carousel-item p-3 p-md-5" style="background-image: url('assets/q2.jpg');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="question-2" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h3 class="mb-5">Ποια είναι η καλύτερη παρέα για να απολαύσεις το αγαπημένο σου cocktail;</h3>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Ένα οικογενειακό τραπέζι γεμάτο από μυρωδιές σπιτιού φαγητού</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="cosmo" onclick="nextQuestion(this)">Με το άλλο σου μισό και ένα πλατό εξαιρετικών τυριών</button>
                                             </div>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Ένα premium δείπνο σε ένα 5stars ξενοδοχείο</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="ciroc-mule" onclick="nextQuestion(this)">Με την παρέα σου και δυνατή μουσική</button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Party με τους φίλους σου</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="hero-serve" onclick="nextQuestion(this)">Μόνος/η με ένα βιβλίο ή καλή μουσική</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-4" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Τι γεύση θες να έχει το coktail σου;</h3>
+                                <div class="carousel-item p-3 p-md-5" style="background-image: url('assets/q3.jpg');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="question-3" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h3 class="mb-5">Ποιο είναι το ιδανικό ρεβεγιόν για σένα;</h3>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Φρουτώδες/Ξινό</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="hero-serve" onclick="nextQuestion(this)">Ένα οικογενειακό τραπέζι γεμάτο από μυρωδιές σπιτικού φαγητού</button>
                                             </div>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary next fs-5">Γλυκό</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="cosmo" onclick="nextQuestion(this)">Ένα premium δείπνο σε ένα 5stars ξενοδοχείο</button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary next fs-5">Πικρό</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="ciroc-mule" onclick="nextQuestion(this)">Party με τους φίλους σου</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item p-3 p-md-5">
-                                    <div id="question-5" class="d-flex align-items-center h-100">
-                                        <div class="text-center">
-                                            <h3 class="text-start mb-5">Ιδανικός προορισμός για χριστουγεννιάτικες διακοπές;</h3>
+                                <div class="carousel-item p-3 p-md-5" style="background-image: url('assets/q4.jpg');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="question-4" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h3 class="mb-5">Τι γεύση θες να έχει το coktail σου;</h3>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary result fs-5">New York, New York</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="ciroc-mule" onclick="nextQuestion(this)">Φρουτώδες / Ξινό</button>
                                             </div>
                                             <div class="mb-3">
-                                                <button type="button" class="btn btn-primary result fs-5">Εξωτικό νησί</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="cosmo" onclick="nextQuestion(this)">Γλυκό</button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary result fs-5">Paris is always a good idea</button>
+                                                <button type="button" class="btn btn-primary fs-5" data-result="hero-serve" onclick="nextQuestion(this)">Πικρό</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item p-3 p-md-5" style="background-image: url('assets/q5.jpg');">
+                                    <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                                    <div id="question-5" class="d-flex align-items-center h-100 position-relative">
+                                        <div class="text-center w-100">
+                                            <h3 class="mb-5">Ιδανικός προορισμός για χριστουγεννιάτικες διακοπές;</h3>
+                                            <div class="mb-3">
+                                                <button type="button" class="btn btn-primary result fs-5" data-result="cosmo" onclick="calculateResult(this)">New York, New York</button>
+                                            </div>
+                                            <div class="mb-3">
+                                                <button type="button" class="btn btn-primary result fs-5" data-result="ciroc-mule" onclick="calculateResult(this)">Εξωτικό νησί</button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-primary result fs-5" data-result="hero-serve" onclick="calculateResult(this)">Paris is always a good idea</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <a href="index.html" class="btn-close btn-close-white position-absolute" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="result-ciroc-mule-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="result-ciroc-mule-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/r1.webp'); background-size: cover;">
+                        <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                        <div class="p-3 p-md-5 text-white position-relative text-center">
+                            <h2 id="result-ciroc-mule-modal-title" class="mb-4">
+                                <span class="d-block mb-4">Αποτελέσματα</span>
+                                <small class="d-block">Cîroc Mule</small>
+                            </h2>
+                            <p class="mb-5 text-start">Είσαι άνθρωπος κεφάτος. Σου αρέσει να απολαμβάνεις τη ζωή και εκτιμάς τις στιγμές της καλής παρέας κι ενός καλού φαγητού. Είσαι ένας αντισυμβατικός κοσμοπολίτης που αρέσκεται στην περιπέτεια, χωρίς όμως να κάνει εκπτώσεις στα αισθητικά του standards. Γι' αυτό ένα Cîroc Mule cocktail θα γίνει το αγαπημένο σου ποτό στις γιορτές κι όχι μόνο. Η γεύση από τα ράσμπερι θα σου προσφέρει στον ουρανίσκο σου μία ευχάριστη έκπληξη, συναίσθημα που αποζητάς σε καθετί στη ζωή σου.</p>
+                            <button type="button" class="btn btn-primary result fs-5" onclick="showCirocMuleRecipe()">Φτιάξ' το μόνος σου</button>
+                        </div>
+                        <a href="index.html" class="btn-close btn-close-white position-absolute" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="result-cosmo-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="result-cosmo-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/r2.webp'); background-size: cover;">
+                        <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                        <div class="p-3 p-md-5 text-white position-relative text-center">
+                            <h2 id="result-cosmo-modal-title" class="mb-4">
+                                <span class="d-block mb-4">Αποτελέσματα</span>
+                                <small class="d-block">Cosmo</small>
+                            </h2>
+                            <p class="mb-5 text-start">Κομψότητα, sexyness, glam, φώτα, party είναι μερικά από τα συστατικά της καλής ζωής σου. Περνάς καλά με κάθε ευκαιρία και το επιζητάς. Είσαι η ψυχή του party και πάντα βρίσκεις μία δικαιολογία για να διασκεδάσεις. Το μόνο που έχεις ανάγκη είναι το χαμόγελό σου κι ένα ποτήρι Cosmo.</p>
+                            <button type="button" class="btn btn-primary result fs-5" onclick="showCosmoRecipe()">Φτιάξ' το μόνος σου</button>
+                        </div>
+                        <a href="index.html" class="btn-close btn-close-white position-absolute" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="result-hero-serve-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="result-hero-serve-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/r3.webp'); background-size: cover;">
+                        <div class="overlay position-absolute w-100 h-100 start-0 top-0"></div>
+                        <div class="p-3 p-md-5 text-white position-relative text-center">
+                            <h2 id="result-hero-serve-modal-title" class="mb-4">
+                                <span class="d-block mb-4">Αποτελέσματα</span>
+                                <small class="d-block">Hero Serve</small>
+                            </h2>
+                            <p class="mb-5 text-start">Είσαι πιο παραδοσιακός τύπος και κρύβεις καλά τον ρομαντισμό σου που σε κάνει να είσαι και ο ενδιαφέρον τύπος της παρέας. Κάποιες αξίες στη ζωής είναι για σένα παραπάνω από σημαντικές και δεν χάνεις ευκαιρία να περάσεις όμορφες και ουσιαστικές στιγμές με την οικογένειά σου. Είσαι άνρθωπος της ποιότητας κι όχι της ποσότητας.</p>
+                            <button type="button" class="btn btn-primary result fs-5" onclick="showHeroServeRecipe()">Φτιάξ' το μόνος σου</button>
+                            <a href="index.html" class="btn-close btn-close-white position-absolute" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="recipe-ciroc-mule-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="recipe-ciroc-mule-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <img src="assets/webp/cirocmule.webp" class="img-fluid mb-4" alt="Φωτογραφία Cîroc Mule" width="798" height="599">
+                        <div class="pt-0 pb-4 px-3 px-md-5 text-center">
+                            <h2 id="result-ciroc-mule-modal-title" class="mb-4">Συνταγή σερβιρίσματος Cîroc Mule</h2>
+                            <p class="mb-5 text-start">Σε ένα ποτήρι της αρεσκείας σας, κατά προτίμηση παγωμένο προσθέτουμε 50 ml Ciroc Ultra-Premium Vodka , 3-4 φρέσκα ράσμπερι και πολτοποιούμε τα φρούτα μας με ένα γουδί στο ποτήρι μας. Στη συνέχεια προσθέτουμε 10 ml φρεσκοστυμμένο χυμό λάιμ , απογεμίζουμε το ποτήρι μας με πάγο και τέλος συμπληρώνουμε με 150ml gingerbeer. Ανακατεύουμε ώστε τα φρούτα να αγκαλιάσουν όλο το ποτό μας και γαρνίρουμε με ράσμπερι και μία σφήνα (wedge) λάιμ. Απολαύστε υπεύθυνα.</p>
+                            <a href="index.html" class="btn btn-primary fs-5">Κλείσιμο</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="recipe-cosmo-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="recipe-cosmo-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <img src="assets/webp/cosmo.webp" class="img-fluid mb-4" alt="Φωτογραφία Cosmo" width="798" height="599">
+                        <div class="pt-0 pb-4 px-3 px-md-5 text-center">
+                            <h2 id="result-cosmo-modal-title" class="mb-4">Συνταγή σερβιρίσματος Cosmo</h2>
+                            <p class="mb-5 text-start">Σε ένα ποτήρι σαμπάνιας προσθέτουμε 40ml Cîroc Ultra Premium Vodka , 10 ml χυμό λάιμ, 45ml χυμό κράνμπερι και στο τέλος 35ml σαμπάνια. Αναδεύουμε πάντα ελαφριά. Τελική πινελιά του ποτού μας μία φλούδα πορτοκαλιού. Απολαύστε υπεύθυνα.</p>
+                            <a href="index.html" class="btn btn-primary fs-5">Κλείσιμο</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="recipe-hero-serve-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="recipe-hero-serve-modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <img src="assets/webp/heroserve.webp" class="img-fluid mb-4" alt="Φωτογραφία Hero Serve" width="798" height="599">
+                        <div class="pt-0 pb-4 px-3 px-md-5 text-center">
+                            <h2 id="result-hero-serve-modal-title" class="mb-4">Συνταγή σερβιρίσματος Hero Serve</h2>
+                            <p class="mb-5 text-start">Σε ένα ψηλό παγωμένο ποτήρι τοποθετούμε άφθονο πάγο και 40 ml Cîroc Ultra-Premium Vodka, προσθέτουμε 20ml φρεσκοστυμμένο χυμό λεμόνι και 10 ml σιρόπι βανίλιας. Απογεμίζουμε με σόδα και γαρνίρουμε με ρώγες σταφυλιού ή φραγκοστάφυλου. Απολαύστε υπεύθυνα.</p>
+                            <a href="index.html" class="btn btn-primary fs-5">Κλείσιμο</a>
                         </div>
                     </div>
                 </div>
@@ -429,9 +535,9 @@
             <div id="box-10-modal-background" class="w-100 h-100 position-absolute"></div>
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
-                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
-                        <div class="py-5 text-white text-center">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></button>
+                        <div class="py-5 px-3 px-md-5 text-white text-center">
                             <h2 id="box-10-modal-title" class="mb-5">
                                 <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
                                 <span class="d-block display-6 fw-normal">for a special event</span>
@@ -446,9 +552,9 @@
             <div id="box-15-modal-background" class="w-100 h-100 position-absolute"></div>
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
-                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
-                        <div class="py-5 text-white text-center">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></button>
+                        <div class="py-5 px-3 px-md-5 text-white text-center">
                             <h2 id="box-15-modal-title" class="mb-5">
                                 <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
                                 <span class="d-block display-6 fw-normal">for a special event</span>
@@ -463,9 +569,9 @@
             <div id="box-21-modal-background" class="w-100 h-100 position-absolute"></div>
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body rounded" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
-                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="right: 1rem;"></button>
-                        <div class="py-5 text-white text-center">
+                    <div class="modal-body p-0" style="background-image: url('assets/webp/modalbg.webp'); background-size: cover;">
+                        <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Κλείσιμο" style="top: 1rem; right: 1rem;"></button>
+                        <div class="py-5 px-3 px-md-5 text-white text-center">
                             <h2 id="box-21-modal-title" class="mb-5">
                                 <span class="d-block mb-4 display-5 fw-normal">Stay tuned...</span>
                                 <span class="d-block display-6 fw-normal">for a special event</span>
@@ -517,6 +623,15 @@
             const box15ModalBackground = document.getElementById('box-15-modal-background');
             const box21Modal = document.getElementById('box-21-modal');
             const box21ModalBackground = document.getElementById('box-21-modal-background');
+            const box6Modal = new bootstrap.Modal(document.getElementById('box-6-modal'));
+            const quiz = new bootstrap.Carousel(document.getElementById('quiz'), {interval: false});
+            const resultCirocMuleModal = new bootstrap.Modal(document.getElementById('result-ciroc-mule-modal'));
+            const resultCosmoModal = new bootstrap.Modal(document.getElementById('result-cosmo-modal'));
+            const resultHeroServeModal = new bootstrap.Modal(document.getElementById('result-hero-serve-modal'));
+            let answerResult;
+            let scoreCirocMule = 0;
+            let scoreCosmo = 0;
+            let scoreHeroServe = 0;
             function mobileShare() {
                 if (navigator.share) {
                     navigator.share({
@@ -568,19 +683,65 @@
                         console.error(error);
                     });
             }
-            function showQuiz() {
-                const quiz = new bootstrap.Carousel(document.getElementById('quiz'), {
-                    interval: false
-                });
-                document.querySelectorAll('.next').forEach(function(el) {
-                    el.addEventListener('click', function() {
-                        quiz.next();
-                    });
-                });
+            function nextQuestion(el) {
+                answerResult = el.dataset.result;
+                if (answerResult == "ciroc-mule") {
+                    scoreCirocMule++;
+                }
+                else if (answerResult == "cosmo") {
+                    scoreCosmo++;
+                }
+                else if (answerResult == "hero-serve") {
+                    scoreHeroServe++;
+                }
+                console.clear();
+                console.log('Ciroc Mule: ' + scoreCirocMule);
+                console.log('Cosmo: ' + scoreCosmo);
+                console.log('Hero Serve: ' + scoreHeroServe);
+                quiz.next();
+            }
+            function calculateResult(el) {
+                answerResult = el.dataset.result;
+                if (answerResult == "ciroc-mule") {
+                    scoreCirocMule++;
+                }
+                else if (answerResult == "cosmo") {
+                    scoreCosmo++;
+                }
+                else if (answerResult == "hero-serve") {
+                    scoreHeroServe++;
+                }
+                console.clear();
+                console.log('Ciroc Mule: ' + scoreCirocMule);
+                console.log('Cosmo: ' + scoreCosmo);
+                console.log('Hero Serve: ' + scoreHeroServe);
+                let result = [scoreCirocMule, scoreCosmo, scoreHeroServe].indexOf(Math.max(...[scoreCirocMule, scoreCosmo, scoreHeroServe]));
+                console.log('Result: ' + result);
+                box6Modal.hide();
+                if (result == 0) {
+                    resultCirocMuleModal.show();
+                }
+                else if (result == 1) {
+                    resultCosmoModal.show();
+                }
+                else if (result == 2) {
+                    resultHeroServeModal.show();
+                }
+            }
+            function showCirocMuleRecipe() {
+                resultCirocMuleModal.hide();
+                new bootstrap.Modal(document.getElementById('recipe-ciroc-mule-modal')).show();
+            }
+            function showCosmoRecipe() {
+                resultCosmoModal.hide();
+                new bootstrap.Modal(document.getElementById('recipe-cosmo-modal')).show();
+            }
+            function showHeroServeRecipe() {
+                resultHeroServeModal.hide();
+                new bootstrap.Modal(document.getElementById('recipe-hero-serve-modal')).show();
             }
             if (new URLSearchParams(window.location.search).get('quiz') == '') {
-                new bootstrap.Modal(document.getElementById('box-6-modal')).show();
-                showQuiz();
+                box6Modal.show();
             }
             if (!(reducedMotionMediaQuery.matches)) {
                 box5Modal.addEventListener('show.bs.modal', function (event) {
