@@ -1,5 +1,24 @@
 {
+  "name": "custom-templates",
+  "version": "1.0.0",
+  "description": "[Quiz template](https://alpha-editions.github.io/custom-templates/el-quiz)\\\r [Green days](https://alpha-editions.github.io/custom-templates/el-greendays)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alpha-Editions/custom-templates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alpha-Editions/custom-templates/issues"
+  },
+  "homepage": "https://github.com/Alpha-Editions/custom-templates#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "flipdown": "^0.3.2"
   }
 }
