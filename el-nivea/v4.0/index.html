@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <style>
+            :root {
+                --el-nivea: #00389c;
+                --el-nivea-light: #7e98c3;
+                --el-beige: #f0ede5;
+                --el-header: 46.89px;
+                /* --el-fuchsia: #e638c5; */
+                --animate-duration: 0.8s;
+            }
+            html {
+                font-size: 19px;
+            }
+            body {
+                font-family: "Tinos", serif;
+            }
+            .btn-primary {
+                --bs-btn-bg: var(--el-nivea);
+                --bs-btn-border-color: var(--el-nivea);
+                --bs-btn-hover-bg: var(--el-nivea-light);
+                --bs-btn-hover-border-color: var(--el-nivea-light);
+            }
+            .satisfy {
+                font-family: "Satisfy", cursive;
+            }
+            .ratio-3x4 {
+                --bs-aspect-ratio: 133.33%;
+            }
+            .thumbnails {
+                max-width: 1000px
+            }
+            .thumbnail {
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .thumbnail:disabled {
+                filter: grayscale(1);
+            }
+            .bi-play-circle {
+                width: 110px;
+            }
+            .transparency {
+                background: rgb(0,50,160);
+                background: linear-gradient(180deg, rgba(0,50,160,0) 0%, rgba(0,50,160,1) 100%);
+            }
+            video {
+                height: calc(100% - 70px);
+            }
+            .bg-beige {
+                background-color: var(--el-beige);
+            }
+            .border-bottom-nivea {
+                border-bottom: 2px solid var(--el-nivea);
+            }
+            .link-dark:hover, .link-dark:focus {
+                color: var(--el-nivea) !important;
+            }
+            .title {
+                width: 100%;
+                max-width: 668.719px;
+            }
+            .hero-image {
+                height: calc(50vh - var(--el-header));
+            }
+            .hero-item, .title-item, .hero-slide {
+                opacity: 0;
+            }
+            @media (min-width: 576px) {
+                .ratio-sm-1x1 {
+                    --bs-aspect-ratio: 100%;
+                }
+            }
+            @media (min-width: 768px) {
+
+            }
+            @media (min-width: 992px) {
+                .title {
+                    background-color: white;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .thumbnails .col-lg-auto {
+                    width: 32%;
+                    padding-bottom: 38px
+                }
+                .ratio-lg-3x4 {
+                    --bs-aspect-ratio: 133.33%;
+                }
+                .hero-image {
+                    height: calc(100vh - var(--el-header));
+                }
+            }
+            @media (min-width: 1200px) {
+
+            }
+            @media (min-width: 1400px) {
+                
+            }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&family=Tinos:wght@400;700&display=swap">
+    </head>
+    <body class="position-relative">
+        <header class="bg-beige sticky-top border-bottom-nivea text-center">
+            <a href="https://elle.gr/" class="btn btn-link link-dark" aria-label="ELLE">
+                <svg xmlns="http://www.w3.org/2000/svg" height="26" fill="currentColor" viewBox="0 0 737 266">
+                    <path d="M56.8 253.4H47V131.1h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H47V10.4h12.6c19.7 0 41.4 15.9 41.4 58.4h2.8V7.1H.7v3.3h16.4v243H.7v3.3h103.6v-65.2h-2.8c0 46-23.5 61.9-44.7 61.9zM269.5 253.4h-12.1v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3H316V191h-3.3c-.7 43.2-18.7 62.4-43.2 62.4zM491.1 253.4H479v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3h107.1V191h-3.3c-.8 43.2-18.7 62.4-43.2 62.4zM734.6 191.5v-.3c0 46-23.5 61.9-44.7 61.9H680v-122h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H680V10.4h12.6c20 0 41.4 15.9 41.4 58.4h2.8V7.1h-103v3.3h16.4v243h-16.4v3.3h103.6v-65.2h-2.8z"></path>
+                </svg>
+            </a>
+            <div class="position-absolute end-0 top-0" style="padding-right: 0.75rem;">
+                <button class="btn btn-link link-dark d-lg-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                        <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                    </svg>
+                </button>
+                <a href="" class="btn btn-link link-dark d-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                </a>
+                <a href="" class="btn btn-link link-dark d-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section class="position-relative mb-5">
+                <div class="hero-image text-center overflow-hidden position-relative">
+                    <!-- <div id="hero-slide-1" class="hero-slide w-100 h-100 position-absolute"> -->
+                        <img src="../unoptimized-assets/hero-item-1.jpg" alt="" id="hero-item-1-1" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; left: 10%; top: 10%;">
+                        <img src="../unoptimized-assets/hero-item-2.jpg" alt="" id="hero-item-1-2" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 1; left: 50%; margin-left: -15%;">
+                        <img src="../unoptimized-assets/hero-item-3.jpg" alt="" id="hero-item-1-3" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; right: 10%; top: 10%;">
+                    <!-- </div>
+                    <div id="hero-slide-2" class="hero-slide w-100 h-100 position-absolute"> -->
+                        <img src="../unoptimized-assets/hero-item-4.jpg" alt="" id="hero-item-2-1" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; left: 10%; top: 10%;">
+                        <img src="../unoptimized-assets/hero-item-5.jpg" alt="" id="hero-item-2-2" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 1; left: 50%; margin-left: -15%;">
+                        <img src="../unoptimized-assets/hero-item-6.jpg" alt="" id="hero-item-2-3" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; right: 10%; top: 10%;">
+                    <!-- </div>
+                    <div id="hero-slide-3" class="hero-slide w-100 h-100 position-absolute"> -->
+                        <img src="../unoptimized-assets/hero-item-7.jpg" alt="" id="hero-item-3-1" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; left: 10%; top: 10%;">
+                        <img src="../unoptimized-assets/hero-item-8.jpg" alt="" id="hero-item-3-2" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 1; left: 50%; margin-left: -15%;">
+                        <img src="../unoptimized-assets/hero-item-9.jpg" alt="" id="hero-item-3-3" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; right: 10%; top: 10%;">
+                    <!-- </div> -->
+                </div>
+                <div class="title text-center p-3 mx-auto rounded-top" style="z-index: 3;">
+                    <h1 class="display-4 mb-0 animate__animated title-item">
+                        All time class-<span class="satisfy">chic</span>
+                    </h1>
+                    <h2 class="mb-3 animate__animated title-item">Fashion tips to share with you</h2>
+                    <div class="animate__animated title-item">
+                        Created by 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" viewBox="0 0 737 266" class="px-2">
+                            <path d="M56.8 253.4H47V131.1h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H47V10.4h12.6c19.7 0 41.4 15.9 41.4 58.4h2.8V7.1H.7v3.3h16.4v243H.7v3.3h103.6v-65.2h-2.8c0 46-23.5 61.9-44.7 61.9zM269.5 253.4h-12.1v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3H316V191h-3.3c-.7 43.2-18.7 62.4-43.2 62.4zM491.1 253.4H479v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3h107.1V191h-3.3c-.8 43.2-18.7 62.4-43.2 62.4zM734.6 191.5v-.3c0 46-23.5 61.9-44.7 61.9H680v-122h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H680V10.4h12.6c20 0 41.4 15.9 41.4 58.4h2.8V7.1h-103v3.3h16.4v243h-16.4v3.3h103.6v-65.2h-2.8z"></path>
+                        </svg>
+                        for 
+                        <img src="../unoptimized-assets/favicon.png" height="50" alt="" class="ps-2 pe-1">
+                        <img src="../unoptimized-assets/black-and-white-logo-removebg-preview.png" height="50" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="thumbnails row mx-auto w-100 pt-5 mb-5">
+                <div class="col-12 col-lg order-lg-1 mb-4">
+                    <button type="button" class="thumbnail btn ratio ratio-3x4 ratio-sm-1x1 ratio-lg-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/viv.jpg');" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="transparency position-absolute w-100 h-50 top-50 rounded-bottom">
+                            <span class="fs-2 position-absolute text-white w-100 h-auto bottom-0 p-3 start-0">Βιβιαν Ρουβέλα</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="currentColor" style="fill: var(--bs-light) !important;" class="bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                        </svg>
+                    </button>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary text-light border-0 rounded-pill px-4">Read more</button>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-auto d-flex align-items-center order-lg-0 mb-4">
+                    <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/chr.jpg');" disabled>
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="white" class="thumbnail__icon bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                        </svg> -->
+                        <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy">coming soon</span>
+                    </button>
+                    <!-- <div class="text-center">
+                        <button type="button" class="btn btn-light">Read more</button>
+                    </div> -->
+                </div>
+                <div class="col-12 col-sm-6 col-lg-auto d-flex align-items-center order-lg-2 mb-4">
+                    <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/tay.jpg');" disabled>
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="white" class="thumbnail__icon bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                        </svg> -->
+                        <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy">coming soon</span>
+                    </button>
+                    <!-- <div class="text-center">
+                        <button type="button" class="btn btn-light">Read more</button>
+                    </div> -->
+                </div>
+            </section>    
+        </main>
+        <footer class="bg-black text-light py-2 px-3 text-center fs-4">
+            #myfavouriteblackandwhite
+        </footer>       
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-black position-relative">
+                    <video class="d-block mx-auto" controls autoplay muted>
+                        <source src="../unoptimized-assets/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="text-center p-3">
+                        <button type="button" class="btn btn-primary text-light border-0 rounded-pill px-4">Read more</button>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script>
+            const titleItems = document.getElementsByClassName('title-item');
+            // const slides = document.getElementsByClassName('hero-slide');
+            const heroItems = document.getElementsByClassName('hero-item');
+
+            titleItems[0].style.animationDelay = '0s';
+            titleItems[0].classList.add('animate__fadeInDown');
+            titleItems[1].style.animationDelay = '0.2s';
+            titleItems[1].classList.add('animate__fadeInDown');
+            titleItems[2].style.animationDelay = '0.4s';
+            titleItems[2].classList.add('animate__fadeInDown');
+           
+            function animateSlider() {
+                // slides[0].style.animationDelay = '1.4s';
+                // document.documentElement.style.setProperty('--animate-duration', '0s');
+                // slides[0].classList.add('animate__fadeIn');
+                // document.documentElement.style.setProperty('--animate-duration', '2s');
+
+                heroItems[0].style.animationDelay = '1s';
+                heroItems[0].classList.add('animate__fadeInDown');
+                heroItems[1].style.animationDelay = '1.2s';
+                heroItems[1].classList.add('animate__fadeInUp');
+                heroItems[2].style.animationDelay = '1.4s';
+                heroItems[2].classList.add('animate__fadeInDown');
+
+                // heroItems[0].classList.remove('animate__fadeInDown');
+                // heroItems[0].style.animationDelay = '4.4s';
+                // heroItems[0].classList.add('animate__fadeOutUp');
+                // heroItems[1].classList.remove('animate__fadeInUp');
+                // heroItems[1].style.animationDelay = '4.6s';
+                // heroItems[1].classList.add('animate__fadeOutDown');
+                // heroItems[2].classList.remove('animate__fadeInDown');
+                // heroItems[2].style.animationDelay = '4.8s';
+                // heroItems[2].classList.add('animate__fadeOutUp');
+
+                // slides[0].style.animationDelay = '6.8s';
+                // document.documentElement.style.setProperty('--animate-duration', '0s');
+                // slides[0].classList.remove('animate__fadeIn');
+                // slides[0].classList.add('animate__fadeOut');
+                // slides[1].style.animationDelay = '6.8s';
+                // slides[1].classList.add('animate__fadeIn');
+                // document.documentElement.style.setProperty('--animate-duration', '2s');
+
+                heroItems[3].style.animationDelay = '4.4s';
+                heroItems[3].classList.add('animate__fadeInDown');
+                heroItems[4].style.animationDelay = '4.6s';
+                heroItems[4].classList.add('animate__fadeInUp');
+                heroItems[5].style.animationDelay = '4.8s';
+                heroItems[5].classList.add('animate__fadeInDown');
+
+                // heroItems[3].classList.remove('animate__fadeInDown');
+                // heroItems[3].style.animationDelay = '9.8s';
+                // heroItems[3].classList.add('animate__fadeOutUp');
+                // heroItems[4].classList.remove('animate__fadeInUp');
+                // heroItems[4].style.animationDelay = '10s';
+                // heroItems[4].classList.add('animate__fadeOutDown');
+                // heroItems[5].classList.remove('animate__fadeInDown');
+                // heroItems[5].style.animationDelay = '10.2s';
+                // heroItems[5].classList.add('animate__fadeOutUp');
+
+                // slides[1].style.animationDelay = '11.8s';
+                // document.documentElement.style.setProperty('--animate-duration', '0s');
+                // slides[1].classList.remove('animate__fadeIn');
+                // slides[1].classList.add('animate__fadeOut');
+                // slides[2].style.animationDelay = '11.8s';
+                // slides[2].classList.add('animate__fadeIn');
+                // document.documentElement.style.setProperty('--animate-duration', '2s');
+
+                heroItems[6].style.animationDelay = '7.8s';
+                heroItems[6].classList.add('animate__fadeInDown');
+                heroItems[7].style.animationDelay = '8s';
+                heroItems[7].classList.add('animate__fadeInUp');
+                heroItems[8].style.animationDelay = '8.2s';
+                heroItems[8].classList.add('animate__fadeInDown');
+
+                // heroItems[6].classList.remove('animate__fadeInDown');
+                // heroItems[6].style.animationDelay = '12.6s';
+                // heroItems[6].classList.add('animate__fadeOutUp');
+                // heroItems[7].classList.remove('animate__fadeInUp');
+                // heroItems[7].style.animationDelay = '12.8s';
+                // heroItems[7].classList.add('animate__fadeOutDown');
+                // heroItems[8].classList.remove('animate__fadeInDown');
+                // heroItems[8].style.animationDelay = '13s';
+                // heroItems[8].classList.add('animate__fadeOutUp');
+
+                // setTimeout(function() {
+                //     slides[2].classList.add('d-none');
+                //     slides[0].classList.remove('d-none');
+                // }, 15000);
+            }
+
+            animateSlider();
+
+            setInterval(animateSlider, 3000);
+            
+            // let tier = '';
+            // (function determineBsTier() {
+            //     if (window.matchMedia('(max-width: 575.98px)').matches) {
+            //         tier = 'xs';
+            //     }
+            //     else if ((window.matchMedia('(min-width: 576px)').matches) && (window.matchMedia('(max-width: 767.98px)').matches)) {
+            //         tier = 'sm';
+            //     }
+            //     else if ((window.matchMedia('(min-width: 768px)').matches) && (window.matchMedia('(max-width: 991.98px)').matches)) {
+            //         tier = 'md';
+            //     }
+            //     else if ((window.matchMedia('(min-width: 992px)').matches) && (window.matchMedia('(max-width: 1199.98px)').matches)) {
+            //         tier = 'lg';
+            //     }
+            //     else if ((window.matchMedia('(min-width: 1200px)').matches) && (window.matchMedia('(max-width: 1399.98px)').matches)) {
+            //         tier = 'xl';
+            //     }
+            //     else if (window.matchMedia('(min-width: 1400px)').matches) {
+            //         tier = 'xxl';
+            //     }
+            //     console.log('Tier: ' + tier)
+            // })();
+            // window.onresize = determineBsTier;
+
+            // animateElements('animated__onload');
+
+            // const observer = new IntersectionObserver(function(entries) {
+            //     if (entries[0]['isIntersecting'] === true) {
+            //         animateElements('animated__onappearence');
+            //     }
+            // }, {threshold: [0.5]});
+            // observer.observe(document.querySelector('.thumbnails'));
+
+            // function animateElements(extraClass) {
+            //     const elements = document.querySelectorAll('.animate__animated' + extraClass);
+            //     let i = 0;
+            //     elements.forEach(function(element) {
+            //         element.style.setProperty('--animate-delay' + i + 's');
+            //         element.classList.add('animate__fadeInDown');
+            //         i = i + 0.1;
+            //     });
+            // }
+
+            // let animationDelay = 0, animationDuration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--animate-duration')), isLastSlide = false, isLastItem = false, lastItemIn, lastItemOut;
+
+            // (function animateTitle() {
+            //     const items = document.querySelectorAll('.title-item');
+            //     items.forEach(function(item) {
+            //         item.style.animationDelay = animationDelay + 's';
+            //         item.classList.add('animate__fadeInDown');
+            //         animationDelay = animationDelay + 0.2;
+            //     });
+            //     animationDelay = animationDelay + animationDuration;
+            //     // animationDelay = 1.6s
+            //     console.log('Title animation complete at ' + animationDelay + 's');
+            //     setTimeout(changeAnimationDuration(), animationDelay);
+            // })();
+
+            // function changeAnimationDuration() {
+            //     document.documentElement.style.setProperty('--animate-duration', '2s');
+            //     animateSlider();
+            // }
+
+            // function animateSlider() {
+            //     const slides = document.querySelectorAll('.hero-slide');
+            //     slides.forEach(function(slide, slideIndex) {
+            //         slide.classList.remove('d-none');
+            //         let items = slide.querySelectorAll('.hero-item');
+            //         items.forEach(function(item, itemIndex) {
+            //             item.style.animationDelay = animationDelay + 's';
+            //             console.log('Item ' + slideIndex + '-' + itemIndex + ' entered at: ' + animationDelay + 's');
+            //             if (itemIndex % 2 === 0) {
+            //                 item.classList.add('animate__fadeInDown');
+            //             }
+            //             else {
+            //                 item.classList.add('animate__fadeInUp');
+            //             }
+            //             animationDelay = animationDelay + 0.4;
+            //             if (itemIndex === items.length - 1) {
+            //                 isLastItem = true;
+            //                 lastItemIn = item;
+            //             }
+            //         });
+            //         animationDelay = animationDelay + animationDuration;
+            //         // lastItemIn.addEventListener('animationend', async function() {
+            //         //     items.forEach(function(item, itemIndex) {
+            //         //         item.style.animationDelay = animationDelay + 's';
+            //         //         if (itemIndex % 2 === 0) {
+            //         //             item.classList.remove('animate__fadeInDown');
+            //         //             item.classList.add('animate__fadeOutUp');
+            //         //         }
+            //         //         else {
+            //         //             item.classList.remove('animate__fadeInUp');
+            //         //             item.classList.add('animate__fadeOutDown');
+            //         //         }
+            //         //         animationDelay = animationDelay + 0.4;
+            //         //         if (itemIndex === items.length - 1) {
+            //         //             lastItemOut = item;
+            //         //         }
+            //         //     });
+            //         //     lastItemOut.addEventListener('animationend', async function() {
+            //         //         slide.classList.add('d-none');
+            //         //     });
+            //         // });
+            //         setTimeout(function() {
+            //             items.forEach(function(item, itemIndex) {
+            //                 item.style.animationDelay = animationDelay + 's';
+            //                 console.log('Item ' + slideIndex + '-' + itemIndex + ' exited at: ' + animationDelay + 's');
+            //                 if (itemIndex % 2 === 0) {
+            //                     item.classList.remove('animate__fadeInDown');
+            //                     item.classList.add('animate__fadeOutUp');
+            //                 }
+            //                 else {
+            //                     item.classList.remove('animate__fadeInUp');
+            //                     item.classList.add('animate__fadeOutDown');
+            //                 }
+            //                 animationDelay = animationDelay + 0.4;
+            //                 if (itemIndex === items.length - 1) {
+            //                     lastItemOut = item;
+            //                 }
+            //             });
+            //             animationDelay = animationDelay + animationDuration;
+            //             setTimeout(function() {
+            //                 slide.classList.add('d-none');
+            //             }, animationDelay);
+            //         }, animationDelay);
+            //     });
+            // }
+        </script>
+    </body>
+</html>
