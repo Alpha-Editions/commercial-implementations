@@ -13,6 +13,7 @@
                 --el-header: 46.89px;
                 /* --el-fuchsia: #e638c5; */
                 --animate-duration: 0.8s;
+                --transparency-height: 0;
             }
             html {
                 font-size: 19px;
@@ -35,22 +36,57 @@
             .thumbnails {
                 max-width: 1000px
             }
+            .thumbnails-title {
+                background: rgb(0,50,160);
+                background: linear-gradient(90deg, rgba(0,50,160,0) 0%, rgba(0,50,160,1) 50%, rgba(0,50,160,0) 100%);
+                background-size: 100% 10px;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
             .thumbnail {
                 background-size: cover;
+                background-position: top center;
                 background-repeat: no-repeat;
             }
             .thumbnail:disabled {
                 filter: grayscale(1);
             }
+            .thumbnail .transparency {
+                top: auto;
+                height: 0;
+                transition: height 0.5s;
+            }
+            .thumbnail:hover .transparency {
+                height: var(--transparency-height);
+                transition: height 0.5s;
+            }
+            .thumbnail .transparency span {
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+            .thumbnail:hover .transparency span {
+                opacity: 1;
+                transition: opacity 0.5s;
+            }
+            .thumbnail:disabled svg, .thumbnail:disabled .transparency, .thumbnail:disabled + div {
+                visibility: hidden;
+            }
             .bi-play-circle {
-                width: 110px;
+                width: 90px;
+                filter: drop-shadow(0 0 3px var(--bs-dark));
+            }
+            .animate__fadeOutDown {
+                --animate-delay: 10s;
             }
             .transparency {
                 background: rgb(0,50,160);
                 background: linear-gradient(180deg, rgba(0,50,160,0) 0%, rgba(0,50,160,1) 100%);
             }
+            .text-shadow {
+                text-shadow: 0 0 3px black;
+            }
             video {
-                height: calc(100% - 70px);
+                height: calc(100% - 109.25px);
             }
             .bg-beige {
                 background-color: var(--el-beige);
@@ -65,19 +101,27 @@
                 width: 100%;
                 max-width: 668.719px;
             }
-            .hero-image {
-                height: calc(50vh - var(--el-header));
-            }
             .hero-item, .title-item, .hero-slide {
                 opacity: 0;
             }
             @media (min-width: 576px) {
+                video {
+                    height: calc(100% - 80.75px);
+                }
                 .ratio-sm-1x1 {
                     --bs-aspect-ratio: 100%;
                 }
             }
             @media (min-width: 768px) {
-
+                .ratio-md-3x4 {
+                    --bs-aspect-ratio: 133.33%;
+                }
+                .thumbnails [class*="col-"]:first-of-type {
+                    transform: scale(1.1);
+                }
+                .thumbnails [class*="col-"]:first-of-type + div {
+                    transform: translateY(1.1);
+                }
             }
             @media (min-width: 992px) {
                 .title {
@@ -86,13 +130,6 @@
                     bottom: 0;
                     left: 50%;
                     transform: translateX(-50%);
-                }
-                .thumbnails .col-lg-auto {
-                    width: 32%;
-                    padding-bottom: 38px
-                }
-                .ratio-lg-3x4 {
-                    --bs-aspect-ratio: 133.33%;
                 }
                 .hero-image {
                     height: calc(100vh - var(--el-header));
@@ -154,12 +191,11 @@
                         <img src="../unoptimized-assets/hero-item-9.jpg" alt="" id="hero-item-3-3" class="hero-item animate__animated position-absolute d-inline-block" style="width: 30%; z-index: 2; right: 10%; top: 10%;">
                     <!-- </div> -->
                 </div>
-                <div class="title text-center p-3 mx-auto rounded-top" style="z-index: 3;">
+                <div class="title text-center p-3 mx-auto rounded-top border border-bottom-0" style="z-index: 3;">
                     <h1 class="display-4 mb-0 animate__animated title-item">
                         All time class-<span class="satisfy">chic</span>
                     </h1>
-                    <h2 class="mb-3 animate__animated title-item">Fashion tips to share with you</h2>
-                    <div class="animate__animated title-item">
+                    <div class="animate__animated title-item mb-2">
                         Created by 
                         <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" viewBox="0 0 737 266" class="px-2">
                             <path d="M56.8 253.4H47V131.1h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H47V10.4h12.6c19.7 0 41.4 15.9 41.4 58.4h2.8V7.1H.7v3.3h16.4v243H.7v3.3h103.6v-65.2h-2.8c0 46-23.5 61.9-44.7 61.9zM269.5 253.4h-12.1v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3H316V191h-3.3c-.7 43.2-18.7 62.4-43.2 62.4zM491.1 253.4H479v-243h18.7V7.1h-67.2v3.3h18.7v242.8h-18.7v3.3h107.1V191h-3.3c-.8 43.2-18.7 62.4-43.2 62.4zM734.6 191.5v-.3c0 46-23.5 61.9-44.7 61.9H680v-122h4.3c16.7 0 25.5 17.7 25.5 44.7h2.8V81.6h-2.8c0 23-7.8 46.5-25.5 46.5H680V10.4h12.6c20 0 41.4 15.9 41.4 58.4h2.8V7.1h-103v3.3h16.4v243h-16.4v3.3h103.6v-65.2h-2.8z"></path>
@@ -168,48 +204,68 @@
                         <img src="../unoptimized-assets/favicon.png" height="50" alt="" class="ps-2 pe-1">
                         <img src="../unoptimized-assets/black-and-white-logo-removebg-preview.png" height="50" alt="">
                     </div>
+                    <img class="scroll animate__animated animate__infinite animate__fadeOutDown" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADn0lEQVRoge3ZP2wbZRjH8e9j55/cofE5DZIpaS7YIXVUUSkDldgSxIAISAiyFMHMUCisSKgzCyidmFFAQiykU0TVhYEFEKIyjW0ao4gUKsc+S6VR0zT3djgH7s53/nO+c0Dyb4nuff0+93zynn3nBAYZZJBB/k8R+8HU1LlkfPTgiiiZknjs6u1C/sZxNeaVp5+ZX1SH5iUlavtwf/jK9vZN42huyP7C+OjBVZCLSkCZ5st6Jnex/NuvX/W/5ebomdyKaZprCEMgxEcPUsCbR/Mx58vlnO1gCFFreia30p9W/aNnciuIWsPxi3f02gT53FXj2DHeCHD3Grcf1GuV77XUqXHggm04hvCapk3eNmqVmxH16xk9M/86or7AhRDUZ+XSrQ/tYw4IgFHb3fDBvNpPjIUwv8QDsVXafAdQ9vEmCBw/plsE+EDg+DBBENACAv3HBEVAGwj0D9MLAjqAQPSYXhHQIQSiw4SBgC4gED4mLAR4QKanz49rWvIpw9iteS0warsbydREEuQ523AM4ZWkNlmo1yr5zhC5Fa+bHajVcmnzkh9iZuZs9uTJ02a9/tcD+7jjEUXPzC3L8P6OilPUs7n1dHoh4VFLlUubl0GtusY7fpzxf+xQq1btZkQ6vZDQs7l1Facow/s7emZu2RcC8hHQaF4tjyTuXwsbExQxkrh/DdRR84lGrz4QwXE5ichimJheECKy2KpXBySu5AOgGgUmVARUG73aXK7os/PPoszrwIRr6rvESOylfD7/twdIZrJnP1Hwnmv8UJS8rZD9bj+d0umFxOiJvXVgyXkmDBHzxa1C4YeWEIDp7Px5wbwOpOzjSqkbD/dOLN+58+OeF0bPzn0K8q5r/FHjZyg7oYi98Hsp/3PTyb0gEPrOuE4a3k60hUSFiQLRFhI2JioEdPCIUq9W7o6nnvhWUG/wzz0GgDMPH5kXEmNnvr53788D9zqjtruhTZwaA54HEOHjrdLm+36IxntiyTVVVcSWysVbP7Xrs+2OHCXgBwCnZ2efBPijWNzxmg/yxvZKxxAIfJn5ptfLybmky4SFCRNhLQuQXjFhI6ylARMUEwXCWt5DusVEhbBK9JhOMVEirDIhpB3GMMbMKBFWqZDS6j4D1tcB15Ku7hPtEhoEWu6M+6yh7cS/JUNOW0wECKtsBPHFRISwSkeUJkyECOjyD3TdpF6t3NUmJ75BoSHyi8TUW1uFQl//UTTIIIMM8t/NY54rqphc1dYDAAAAAElFTkSuQmCC">
                 </div>
             </section>
-            <section class="thumbnails row mx-auto w-100 pt-5 mb-5">
-                <div class="col-12 col-lg order-lg-1 mb-4">
-                    <button type="button" class="thumbnail btn ratio ratio-3x4 ratio-sm-1x1 ratio-lg-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/viv.jpg');" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <div class="transparency position-absolute w-100 h-50 top-50 rounded-bottom">
-                            <span class="fs-2 position-absolute text-white w-100 h-auto bottom-0 p-3 start-0">Βιβιαν Ρουβέλα</span>
+            <section class="thumbnails mx-auto pt-5 mb-5">
+                <h2 class="thumbnails-title mb-5 text-center">
+                    <span class="bg-white px-2">Fashion tips to share with you</span>
+                </h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 order-md-1 mb-4">
+                            <button type="button" class="thumbnail btn ratio ratio-3x4 ratio-sm-1x1 ratio-md-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/taygeth.jpg');" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div class="transparency position-absolute bottom-0 rounded-bottom">
+                                    <span class="fs-2 position-absolute text-white w-100 h-auto bottom-0 p-3 start-0">Ταϋγέτη</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-play-circle position-absolute top-50 start-50 translate-middle text-light" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                                </svg>
+                            </button>
+                            <div class="text-center">
+                                <a href="https://elle.gr/?p=608781&preview=1&_ppp=ed4d9379e5&v=2" class="btn btn-primary text-light border-0 rounded-pill px-4">
+                                    <small>Fashion tips για το λευκό πουκάμισο</small>
+                                </a>
+                            </div>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="currentColor" style="fill: var(--bs-light) !important;" class="bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                        </svg>
-                    </button>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-primary text-light border-0 rounded-pill px-4">Read more</button>
+                        <div class="col-sm-6 col-md-4 order-md-0 mb-4">
+                            <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/christina.jpg');" disabled>
+                                <div class="transparency position-absolute bottom-0 rounded-bottom">
+                                    <span class="fs-2 position-absolute text-white w-100 h-auto bottom-0 p-3 start-0">Χριστίνα</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-play-circle position-absolute top-50 start-50 translate-middle text-light" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                                </svg>
+                                <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy text-shadow">coming soon</span>
+                            </button>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-dark text-light border-0 rounded-pill px-4">
+                                    <small>Μάθε περισσότερα tips για το πώς θα φορέσεις το λευκό πουκάμισο</small>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 order-md-2 mb-4">
+                            <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/vivian.jpg');" disabled>
+                                <div class="transparency position-absolute bottom-0 rounded-bottom">
+                                    <span class="fs-2 position-absolute text-white w-100 h-auto bottom-0 p-3 start-0">Βίβιαν</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-play-circle position-absolute top-50 start-50 translate-middle text-light" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                                </svg>
+                                <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy text-shadow">coming soon</span>
+                            </button>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-dark text-light border-0 rounded-pill px-4">
+                                    <small>Μάθε περισσότερα tips για το πώς θα φορέσεις το λευκό πουκάμισο</small>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-auto d-flex align-items-center order-lg-0 mb-4">
-                    <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/chr.jpg');" disabled>
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="white" class="thumbnail__icon bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                        </svg> -->
-                        <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy">coming soon</span>
-                    </button>
-                    <!-- <div class="text-center">
-                        <button type="button" class="btn btn-light">Read more</button>
-                    </div> -->
-                </div>
-                <div class="col-12 col-sm-6 col-lg-auto d-flex align-items-center order-lg-2 mb-4">
-                    <button type="button" class="thumbnail btn ratio ratio-3x4 img-thumbnail border-0 position-relative mb-3" style="background-image: url('../unoptimized-assets/tay.jpg');" disabled>
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" fill="white" class="thumbnail__icon bi bi-play-circle position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                        </svg> -->
-                        <span class="fs-1 text-white d-block position-absolute top-50 start-50 translate-middle h-auto satisfy">coming soon</span>
-                    </button>
-                    <!-- <div class="text-center">
-                        <button type="button" class="btn btn-light">Read more</button>
-                    </div> -->
-                </div>
-            </section>    
+            </section>
         </main>
         <footer class="bg-black text-light py-2 px-3 text-center fs-4">
             #myfavouriteblackandwhite
@@ -218,11 +274,13 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content bg-black position-relative">
                     <video class="d-block mx-auto" controls autoplay muted>
-                        <source src="../unoptimized-assets/video.mp4" type="video/mp4">
+                        <source src="../unoptimized-assets/tay.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="text-center p-3">
-                        <button type="button" class="btn btn-primary text-light border-0 rounded-pill px-4">Read more</button>
+                        <a href="https://elle.gr/?p=608781&preview=1&_ppp=ed4d9379e5&v=2" class="btn btn-primary text-light border-0 rounded-pill px-4">
+                            <small>Fashion tips για το λευκό πουκάμισο</small>
+                        </a>
                     </div>
                     <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -230,6 +288,12 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script>
+            document.documentElement.style.setProperty('--transparency-height', (getThumbnailHeight() / 2) + 'px');
+
+            function getThumbnailHeight() {
+                return document.querySelector('.thumbnail').offsetHeight;
+            }
+
             const titleItems = document.getElementsByClassName('title-item');
             // const slides = document.getElementsByClassName('hero-slide');
             const heroItems = document.getElementsByClassName('hero-item');
@@ -238,8 +302,8 @@
             titleItems[0].classList.add('animate__fadeInDown');
             titleItems[1].style.animationDelay = '0.2s';
             titleItems[1].classList.add('animate__fadeInDown');
-            titleItems[2].style.animationDelay = '0.4s';
-            titleItems[2].classList.add('animate__fadeInDown');
+            // titleItems[2].style.animationDelay = '0.4s';
+            // titleItems[2].classList.add('animate__fadeInDown');
            
             function animateSlider() {
                 // slides[0].style.animationDelay = '1.4s';
