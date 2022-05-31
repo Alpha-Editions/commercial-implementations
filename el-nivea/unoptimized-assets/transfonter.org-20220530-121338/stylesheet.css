@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'garamond';
+    src: url('unoptimized-assets/garamond.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
