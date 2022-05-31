@@ -332,7 +332,7 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content bg-black position-relative">
                     <video class="d-block mx-auto" controls autoplay muted>
-                        <source src="../unoptimized-assets/tay.mp4" type="video/mp4">
+                        <source src="../unoptimized-assets/tay-final.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="text-center p-3">
@@ -430,11 +430,11 @@
                     if (item.classList.contains('hero-slider__item--center')) {
                         animation = 'animate__fadeInUp';
                     }
-                    else if (item.classList.contains('animate__infinite')) {
-                        animation = 'animate__fadeOutDown';
-                    }
                     else if (item.classList.contains('scroll')) {
                         animation = 'animate__fadeIn';
+                    }
+                    else if (item.classList.contains('scroll__icon')) {
+                        animation = 'animate__fadeOutDown';
                     }
                     else {
                         animation = 'animate__fadeInDown';
