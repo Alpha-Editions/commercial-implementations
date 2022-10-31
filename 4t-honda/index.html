@@ -27,6 +27,15 @@
             .fadeIn, .fadeOutDown {
                 opacity: 0;
             }
+            .bg-black-opacity-50 {
+                background-color: rgba(0, 0, 0, .5);
+            }
+            .title {
+                max-width: calc(100% - 82px);
+            }
+            .pt-6 {
+                padding-top: 6rem !important;
+            }
             @media (min-width: 768px) {
                 video {
                     object-position: center center;
@@ -37,6 +46,23 @@
                 .nav-link {
                     width: 80px;
                     height: 80px;
+                }
+                .md-rounded-pill {
+                    border-radius: var(--bs-border-radius-pill) !important;
+                }
+                .w-md-auto {
+                    width: auto !important;
+                }
+                .title {
+                    max-width: none;
+                }
+                .border-md-0 {
+                    border: 0 !important;
+                }
+            }
+            @media (min-width: 992px) {
+                .mw-lg-33 {
+                    max-width: 33% !important;
                 }
             }
         </style>
@@ -59,7 +85,7 @@
                     <span class="fadeIn d-block mb-4">Το ταξίδι ξεκινά!</span>
                 </h1>
                 <span class="fadeIn d-block">
-                    <span class="display-6 fst-italic">sponsored by </span>
+                    <span class="display-6 fst-italic d-block d-sm-inline">sponsored by </span>
                     <img src="assets/logo.png" class="align-baseline" style="height: 2rem;" alt="">
                 </span>
             </div>
@@ -73,9 +99,9 @@
             </div>
         </header>
         <main>
-            <section class="position-relative">
-                <img src="assets/0.jpg" alt="" class="w-100 position-relative">
-                <div class="position-absolute top-0 end-0 pt-5 pe-5 text-center text-light">
+            <section class="position-relative vh-100 overflow-hidden">
+                <img src="assets/0.jpg" alt="" class="object-fit-cover w-100 h-100 position-relative">
+                <div class="title position-absolute top-0 end-0 pt-3 pe-2 pt-md-5 pe-md-5 text-center text-light">
                     <h1 class="mb-0 text-center">
                         <span class="d-block display-3 fw-semibold mb-4">HONDA CIVIC e:HEV</span>
                         <span class="d-block mb-4">Το ταξίδι ξεκινά!</span>
@@ -86,30 +112,32 @@
                     </span>
                 </div>
                 <aside class="col-auto position-absolute h-100 top-0">
-                    <!-- <div class="menu-bg position-absolute start-50 translate-middle-x h-100 bg-light"></div> -->
                     <nav class="nav flex-column sticky-top p-3 p-md-4">
-                        <a href="#technology" class="nav-link rounded-pill border border-light p-2 p-md-3 mb-3" style="width: auto;">
-                            <img src="assets/mi1.png" alt="" class="img-fluid align-middle me-3" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle">Υβριδική τεχνολογία</span>
+                        <a href="#technology" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi1.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Υβριδική τεχνολογία</span>
                         </a>
-                        <a href="#design" class="nav-link rounded-pill border p-2 p-md-3 mb-3" style="width: auto;">
-                            <img src="assets/mi2.png" alt="" class="img-fluid align-middle me-3" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle">Premium σχεδιασμός</span>
+                        <a href="#design" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi2.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Premium σχεδιασμός</span>
                         </a>
-                        <a href="#behavior" class="nav-link rounded-pill border border-light p-2 p-md-3 mb-3" style="width: auto;">
-                            <img src="assets/mi3.png" alt="" class="img-fluid align-middle me-3" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle">Δυναμική συμπεριφορά</span>
+                        <a href="#behavior" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi3.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Δυναμική συμπεριφορά</span>
                         </a>
-                        <a href="#sensing" class="nav-link rounded-pill border border-light p-2 p-md-3 mb-3" style="width: auto;">
-                            <img src="assets/mi4.png" alt="" class="img-fluid align-middle me-3" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle">Honda SENSING</span>
+                        <a href="#sensing" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi4.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Honda SENSING</span>
                         </a>
-                        <a href="#consumption" class="nav-link rounded-pill border border-light p-2 p-md-3" style="width: auto;">
-                            <img src="assets/mi5.png" alt="" class="img-fluid align-middle me-3" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle">Χαμηλή κατανάλωση καυσίμου</span>
+                        <a href="#consumption" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi5.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Χαμηλή κατανάλωση καυσίμου</span>
                         </a>
                     </nav>
                 </aside>
+                <div class="position-absolute bottom-0 end-0 bg-black-opacity-50 p-3 p-md-5 w-100 mw-lg-33">
+                    <span class="h2 mb-0">Το νέο Honda Civic e:HEV έρχεται να ανατρέψει τα δεδομένα και να διαμορφώσει νέα πρότυπα προσφέροντας προηγμένη υβριδική τεχνολογία, μοναδικό ντιζάιν, δυναμική συμπεριφορά στον δρόμο, κορυφαία συστήματα ασφάλειας και υποβοήθησης οδήγησης και, φυσικά, απαράμιλλα επίπεδα οικονομίας καυσίμου.</span>
+                </div>
             </section>
             <div class="row g-0">
                 <aside class="col-auto position-relative">
@@ -133,7 +161,7 @@
                     </nav>
                 </aside>
                 <div data-bs-spy="scroll" data-bs-target="#features" class="col">
-                    <section id="technology" class="py-5 border-bottom border-light">
+                    <section id="technology" class="py-5 pt-6 border-bottom border-md-0 border-light">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-7 col-xl-8">
@@ -152,7 +180,7 @@
                             </div>
                         </div>
                     </section>
-                    <section id="design" class="py-5 border-bottom border-light">
+                    <section id="design" class="py-5 border-bottom border-md-0 border-light">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-7 col-xl-8 order-lg-1">
@@ -173,7 +201,7 @@
                             </div>
                         </div>
                     </section>
-                    <section id="behavior" class="py-5 border-bottom border-light">
+                    <section id="behavior" class="py-5 border-bottom border-md-0 border-light">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-7 col-xl-8">
@@ -195,7 +223,7 @@
                             </div>
                         </div>
                     </section>
-                    <section id="sensing" class="py-5 border-bottom border-light">
+                    <section id="sensing" class="py-5 border-bottom border-md-0 border-light">
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-lg-7 col-xl-8 order-lg-1 order-lg-1">
@@ -263,7 +291,7 @@
                     animationDelay++;
                 });
                 let element = document.querySelector('.fadeOutDown');
-                element.classList.add('animate__animated', 'animate__fadeOutDown', );
+                element.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__infinite');
                 element.style.animationDelay = animationDelay;
             }
 
