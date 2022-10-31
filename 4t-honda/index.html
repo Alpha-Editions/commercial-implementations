@@ -3,10 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HONDA CIVIC e:HEV - ΔΙΑΜΟΡΦΩΝΟΝΤΑΣ ΤΑ ΠΡΟΤΥΠΑ - sponsored by HONDA</title>
+        <title>HONDA CIVIC e:HEV - Το ταξίδι ξεκινά! - sponsored by HONDA</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <style>
+            :root {
+                --light: #f9fafb;
+                --honda-red: #ff1e1c;
+            }
             video {
                 object-position: 62% center;
             }
@@ -19,10 +23,28 @@
             .nav-link {
                 width: 50px;
                 height: 50px;
+                color: #f8f9fa;
                 background-color: black;
+                border-color: var(--light) !important;
             }
             .nav-link.active {
-                background-color: #ff1e1c;
+                background-color: var(--honda-red);
+                border-color: var(--light) !important;
+            }
+            .nav-link.active:hover {
+                border-color: var(--light) !important;
+            }
+            .nav-link img, .nav-link.active:hover img {
+                filter: grayscale(1) brightness(5);
+                transition: filter 0.15s ease-in-out;
+            }
+            .nav-link:hover {
+                color: var(--honda-red);
+                border-color: var(--honda-red) !important;
+            }
+            .nav-link:hover img {
+                filter: unset;
+                transition: filter 0.15s ease-in-out;
             }
             .fadeIn, .fadeOutDown {
                 opacity: 0;
@@ -68,16 +90,16 @@
         </style>
         <link rel="preload" href="assets/intro.mp4" as="video" type="video/mp4">
     </head>
-    <body class="bg-black text-light">
+    <body class="bg-black text-light overflow-hidden">
         <header class="position-relative vh-100 overflow-hidden">
             <div class="d-flex w-100 h-100 align-items-center justify-content-center position-absolute">
                 <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
-                    <span class="visually-hidden">Loading...</span>
+                    <span class="visually-hidden">Φορτώνει...</span>
                 </div>
             </div>
             <video class="object-fit-cover w-100 h-100 position-relative" autoplay muted>
                 <source src="assets/intro.mp4#t=0,6" type="video/mp4">
-                Your browser does not support the video tag.
+                Ο φυλλομετρητής σας δεν υποστηρίζει την ετικέτα "βίντεο".
             </video>
             <div class="position-absolute bottom-0 pb-5 w-100 text-center text-light">
                 <h1 class="mb-0 text-center">
@@ -85,11 +107,11 @@
                     <span class="fadeIn d-block mb-4">Το ταξίδι ξεκινά!</span>
                 </h1>
                 <span class="fadeIn d-block">
-                    <span class="display-6 fst-italic d-block d-sm-inline">sponsored by </span>
-                    <img src="assets/logo.png" class="align-baseline" style="height: 2rem;" alt="">
+                    <span class="fs-3 fw-light fst-italic d-block d-sm-inline">sponsored by </span>
+                    <img src="assets/logo.png" class="align-baseline" style="height: 1.5rem;" alt="">
                 </span>
             </div>
-            <div class="position-absolute end-0 bottom-0 d-flex flex-column p-5 pe-3 p-md-5 fadeIn">
+            <div class="position-absolute end-0 bottom-0 d-flex flex-column p-5 pe-3 p-md-5 fadeIn last">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-mouse" viewBox="0 0 16 16">
                     <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3zm4 8a4 4 0 0 1-8 0V5a4 4 0 1 1 8 0v6zM8 0a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V5a5 5 0 0 0-5-5z"/>
                 </svg>
@@ -107,58 +129,60 @@
                         <span class="d-block mb-4">Το ταξίδι ξεκινά!</span>
                     </h1>
                     <span class="d-block">
-                        <span class="display-6 fst-italic">sponsored by </span>
-                        <img src="assets/logo.png" class="align-baseline" style="height: 2rem;" alt="">
+                        <span class="fs-3 fw-light fst-italic">sponsored by </span>
+                        <img src="assets/logo.png" class="align-baseline" style="height: 1.5rem;" alt="">
                     </span>
                 </div>
-                <aside class="col-auto position-absolute h-100 top-0">
+                <aside class="col-auto position-absolute h-100 top-0 d-flex align-items-start align-items-lg-center">
                     <nav class="nav flex-column sticky-top p-3 p-md-4">
-                        <a href="#technology" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
-                            <img src="assets/mi1.png" alt="" class="img-fluid align-middle" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Υβριδική τεχνολογία</span>
+                        <a href="#technology" class="nav-link rounded-circle md-rounded-pill border p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi1red.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="fs-3 m-0 align-middle ms-3 d-none d-lg-inline">Υβριδική τεχνολογία</span>
                         </a>
-                        <a href="#design" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
-                            <img src="assets/mi2.png" alt="" class="img-fluid align-middle" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Premium σχεδιασμός</span>
+                        <a href="#design" class="nav-link rounded-circle md-rounded-pill border p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi2red.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="fs-3 m-0 align-middle ms-3 d-none d-lg-inline">Premium σχεδιασμός</span>
                         </a>
-                        <a href="#behavior" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
-                            <img src="assets/mi3.png" alt="" class="img-fluid align-middle" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Δυναμική συμπεριφορά</span>
+                        <a href="#behavior" class="nav-link rounded-circle md-rounded-pill border p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi3red.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="fs-3 m-0 align-middle ms-3 d-none d-lg-inline">Δυναμική συμπεριφορά</span>
                         </a>
-                        <a href="#sensing" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
-                            <img src="assets/mi4.png" alt="" class="img-fluid align-middle" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Honda SENSING</span>
+                        <a href="#sensing" class="nav-link rounded-circle md-rounded-pill border p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi4red.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="fs-3 m-0 align-middle ms-3 d-none d-lg-inline">Honda SENSING</span>
                         </a>
-                        <a href="#consumption" class="nav-link rounded-circle md-rounded-pill border border-light p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
-                            <img src="assets/mi5.png" alt="" class="img-fluid align-middle" style="width: 46px;">
-                            <span class="h2 link-light m-0 align-middle ms-3 d-none d-lg-inline">Χαμηλή κατανάλωση καυσίμου</span>
+                        <a href="#consumption" class="nav-link rounded-circle md-rounded-pill border p-2 p-md-3 mb-3 bg-black-opacity-50 w-md-auto">
+                            <img src="assets/mi5red.png" alt="" class="img-fluid align-middle" style="width: 46px;">
+                            <span class="fs-3 m-0 align-middle ms-3 d-none d-lg-inline">Χαμηλή κατανάλωση καυσίμου</span>
                         </a>
                     </nav>
                 </aside>
                 <div class="position-absolute bottom-0 end-0 bg-black-opacity-50 p-3 p-md-5 w-100 mw-lg-33">
-                    <span class="h2 mb-0">Το νέο Honda Civic e:HEV έρχεται να ανατρέψει τα δεδομένα και να διαμορφώσει νέα πρότυπα προσφέροντας προηγμένη υβριδική τεχνολογία, μοναδικό ντιζάιν, δυναμική συμπεριφορά στον δρόμο, κορυφαία συστήματα ασφάλειας και υποβοήθησης οδήγησης και, φυσικά, απαράμιλλα επίπεδα οικονομίας καυσίμου.</span>
+                    <span class="h3 fw-normal mb-0">Το νέο Honda Civic e:HEV έρχεται να ανατρέψει τα δεδομένα και να διαμορφώσει νέα πρότυπα προσφέροντας προηγμένη υβριδική τεχνολογία, μοναδικό ντιζάιν, δυναμική συμπεριφορά στο δρόμο, κορυφαία συστήματα ασφάλειας και υποβοήθησης οδήγησης και, φυσικά, απαράμιλλα επίπεδα οικονομίας καυσίμου.</span>
                 </div>
             </section>
             <div class="row g-0">
                 <aside class="col-auto position-relative">
                     <div class="menu-bg position-absolute start-50 translate-middle-x h-100 bg-light"></div>
-                    <nav id="features" class="nav flex-column sticky-top px-3 pt-3 px-md-4 pt-md-4">
-                        <a href="#technology" class="nav-link rounded-circle border border-light p-2 p-md-3 mb-3">
-                            <img src="assets/mi1.png" alt="" class="img-fluid">
-                        </a>
-                        <a href="#design" class="nav-link rounded-circle border p-2 p-md-3 mb-3">
-                            <img src="assets/mi2.png" alt="" class="img-fluid">
-                        </a>
-                        <a href="#behavior" class="nav-link rounded-circle border border-light p-2 p-md-3 mb-3">
-                            <img src="assets/mi3.png" alt="" class="img-fluid">
-                        </a>
-                        <a href="#sensing" class="nav-link rounded-circle border border-light p-2 p-md-3 mb-3">
-                            <img src="assets/mi4.png" alt="" class="img-fluid">
-                        </a>
-                        <a href="#consumption" class="nav-link rounded-circle border border-light p-2 p-md-3">
-                            <img src="assets/mi5.png" alt="" class="img-fluid">
-                        </a>
-                    </nav>
+                    <div class="vh-100 d-flex align-items-center sticky-top">
+                        <nav id="features" class="nav flex-column px-3 pt-3 px-md-4 pt-md-4 h-auto">
+                            <a href="#technology" class="nav-link rounded-circle border p-2 p-md-3 mb-3">
+                                <img src="assets/mi1red.png" alt="" class="img-fluid">
+                            </a>
+                            <a href="#design" class="nav-link rounded-circle border p-2 p-md-3 mb-3">
+                                <img src="assets/mi2red.png" alt="" class="img-fluid">
+                            </a>
+                            <a href="#behavior" class="nav-link rounded-circle border p-2 p-md-3 mb-3">
+                                <img src="assets/mi3red.png" alt="" class="img-fluid">
+                            </a>
+                            <a href="#sensing" class="nav-link rounded-circle border p-2 p-md-3 mb-3">
+                                <img src="assets/mi4red.png" alt="" class="img-fluid">
+                            </a>
+                            <a href="#consumption" class="nav-link rounded-circle border p-2 p-md-3">
+                                <img src="assets/mi5red.png" alt="" class="img-fluid">
+                            </a>
+                        </nav>
+                    </div>
                 </aside>
                 <div data-bs-spy="scroll" data-bs-target="#features" class="col">
                     <section id="technology" class="py-5 pt-6 border-bottom border-md-0 border-light">
@@ -172,7 +196,7 @@
                                 <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
                                     <div class="sticky-xxl-top">
                                         <h2 class="mb-3 pt-3">Υβριδική τεχνολογία</h2>
-                                        <p>Αξιοποιώντας μια εξελικτική πορεία άνω των 20 ετών, η 11η γενιά Civic αξιοποιεί πλήρως τη δυναμική που της εξασφαλίζει η προηγμένη υβριδική τεχνολογία e:-HEV της Honda. Με συνολική ισχύ 135 kW/184PS και κορυφαία ροπή 315Nm, το νέο Civic είναι εκτός από αποδοτικό σε όλες τις συνθήκες και εξαιρετικά ταχύ και απολαυστικό με επιτάχυνση από στάση έως τα πρώτα 100 χλμ./ώρα σε χρόνο μόλις 7,8 δλ. Επί της ουσίας, ο πλήρως υβριδικός κινητήρας συνδυάζει μία υψηλής ενεργειακής πυκνότητας μπαταρία ιόντων λιθίου και δύο ισχυρούς και συμπαγείς ως προς τις διαστάσεις τους, ηλεκτροκινητήρες  με έναν πρόσφατα εξελιγμένο δίλιτρο βενζινοκινητήρα που λειτουργεί στον κύκλο Atkinson. Αυτός ο συνδυασμός καταφέρνει και επιτυγχάνει μοναδικές ιδιότητες, όπως την άμεση απόκριση και τη δύναμη ενός ηλεκτροκινητήρα που «παντρεύονται» με ιδανικό τρόπο με τα χαρακτηριστικά υψηλής εμβέλειες ενός θερμικού συνόλου. Το αποτέλεσμα αποδεικνύεται άκρως εντυπωσιακό στο νέο, πλήρως υβριδικό Civic, τόσο κατά την κίνηση στην πόλη όσο και έξω από αυτήν, στο επαρχιακό ή το εθνικό δίκτυο.</p>
+                                        <p>Αξιοποιώντας μια εξελικτική πορεία άνω των 20 ετών, η 11η γενιά Civic αξιοποιεί πλήρως τη δυναμική που της εξασφαλίζει η προηγμένη υβριδική τεχνολογία e:-HEV της Honda. Με συνολική ισχύ 135 kW/184PS και κορυφαία ροπή 315Nm, το νέο Civic είναι εκτός από αποδοτικό σε όλες τις συνθήκες και εξαιρετικά ταχύ και απολαυστικό με επιτάχυνση από στάση έως τα πρώτα 100 χλμ./ώρα σε χρόνο μόλις 7,8 δλ. Επί της ουσίας, ο πλήρως υβριδικός κινητήρας συνδυάζει μία υψηλής ενεργειακής πυκνότητας μπαταρία ιόντων λιθίου και δύο ισχυρούς και συμπαγείς, ως προς τις διαστάσεις τους, ηλεκτροκινητήρες  με έναν πρόσφατα εξελιγμένο δίλιτρο βενζινοκινητήρα που λειτουργεί στον κύκλο Atkinson. Αυτός ο συνδυασμός καταφέρνει και επιτυγχάνει μοναδικές ιδιότητες, όπως την άμεση απόκριση και τη δύναμη ενός ηλεκτροκινητήρα που «παντρεύονται» με ιδανικό τρόπο με τα χαρακτηριστικά υψηλής εμβέλειες ενός θερμικού συνόλου. Το αποτέλεσμα αποδεικνύεται άκρως εντυπωσιακό στο νέο, πλήρως υβριδικό Civic, τόσο κατά την κίνηση στην πόλη όσο και έξω από αυτήν, στο επαρχιακό ή το εθνικό δίκτυο.</p>
                                         <p>Ένα σημαντικό χαρακτηριστικό και συγκριτικό πλεονέκτημα έναντι του ανταγωνισμού της τεχνολογίας e:HEV του νέου Civic είναι ο έλεγχος γραμμικής αλλαγής ταχυτήτων που συσχετίζει τον ήχο του κινητήρα με την ταχύτητά του, γεγονός που εξασφαλίζει στον οδηγό μια πιο γραμμική αίσθηση επιτάχυνσης. Μάλιστα, στη λειτουργία Sport το εν λόγω χαρακτηριστικό ενισχύεται έτι περαιτέρω με το Active Sound Control, το οποίο έχει ως αποτέλεσμα τη δημιουργία ενός πιο έντονου ηχητικού προφίλ.</p>
                                         <p>Η υβριδική τεχνολογία e:HEV της Honda προσφέρει στους οδηγούς του νέου Civic τη δυνατότητα να επιλέξουν ανάμεσα σε τέσσερα drive modes, τα Normal, Eco, Sport και Individual, που προσαρμόζουν τα χαρακτηριστικά του συστήματος με γνώμονα την ισορροπία ανάμεσα στην απόδοση και την οικονομία, τη βελτιστοποιημένη αποδοτικότητα, τις σπορ επιδόσεις και τις εξατομικευμένες προτιμήσεις του οδηγού, αντίστοιχα. Η εναλλαγή ανάμεσα στα προγράμματα αυτά πραγματοποιείται εύκολα μέσω ενός επιλογέα.</p>
                                     </div>
@@ -195,7 +219,7 @@
                                     <div class="sticky-xxl-top mb-3">
                                         <h2 class="mb-3 pt-3">Premium σχεδιασμός</h2>
                                         <p>Με το νέο Civic, οι ιθύνοντες της Honda ακολούθησαν μια εξελικτική πορεία στον τομέα του σχεδιασμού με ανθρωποκεντρική προσέγγιση με στόχο να δημιουργήσουν το πιο συναισθηματικό και δυναμικό Civic όλων των εποχών. Και το κατάφεραν. Εξωτερικά, υιοθετήθηκε μια πιο χαμηλή γραμμή οροφής και συνάμα μια χαμηλότερη μεσαία γραμμή, επιδιώκοντας μια πιο σπορ σιλουέτα, χάρη και στο διευρυμένο κατά 35 χλστ. μεταξόνιο σε σχέση με το μοντέλο της προηγούμενης γενιάς. Η κομψή και απέριττη εξωτερική περιβολή του νέου Civic συμπληρώνεται ιδανικά και από άλλα επιμέρους χαρακτηριστικά, όπως το τοποθετημένο πιο μπροστά υψηλότερο σημείο της οροφής, την πιο ήπια κλίση της πίσω πόρτας και τον εμφανώς πιο αιχμηρό εμπρός προφυλακτήρας Από εκεί και πέρα, το δικό τους καθοριστικό ρόλο για τη δημιουργία ενός δυναμικού συνόλου με υψηλή αισθητική απήχηση και αυτοπεποίθηση διαδραματίζουν επιλογές και στοιχεία όπως τα χαμηλότερα κατά 25 χλστ. πίσω άκρα του καπό και τα φαρδύτερο πίσω μετατρόχιο. Τον δικό τους επίσης σχεδιαστικό τόνο δίνουν οι κομψοί προβολείς, το ενσωματωμένο στην πίσω πόρτα σπόιλερ, οι χωνευτές λαβές των πορτών που διαθέτουν αισθητήρα αφής και οι εξωτερικοί καθρέπτες που εδράζονται τώρα απευθείας στις πόρτες, αντί στο εμπρός άκρο των παραθύρων.</p>
-                                        <p>Στο εσωτερικό το νέο Civic σχεδιάστηκε με στόχο να προσφέρει κορυφαία επίπεδα άνεσης και ευρυχωρίας, σε συνδυασμό με απαράμιλλα επίπεδα ασφάλειας και την καλύτερη στην κατηγορία ορατότητα από τον οδηγό. Η αρχή εξέλιξης M/M της Honda αποτυπώνεται με σαφήνεια σε μια καμπίνα που προσφέρει επίσης πρωτόγνωρα επίπεδα ποιότητας και καθημερινής χρηστικότητας που έχουν ως πρωταρχικό ζητούμενο τη δημιουργία μια μοναδικής οδηγικής εμπειρίας. Το ταμπλό του νέου Civic είναι ιδιαίτερα χαμηλό και επίπεδο, ενώ ιδιαίτερη προσοχή δόθηκε και στη σχεδίαση της κεντρικής κονσόλας. Την ίδια στιγμή, η premium σχεδίαση που περιλαμβάνει έξι στο σύνολο παράθυρα έχει ως αποτέλεσμα τη δημιουργία μιας ευάερης και ιδιαίτερα φωτεινής καμπίνας, με επίκεντρο το «ευ ζήειν» όλων ανεξαιρέτως των επιβατών.</p>
+                                        <p>Στο εσωτερικό το νέο Civic σχεδιάστηκε με στόχο να προσφέρει κορυφαία επίπεδα άνεσης και ευρυχωρίας, σε συνδυασμό με απαράμιλλα επίπεδα ασφάλειας και την καλύτερη στην κατηγορία ορατότητα από τον οδηγό. Η αρχή εξέλιξης M/M της Honda αποτυπώνεται με σαφήνεια σε μια καμπίνα που προσφέρει επίσης πρωτόγνωρα επίπεδα ποιότητας και καθημερινής χρηστικότητας που έχουν ως πρωταρχικό ζητούμενο τη δημιουργία μια μοναδικής οδηγικής εμπειρίας. Το ταμπλό του νέου Civic είναι ιδιαίτερα χαμηλό και επίπεδο, ενώ ιδιαίτερη προσοχή δόθηκε και στη σχεδίαση της κεντρικής κονσόλας. Την ίδια στιγμή, η premium σχεδίαση που περιλαμβάνει έξι στο σύνολο παράθυρα έχει ως αποτέλεσμα τη δημιουργία μιας ευάερης και ιδιαίτερα φωτεινής καμπίνας, με επίκεντρο το «ευ ζην» όλων ανεξαιρέτως των επιβατών.</p>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +240,7 @@
                                 <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
                                     <div class="sticky-xxl-top mb-3">
                                         <h2 class="mb-3 pt-3">Δυναμική συμπεριφορά</h2>
-                                        <p>Παραμένοντας πιστό στην παράδοση, το νέο Civic είναι προικισμένο με όλα εκείνα τα στοιχεία που του εξασφαλίζουν συναρπαστικά επίπεδα οδηγικής απόδοσης, δυναμικής απόκρισης και πληροφόρησης σε όλα τα σενάρια οδήγησης. Από το πλαίσιο και στο σύστημα διεύθυνσης, έως την ανάρτηση, το νέο Civic «παραδίδει» όλα όσα υπόσχεται προσφέροντας στον οδηγό του μια μοναδική αίσθηση σύνδεσης με το αυτοκίνητο. Χάρη στη μειωμένη τριβή στη βάση στήριξης των αμορτισέρ και στους συνδέσμους της ανάρτησης, η υστέρηση απόκρισης στις εντολές του οδηγού έχει μειωθεί στο ελάχιστο, ενώ την ίδια στιγμή το μεγαλύτερο μεταξόνιο και πίσω μετατρόχιο έρχονται να διασφαλίσουν κορυφαία σταθερότητα στις στροφές.</p>
+                                        <p>Παραμένοντας πιστό στην παράδοση, το νέο Civic είναι προικισμένο με όλα εκείνα τα στοιχεία που του εξασφαλίζουν συναρπαστικά επίπεδα οδηγικής απόδοσης, δυναμικής απόκρισης και πληροφόρησης σε όλα τα σενάρια οδήγησης. Από το πλαίσιο και το σύστημα διεύθυνσης, έως την ανάρτηση, το νέο Civic «παραδίδει» όλα όσα υπόσχεται προσφέροντας στον οδηγό του μια μοναδική αίσθηση σύνδεσης με το αυτοκίνητο. Χάρη στη μειωμένη τριβή στη βάση στήριξης των αμορτισέρ και στους συνδέσμους της ανάρτησης, η υστέρηση απόκρισης στις εντολές του οδηγού έχει μειωθεί στο ελάχιστο, ενώ την ίδια στιγμή το μεγαλύτερο μεταξόνιο και πίσω μετατρόχιο έρχονται να διασφαλίσουν κορυφαία σταθερότητα στις στροφές.</p>
                                         <p>Ταυτόχρονα, ένα ελαφρύτερο και πιο άκαμπτο αλουμινένιο εμπρός υποπλαίσιο, σε συνδυασμό με τα νέα, μειωμένης εσωτερικής τριβής εμπρός αμορτισέρ, προσφέρουν αυξημένα επίπεδα ευελιξίας και οδηγικής απόλαυσης. Το δικό του ρόλο για τη δημιουργία ενός συνόλου με δυναμικά χαρακτηριστικά παίζουν τόσο η αυξημένη κατά 19% ακαμψία του αμαξώματος, όσο και η παρουσία ενός δεύτερου πλαισίου στο πίσω μέρος που δημιουργεί μια στιβαρή και «δεμένη» δομή. Επίσης, η μείωση του βάρους διατέλεσε πρωταγωνιστικό ρόλο κατά τη διαδικασία εξέλιξης του νέου Civic με στόχο ο οδηγός να απολαμβάνει την οδήγηση. Έτσι, το αλουμινένιο καπό είναι κατά 43% πιο ελαφρύ σε σχέση με το ατσάλινο του προηγούμενου Civic, ενώ ελαφρύτερη κατά 20% είναι και η πίσω πόρτα από ρητίνη. Η δυναμική συμπεριφορά που επιδεικνύει το νέο Civic αποτελεί αποτέλεσμα και του νέου αλγορίθμου ελέγχου ανάδρασης του ηλεκτρικά υποβοηθούμενου τιμονιού, που εξασφαλίζει βελτιωμένη επαναφορά στη θέση της ευθείας. Επίσης, νέα ρύθμιση που ανταποκρίνεται ακόμα πιο αποτελεσματικά στις απαιτήσεις των Ευρωπαίων οδηγών διαθέτει και το ηλεκτρονικό σύστημα ελέγχου ευστάθειας Agile Handling Assist (AHA) της Honda με το οποίο εξοπλίζεται το νέο Civic.</p>
                                     </div>
                                 </div>
@@ -236,7 +260,7 @@
                                     <div class="sticky-xxl-top mb-3">
                                         <h2 class="mb-3 pt-3">Honda SENSING</h2>
                                         <p>Με δεδομένη την παράδοση και την ευαισθησία της ιαπωνικής εταιρείας σε θέματα που σχετίζονται με την ασφάλεια, η σουίτα συστημάτων Honda SENSING χαρακτηρίζεται από πρόσθετα στοιχεία, ενώ πολλές από τις υπάρχουσες τεχνολογίες του φέρουν σημαντικές βελτιώσεις. Πιο συγκεκριμένα, στο νέο Civic το ντεμπούτο τους πραγματοποιούν αισθητήρες σόναρ (τέσσερις μπροστά και τέσσερις πίσω) που χρησιμοποιούν την ανάκλαση των ηχητικών κυμάτων για την ανίχνευση μη μεταλλικών αντικειμένων με πολύ μεγαλύτερη αξιοπιστία και ακρίβεια σε σχέση με το παρελθόν. Ένα ακόμα στοιχείο του «πακέτου» είναι η ευρυγώνια κάμερα με γωνία θέασης 100ο, η οποία επιτρέπει στο νέο Civic να αναγνωρίζει πιο αποτελεσματικά όχι μόνο τις διαγραμμίσεις και τα όρια δρόμου αλλά και τους δικυκλιστές.</p>
-                                        <p>Το προηγμένο σύστημα Forward Collision Warning System είναι σχεδιασμένο για να ανιχνεύει την παρουσία οχημάτων μπροστά από το αυτοκίνητο εκδίδοντας ηχητικές, οπτικές και απτικές προειδοποιήσεις για τον οδηγό εάν πλησιάζει με υπερβολική ταχύτητα. Σε περίπτωση μη έγκαιρης αντίδρασης, τα ηνία αναλαμβάνει το Collision Mitigation Braking System που εφαρμόζει αυτόματα ελαφρά πέδηση. Επίσης, το Cross Traffic Monitor επωφελείται επίσης από τους αναβαθμισμένους αισθητήρες ραντάρ, δίνοντας τη δυνατότητα στο νέο Civic να προειδοποιεί τον οδηγό πιο έγκαιρα για αυτοκίνητα που πλησιάζουν και από τις δύο κατευθύνσεις, όταν βγαίνει με όπισθεν από έναν χώρο στάθμευσης ή κάποιο δρομάκι. Την ίδια στιγμή και για πρώτη φορά, το νέο Civic εξοπλίζεται με το σύστημα υποβοήθησης Traffic Jam Assist που μειώνει το φόρτο εργασίας του οδηγού σε συνθήκες πυκνής κυκλοφορίας, ενώ το Lane Keeping Assist αναγνωρίζει την καμπυλότητα των στροφών για να βελτιστοποιήσει την υποβοήθηση τόσο στην είσοδο όσο και στην έξοδό τους. Ταυτόχρονα, το αναβαθμισμένο σύστημα Adaptive Cruise Control μπορεί να εντοπίζει οχήματα πολύ πιο γρήγορα και με μεγαλύτερη ακρίβεια από πριν, με το σύστημα Adaptive Driving Beam για πρώτη φορά σε Honda να αποτελεί εξέλιξη της τεχνολογίας αυτόματης μεγάλης σκάλας και μεταβλητής κατανομής φωτεινής δέσμης της Honda.</p>
+                                        <p>Το προηγμένο σύστημα Forward Collision Warning System είναι σχεδιασμένο για να ανιχνεύει την παρουσία οχημάτων μπροστά από το αυτοκίνητο εκδίδοντας ηχητικές, οπτικές και απτικές προειδοποιήσεις για τον οδηγό εάν πλησιάζει με υπερβολική ταχύτητα. Σε περίπτωση μη έγκαιρης αντίδρασης, τα ηνία αναλαμβάνει το Collision Mitigation Braking System που εφαρμόζει αυτόματα ελαφρά πέδηση. Επίσης, το Cross Traffic Monitor επωφελείται από τους αναβαθμισμένους αισθητήρες ραντάρ, δίνοντας τη δυνατότητα στο νέο Civic να προειδοποιεί τον οδηγό πιο έγκαιρα για αυτοκίνητα που πλησιάζουν και από τις δύο κατευθύνσεις, όταν βγαίνει με όπισθεν από έναν χώρο στάθμευσης ή κάποιο δρομάκι. Την ίδια στιγμή και για πρώτη φορά, το νέο Civic εξοπλίζεται με το σύστημα υποβοήθησης Traffic Jam Assist που μειώνει το φόρτο εργασίας του οδηγού σε συνθήκες πυκνής κυκλοφορίας, ενώ το Lane Keeping Assist αναγνωρίζει την καμπυλότητα των στροφών για να βελτιστοποιήσει την υποβοήθηση τόσο στην είσοδο όσο και στην έξοδό τους. Ταυτόχρονα, το αναβαθμισμένο σύστημα Adaptive Cruise Control μπορεί να εντοπίζει οχήματα πολύ πιο γρήγορα και με μεγαλύτερη ακρίβεια από πριν, με το σύστημα Adaptive Driving Beam για πρώτη φορά σε Honda να αποτελεί εξέλιξη της τεχνολογίας αυτόματης μεγάλης σκάλας και μεταβλητής κατανομής φωτεινής δέσμης της Honda.</p>
                                     </div>
                                 </div>
                             </div>
@@ -265,6 +289,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script>
             const video = document.querySelector('video');
+            const lastFadeInItem = document.querySelector('.fadeIn.last');
             const videoDuration = 6;
             let animationDelay = 0;
 
@@ -276,23 +301,24 @@
             }, 100);
 
             function startSequence() {
-                timer();
                 setTimeout(function() {
                     video.pause();
-                    timer();
                     addAnimations();
                 }, (videoDuration * 1000));
             }
 
             function addAnimations() {
-                document.querySelectorAll('.fadeIn').forEach(function(element) {
-                    element.classList.add('animate__animated', 'animate__fadeIn');
-                    element.style.animationDelay = animationDelay;
+                document.querySelectorAll('.fadeIn').forEach(function(fadeInItem) {
+                    fadeInItem.style.animationDelay = animationDelay;
+                    fadeInItem.classList.add('animate__animated', 'animate__fadeIn');
                     animationDelay++;
                 });
-                let element = document.querySelector('.fadeOutDown');
-                element.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__infinite');
-                element.style.animationDelay = animationDelay;
+                lastFadeInItem.addEventListener('animationend', function() {
+                    document.body.classList.remove('overflow-hidden');
+                });
+                const fadeOutDownItem = document.querySelector('.fadeOutDown');
+                fadeOutDownItem.style.animationDelay = animationDelay;
+                fadeOutDownItem.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__infinite');
             }
 
             function timer() {
