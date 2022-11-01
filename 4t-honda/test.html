@@ -1,0 +1,17 @@
+<script>
+    fetch('https://alpha-editions.github.io/commercial-implementations/4t-honda/index.html')
+        .then(function(response) {
+            return response.text()
+        })
+        .then(function(html) {
+            const parser = new DOMParser();
+            const html = parser.parseFromString(html, "text/html");
+            const head = html.head
+        })
+        .catch(function(err) {  
+            console.log('Failed to fetch page: ', err);  
+        });
+
+    let doc = new Document();
+    doc.append(html);
+</script>
