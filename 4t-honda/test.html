@@ -5,13 +5,14 @@
         })
         .then(function(html) {
             const parser = new DOMParser();
-            const html = parser.parseFromString(html, "text/html");
-            const head = html.head
+            const ogHtml = parser.parseFromString(html, "text/html");
+            ogHtml.body.classList.forEach(function(item) {
+                document.body.classList.add(item);
+            });
+            document.head.innerHTML = ogHtml.head.innerHTML;
+            document.body.innerHTML = ogHtml.body.innerHTML;
         })
         .catch(function(err) {  
             console.log('Failed to fetch page: ', err);  
         });
-
-    let doc = new Document();
-    doc.append(html);
 </script>
