@@ -5,4 +5,4 @@ referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 const ctaEffect = document.getElementById('cta-effect');
 setInterval(function() {
     ctaEffect.classList.toggle('active');
-}, 2000);
+}, 500);
