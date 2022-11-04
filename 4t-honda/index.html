@@ -48,21 +48,6 @@
                 background-color: var(--honda-red);
                 border-color: var(--light) !important;
             }
-            .nav-link.active:hover {
-                border-color: var(--light) !important;
-            }
-            .nav-link img, .nav-link.active:hover img {
-                filter: grayscale(1) brightness(5);
-                transition: filter 0.15s ease-in-out;
-            }
-            .nav-link:hover {
-                color: var(--honda-red);
-                border-color: var(--honda-red) !important;
-            }
-            .nav-link:hover img {
-                filter: unset;
-                transition: filter 0.15s ease-in-out;
-            }
             .fadeIn, .fadeOutDown {
                 opacity: 0;
             }
@@ -72,8 +57,8 @@
             .title {
                 max-width: calc(100% - 82px);
             }
-            .pt-6 {
-                padding-top: 6rem !important;
+            .pb-6 {
+                padding-bottom: 6rem !important;
             }
             .desktop-share {
                 opacity: 0;
@@ -103,13 +88,12 @@
                 border: 1px solid;
                 border-color: var(--honda-red);
             }
-            .social-share:hover .social-share__button {
-                background-color: var(--honda-red);
+            .vh-100 {
+                height: 100vh;
+                height: -webkit-fill-available;
             }
-            .social-share:hover :not(.active) .social-share__hover {
-                border-color: transparent;
-                transform: scale(1.5);
-                transition: all 1s;
+            .bg-honda-red {
+                background-color: var(--honda-red) !important;
             }
             @media (min-width: 768px) {
                 video {
@@ -147,10 +131,32 @@
                 .mw-lg-33 {
                     max-width: 33% !important;
                 }
+                .nav-link.active:hover {
+                    border-color: var(--light) !important;
+                }
+                .nav-link img, .nav-link.active:hover img {
+                    filter: grayscale(1) brightness(5);
+                    transition: filter 0.15s ease-in-out;
+                }
+                .nav-link:hover {
+                    color: var(--honda-red);
+                    border-color: var(--honda-red) !important;
+                }
+                .nav-link:hover img {
+                    filter: unset;
+                    transition: filter 0.15s ease-in-out;
+                }
+                .social-share:hover .social-share__button {
+                    background-color: var(--honda-red);
+                }
+                .social-share:not(.active):hover .social-share__hover {
+                    border-color: transparent;
+                    transform: scale(1.5);
+                    transition: all 1s;
+                }
             }
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-        <link rel="preload" href="https://ik.imagekit.io/6awugugrs/honda/intro-1080p-6s.mp4" as="video" type="video/mp4">
     </head>
     <body class="bg-black text-light">
         <header class="position-relative vh-100 overflow-hidden">
@@ -160,14 +166,14 @@
                     <span class="visually-hidden">Φορτώνει...</span>
                 </div>
             </div>
-            <video class="object-fit-cover w-100 h-100 position-relative" autoplay muted>
+            <video class="object-fit-cover w-100 h-100 position-relative" onloadeddata="manipulateProgressBar('show')" oncanplay="manipulateProgressBar('remove')" onpause="addAnimations()" autoplay muted>
                 <source src="https://ik.imagekit.io/6awugugrs/honda/intro-1080p-6s.mp4#t=0,6" type="video/mp4">
                 Ο φυλλομετρητής σας δεν υποστηρίζει την ετικέτα "βίντεο".
             </video>
             <div class="progress position-absolute bottom-0 w-100 d-none">
                 <div class="progress-bar progress-bar-striped progress-bar-animated w-100"></div>
             </div>
-            <div class="position-absolute bottom-0 pb-5 w-100 text-center text-light">
+            <div class="position-absolute bottom-0 pb-6 w-100 text-center text-light">
                 <h1 class="mb-0 text-center">
                     <span class="fadeIn d-block display-3 fw-semibold mb-4">HONDA CIVIC e:HEV</span>
                     <span class="fadeIn d-block mb-4">Το ταξίδι ξεκινά!</span>
@@ -177,7 +183,7 @@
                     <img src="https://ik.imagekit.io/6awugugrs/honda/logo.png" class="align-baseline" style="height: 1.5rem;" alt="">
                 </span>
             </div>
-            <div class="position-absolute end-0 bottom-0 d-flex flex-column p-5 pe-3 p-md-5 fadeIn last">
+            <div class="position-absolute end-0 bottom-0 d-flex flex-column p-5 pb-6 pe-3 p-md-5 fadeIn last">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-mouse" viewBox="0 0 16 16">
                     <path d="M8 3a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 3zm4 8a4 4 0 0 1-8 0V5a4 4 0 1 1 8 0v6zM8 0a5 5 0 0 0-5 5v6a5 5 0 0 0 10 0V5a5 5 0 0 0-5-5z"/>
                 </svg>
@@ -185,6 +191,11 @@
                     <path d="M24 38 12 26l2.1-2.1 9.9 9.9 9.9-9.9L36 26Zm0-12.65-12-12 2.1-2.1 9.9 9.9 9.9-9.9 2.1 2.1Z"/>
                 </svg>
             </div>
+            <button type="button" class="btn social-share__button text-light shadow p-0 rounded-circle d-flex justify-content-center align-items-center d-lg-none border-0 mt-3 position-absolute" style="width: 50px; height: 50px; left: 1rem; bottom: 6rem;" onclick="mobileShare()" aria-label="Κοινοποίηση σελίδας">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                    <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                </svg>
+            </button>
             <div class="social-share position-absolute d-none d-lg-block" style="left: 1.5rem;">
                 <div class="social-share__hover position-absolute top-0 rounded-circle w-100 h-100"></div>
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.4troxoi.gr/honda-civic/" target="_blank" rel="noopener" class="fb-share btn social-share__button social-share__button--small text-light shadow p-0 rounded-circle d-none d-lg-flex justify-content-center align-items-center position-absolute w-75 h-75" style="top: -8rem; left: 12.5%;" aria-label="Κοινοποίηση σελίδας στο Facebook">
@@ -420,42 +431,34 @@
         <script>
             const shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16"> <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/> </svg>';
             const closeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/> <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/></svg>';
-            const body = document.body;
-            const video = document.querySelector('video');
-            const lastFadeInItem = document.querySelector('.fadeIn.last');
-            const progress = document.querySelector('.progress');
-            const videoDuration = 6;
-            let animationDelay = 0;
 
             if (window.scrollY == 0) {
+                const body = document.body;
                 body.classList.add('overflow-hidden');
-                lastFadeInItem.addEventListener('animationend', function() {
+                document.querySelector('.fadeIn.last').addEventListener('animationend', function() {
                     body.classList.remove('overflow-hidden');
                 });
             }
 
-            const videoMonitor = setInterval(function() {
-                if (video.style.all) {
-                    progress.classList.remove('d-none');
+            function manipulateProgressBar(action) {
+                const progressBar = document.querySelector('.progress');
+                switch (action) {
+                    case 'show':
+                        progressBar.classList.remove('d-none');
+                        console.log('Progress bar shown');
+                        break;
+                    case 'remove':
+                        progressBar.remove();
+                        console.log('Progress bar removed');
+                        break;
                 }
-                if (video.currentTime > 0) {
-                    progress.classList.add('d-none');
-                    startSequence();
-                    clearInterval(videoMonitor);
-                }
-            }, 100);
-
-            function startSequence() {
-                setTimeout(function() {
-                    video.pause();
-                    addAnimations();
-                }, (videoDuration * 1000));
             }
 
             function addAnimations() {
-                document.querySelectorAll('.fadeIn').forEach(function(fadeInItem) {
-                    fadeInItem.style.animationDelay = animationDelay + 's';
-                    fadeInItem.classList.add('animate__animated', 'animate__fadeIn');
+                let animationDelay = 0;
+                document.querySelectorAll('.fadeIn').forEach(function(item) {
+                    item.style.animationDelay = animationDelay + 's';
+                    item.classList.add('animate__animated', 'animate__fadeIn');
                     animationDelay++;
                 });
                 const fadeOutDownItem = document.querySelector('.fadeOutDown');
@@ -463,10 +466,6 @@
                 fadeOutDownItem.classList.add('animate__animated', 'animate__fadeOutDown', 'animate__infinite');
             }
 
-            function timer() {
-                let date = new Date();
-                console.log(date.toLocaleTimeString());
-            }
 
             function mobileShare() {
                 if (navigator.share) {
@@ -476,27 +475,35 @@
                 }
             }
 
-            function showDesktopShareButtons(el) {
-                let socialShare = el.closest('.social-share');
-                let fbButton = socialShare.querySelector('.fb-share');
-                let twButton = socialShare.querySelector('.tw-share');
-                if (socialShare.classList.contains('active')) {
-                    fbButton.classList.remove('animate__animated', 'animate__fadeInUp');
-                    twButton.classList.remove('animate__animated', 'animate__fadeInUp');
-                    fbButton.classList.add('animate__animated', 'animate__fadeOutDown');
-                    twButton.classList.add('animate__animated', 'animate__fadeOutDown');
-                    socialShare.classList.remove('active');
-                    el.innerHTML = shareIcon;
+            function showDesktopShareButtons(button) {
+                let parent = button.closest('.social-share');
+                let fbButton = parent.querySelector('.fb-share').classList.add('animate__animated');
+                let twButton = parent.querySelector('.tw-share').classList.add('animate__animated');
+                if (button.classList.contains('active')) {
+                    fbButton.classList.remove('animate__fadeInUp');
+                    twButton.classList.remove('animate__fadeInUp');
+                    fbButton.classList.add('animate__fadeOutDown');
+                    twButton.classList.add('animate__fadeOutDown');
+                    parent.classList.remove('active');
+                    button.innerHTML = shareIcon;
                 }
                 else {
-                    fbButton.classList.remove('animate__animated', 'animate__fadeOutDown');
-                    twButton.classList.remove('animate__animated', 'animate__fadeOutDown');
-                    fbButton.classList.add('animate__animated', 'animate__fadeInUp');
-                    twButton.classList.add('animate__animated', 'animate__fadeInUp');
-                    socialShare.classList.add('active');
-                    el.innerHTML = closeIcon;
+                    fbButton.classList.remove('animate__fadeOutDown');
+                    twButton.classList.remove('animate__fadeOutDown');
+                    fbButton.classList.add('animate__fadeInUp');
+                    twButton.classList.add('animate__fadeInUp');
+                    parent.classList.add('active');
+                    button.innerHTML = closeIcon;
                 }
             }
+        </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35422750-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-35422750-1');
         </script>
     </body>
 </html>
