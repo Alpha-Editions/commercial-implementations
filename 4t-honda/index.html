@@ -166,7 +166,7 @@
                     <span class="visually-hidden">Φορτώνει...</span>
                 </div>
             </div>
-            <video class="object-fit-cover w-100 h-100 position-relative" onloadeddata="manipulateProgressBar('show')" oncanplay="manipulateProgressBar('remove')" onpause="addAnimations()" autoplay muted>
+            <video class="object-fit-cover w-100 h-100 position-relative" autoplay muted onplay="addAnimations()">
                 <source src="https://ik.imagekit.io/6awugugrs/honda/intro-1080p-6s.mp4#t=0,6" type="video/mp4">
                 Ο φυλλομετρητής σας δεν υποστηρίζει την ετικέτα "βίντεο".
             </video>
@@ -427,7 +427,6 @@
                 </div>
             </div>
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script>
             const shareIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16"> <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/> </svg>';
             const closeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/> <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/></svg>';
@@ -440,22 +439,40 @@
                 });
             }
 
-            function manipulateProgressBar(action) {
-                const progressBar = document.querySelector('.progress');
-                switch (action) {
-                    case 'show':
-                        progressBar.classList.remove('d-none');
-                        console.log('Progress bar shown');
-                        break;
-                    case 'remove':
-                        progressBar.remove();
-                        console.log('Progress bar removed');
-                        break;
-                }
-            }
+            // const video = document.querySelector('video');
+            // video.addEventListener('loadeddata', loadedDataFunction());
+            // video.play();
+
+            // function loadedDataFunction() {
+            //     manipulateProgressBar('show');
+            //     video.addEventListener('canplay', canPlayFunction());
+            // }
+
+            // function canPlayFunction() {
+            //     manipulateProgressBar('remove');
+            //     video.addEventListener('onplay', onPlayFunction());
+            // }
+
+            // function onPlayFunction() {
+            //     setTimeout (function() {
+            //         video.addEventListener('pause', addAnimations());
+            //     }, 6000);
+            // }
+
+            // function manipulateProgressBar(action) {
+            //     const progressBar = document.querySelector('.progress');
+            //     switch (action) {
+            //         case 'show':
+            //             progressBar.classList.remove('d-none');
+            //             break;
+            //         case 'remove':
+            //             progressBar.remove();
+            //             break;
+            //     }
+            // }
 
             function addAnimations() {
-                let animationDelay = 0;
+                let animationDelay = 6;
                 document.querySelectorAll('.fadeIn').forEach(function(item) {
                     item.style.animationDelay = animationDelay + 's';
                     item.classList.add('animate__animated', 'animate__fadeIn');
@@ -477,28 +494,26 @@
 
             function showDesktopShareButtons(button) {
                 let parent = button.closest('.social-share');
-                let fbButton = parent.querySelector('.fb-share').classList.add('animate__animated');
-                let twButton = parent.querySelector('.tw-share').classList.add('animate__animated');
+                let fbButton = parent.querySelector('.fb-share');
+                let twButton = parent.querySelector('.tw-share');
                 if (button.classList.contains('active')) {
-                    fbButton.classList.remove('animate__fadeInUp');
-                    twButton.classList.remove('animate__fadeInUp');
-                    fbButton.classList.add('animate__fadeOutDown');
-                    twButton.classList.add('animate__fadeOutDown');
+                    fbButton.classList.remove('animate__animated', 'animate__fadeInUp');
+                    twButton.classList.remove('animate__animated', 'animate__fadeInUp');
+                    fbButton.classList.add('animate__animated', 'animate__fadeOutDown');
+                    twButton.classList.add('animate__animated', 'animate__fadeOutDown');
                     parent.classList.remove('active');
                     button.innerHTML = shareIcon;
-                }
-                else {
-                    fbButton.classList.remove('animate__fadeOutDown');
-                    twButton.classList.remove('animate__fadeOutDown');
-                    fbButton.classList.add('animate__fadeInUp');
-                    twButton.classList.add('animate__fadeInUp');
+                } else {
+                    fbButton.classList.remove('animate__animated', 'animate__fadeOutDown');
+                    twButton.classList.remove('animate__animated', 'animate__fadeOutDown');
+                    fbButton.classList.add('animate__animated', 'animate__fadeInUp');
+                    twButton.classList.add('animate__animated', 'animate__fadeInUp');
                     parent.classList.add('active');
                     button.innerHTML = closeIcon;
                 }
             }
         </script>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35422750-1"></script>
+        <script id="google-analytics" async src="https://www.googletagmanager.com/gtag/js?id=UA-35422750-1"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
