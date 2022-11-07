@@ -23,28 +23,111 @@
         <title>[title]</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <style>
-
+            :root {
+                --nivea-blue: #0032a0;
+            }
+            .text-nivea-blue {
+                color: var(--nivea-blue) !important;
+            }
+            .bg-nivea-blue {
+                background-color: var(--nivea-blue) !important;
+            }
+            [class*="col-"] {
+                background-size: auto 100%;
+                background-repeat: no-repeat;
+            }
+            @media (min-width: 992px) {
+                [class*="col-"] {
+                    transition: all .5s;
+                }
+                button:hover svg {
+                    color: var(--nivea-blue);
+                }
+                .row:hover [class*="col-"]:hover {
+                    flex-grow: 2;
+                    background-position-x: center !important;
+                    transition: all .5s;
+                }
+            }
+            
         </style>
     </head>
-    <body class="position-relative">
+    <body>
         <header>
 
         </header>
         <main>
-            <section>
-                <h1>
-                    <span class="d-block">Clean Book</span>
-                    <span class="fw-normal fs-6 fst-italic">sponsored by </span>
-                    <img src="" alt="https://ik.imagekit.io/6awugugrs/nivea/">
+            <section class="text-center mb-5">
+                <h1 class="mb-5">
+                    <span class="d-block fw-bold">Clean Book</span>
+                    <span class="fw-normal fs-5 fst-italic">sponsored by </span>
+                    <img src="https://ik.imagekit.io/6awugugrs/nivea/nivea.png?tr=w-70" alt="">
                 </h1>
+                <span class="d-block h4 mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
             </section>
-            <section>
+            <section class="mb-5">
                 <div class="container">
-                    <video class="d-block" controls>
-                        <source src="https://ik.imagekit.io/6awugugrs/nivea/main-720p.mp4" type="video/mp4">
+                    <video class="d-block w-100 h-100" controls width="1280" height="720">
+                        <source src="https://ik.imagekit.io/6awugugrs/nivea/main-720.mp4" type="video/mp4">
                         Ο φυλλομετρητής σας δεν υποστηρίζει την ετικέτα "βίντεο".
                     </video>
                 </div>
             </section>
+            <section class="vh-100">
+                <div class="row h-100 g-0">
+                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/christina.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
+                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                                <h3>ΧΡΙΣΤΙΝΑ</h3>
+                                <span class="h4 d-block">My daily routine</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
+                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/evangelia.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
+                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                                <h3>ΕΥΑΓΓΕΛΙΑ</h3>
+                                <span class="h4 d-block">My daily routine</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
+                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                        </span>
+                    </div>
+                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/tina.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
+                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                                <h3>ΤΙΝΑ</h3>
+                                <span class="h4 d-block">My daily routine</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
+                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                        </p>
+                    </div>
+                </div>
+            </section>
         </main>
+        <script>
+            (function onResizeFunction() {
+                let positionX = window.innerHeight * 16 / 9 / 2 * (-1);
+                document.querySelectorAll('[class*="col-"]').forEach(function(col) {
+                    col.style.backgroundPositionX = positionX + 'px';
+                    col.querySelector('.placeholder-wave').remove();
+                });
+            })();
+            onresize = onResizeFunction();
+        </script>
     </body>
