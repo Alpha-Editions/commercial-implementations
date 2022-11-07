@@ -25,6 +25,7 @@
         <style>
             :root {
                 --nivea-blue: #0032a0;
+                --white-transparent: #ffffff88;
             }
             .text-nivea-blue {
                 color: var(--nivea-blue) !important;
@@ -32,34 +33,42 @@
             .bg-nivea-blue {
                 background-color: var(--nivea-blue) !important;
             }
+            .bg-white-transparent {
+                background-color: var(--white-transparent) !important;
+            }
+            .text-shadow {
+                text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            }
+            .disabled {
+                opacity: .3;
+            }
             [class*="col-"] {
-                background-size: auto 100%;
                 background-repeat: no-repeat;
             }
             @media (min-width: 992px) {
                 [class*="col-"] {
+                    background-color: #e5e5e5;
                     transition: all .5s;
                 }
-                button:hover svg {
+                button:not(.disabled):hover svg {
                     color: var(--nivea-blue);
                 }
-                .row:hover [class*="col-"]:hover {
+                .row:hover [class*="col-"]:not(.disabled):hover {
                     flex-grow: 2;
                     background-position-x: center !important;
                     transition: all .5s;
                 }
             }
-            
         </style>
     </head>
     <body>
-        <header>
-
+        <header class="mb-5 shadow text-center">
+            <img src="https://ik.imagekit.io/6awugugrs/nivea/faysbook.png" class="p-2" alt="">
         </header>
         <main>
             <section class="text-center mb-5">
                 <h1 class="mb-5">
-                    <span class="d-block fw-bold">Clean Book</span>
+                    <span class="d-block fw-bold text-shadow">Clean Book</span>
                     <span class="fw-normal fs-5 fst-italic">sponsored by </span>
                     <img src="https://ik.imagekit.io/6awugugrs/nivea/nivea.png?tr=w-70" alt="">
                 </h1>
@@ -77,7 +86,7 @@
                 <div class="row h-100 g-0">
                     <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/christina.jpg');">
                         <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
-                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
                                 <h3>ΧΡΙΣΤΙΝΑ</h3>
                                 <span class="h4 d-block">My daily routine</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
@@ -89,9 +98,9 @@
                             <span class="placeholder d-block h-100 bg-nivea-blue"></span>
                         </p>
                     </div>
-                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/evangelia.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
-                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                    <div class="col-12 col-lg h-100 position-relative disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/evangelia.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" disabled>
+                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
                                 <h3>ΕΥΑΓΓΕΛΙΑ</h3>
                                 <span class="h4 d-block">My daily routine</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
@@ -103,9 +112,9 @@
                             <span class="placeholder d-block h-100 bg-nivea-blue"></span>
                         </span>
                     </div>
-                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/tina.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
-                            <span class="d-block position-absolute bottom-0 end-0 text-center p-5">
+                    <div class="col-12 col-lg h-100 position-relative disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/tina.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" disabled>
+                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
                                 <h3>ΤΙΝΑ</h3>
                                 <span class="h4 d-block">My daily routine</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
@@ -122,12 +131,13 @@
         </main>
         <script>
             (function onResizeFunction() {
-                let positionX = window.innerHeight * 16 / 9 / 2 * (-1);
+                let colWidth = document.querySelector('[class*="col-"]').clientHeight;
                 document.querySelectorAll('[class*="col-"]').forEach(function(col) {
-                    col.style.backgroundPositionX = positionX + 'px';
+                    col.style.backgroundPositionX = colWidth * (-1) + 'px';
+                    col.style.backgroundSize = colWidth * 2 + 'px auto';
                     col.querySelector('.placeholder-wave').remove();
                 });
             })();
-            onresize = onResizeFunction();
+            // onresize = onResizeFunction();
         </script>
     </body>
