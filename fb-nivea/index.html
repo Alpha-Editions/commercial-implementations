@@ -5,39 +5,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Ανδρέας Κουρνούτας | Andreas Kournoutas">
         <meta name="robots" content="follow, index"/>
-        <meta name="description" content="[description]">
-        <meta name="keywords" content="[keywords]">
-        <meta property="og:title" content="[title]">
-        <meta property="og:description" content="[description]">
+        <meta name="description" content="Μάθε όλα τα μυστικά για καθαρή και λαμπερή επιδερμίδα.">
+        <meta name="keywords" content="NIVEA, καθαρισμός προσώπου, Micellar νερό, skincare, beauty tips, λαμπερή επιδερμίδα">
+        <meta property="og:title" content="Clean book: 3 editors μοιράζονται tips για τον καθαρισμό της επιδερμίδας">
+        <meta property="og:description" content="Μάθε όλα τα μυστικά για καθαρή και λαμπερή επιδερμίδα.">
         <!-- <meta property="og:image" content="https://ik.imagekit.io/6awugugrs/honda/0.jpg?tr=w-1200,h-630"> -->
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:url" content="[url]]">
         <meta property="og:site_name" content="Fay&#8217;s Book">
         <meta property="og:type" content="website">
-        <meta name="twitter:title" content="[title]">
-        <meta name="twitter:description" content="[description]">
+        <meta name="twitter:title" content="Clean book: 3 editors μοιράζονται tips για τον καθαρισμό της επιδερμίδας">
+        <meta name="twitter:description" content="Μάθε όλα τα μυστικά για καθαρή και λαμπερή επιδερμίδα.">
         <!-- <meta name="twitter:image" content="https://ik.imagekit.io/6awugugrs/honda/0.jpg?tr=w-1200,h-630"> -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image:alt" content="[title]">
-        <title>[title]</title>
+        <meta name="twitter:image:alt" content="Clean book: 3 editors μοιράζονται tips για τον καθαρισμό της επιδερμίδας">
+        <title>Clean book: 3 editors μοιράζονται tips για τον καθαρισμό της επιδερμίδας</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap&text=icomngs">
         <style>
             :root {
-                --nivea-blue: #0032a0;
-                --white-transparent: #ffffff88;
+                --bs-primary: #0032a0;
+                --bs-primary-rgb: rgb(0, 50, 160);
             }
-            .text-nivea-blue {
-                color: var(--nivea-blue) !important;
+            body {
+                font-family: "Roboto", sans-serif;
             }
-            .bg-nivea-blue {
-                background-color: var(--nivea-blue) !important;
+            .satisfy {
+                font-family: "Satisfy", cursive;
             }
-            .bg-white-transparent {
-                background-color: var(--white-transparent) !important;
+            /* .text-primary {
+                color: var(--bs-primary) !important;
+            }
+            .bg-primary {
+                background-color: var(--bs-primary) !important;
+            } */
+            .fill-primary {
+                fill: var(--bs-primary);
             }
             .text-shadow {
-                text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+                text-shadow: 0 0 0.2rem rgba(0, 0, 0, .5) !important;
             }
             .disabled {
                 opacity: .3;
@@ -45,91 +55,185 @@
             [class*="col-"] {
                 background-repeat: no-repeat;
             }
+            .vh-90 {
+                height: 90vh !important;
+            }
+            .title {
+                opacity: 0;
+            }
+            .title.active {
+                opacity: 1;
+                transition: opacity .5s;
+            }
+            .bubble.inactive {
+                opacity: 0;
+                transition: opacity .5s;
+            }
+            .canvas.inactive {
+                opacity: 0;
+                transition: opacity .5s;
+            }
             @media (min-width: 992px) {
                 [class*="col-"] {
                     background-color: #e5e5e5;
                     transition: all .5s;
                 }
                 button:not(.disabled):hover svg {
-                    color: var(--nivea-blue);
+                    fill: var(--bs-primary);
                 }
                 .row:hover [class*="col-"]:not(.disabled):hover {
                     flex-grow: 2;
                     background-position-x: center !important;
                     transition: all .5s;
                 }
+                .vh-lg-100 {
+                    height: 100vh !important;
+                }
+                .title {
+                    transform: scale(1.5);
+                }
+            }
+            @media (min-width: 1200px) {
+                h1, .h1 {
+                    font-size: 3.5rem;
+                }
             }
         </style>
+        <style>
+            .bubble,.canvas{position:absolute}.canvas{height:100vh;width:100%;background:linear-gradient(to bottom,#edfffa 0,#31c5d6 100%);overflow:hidden;top:0;left:0;}.bubble{display:block;border-radius:100%;opacity:.8}.bubble:first-child{background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:11px;height:11px;left:91vw;bottom:31vh;-webkit-animation:14s infinite move1;animation:14s infinite move1}@-webkit-keyframes move1{0%{bottom:-100px}100%{bottom:48vh;transform:translate(103px,0);opacity:0}}@keyframes move1{0%{bottom:-100px}100%{bottom:48vh;transform:translate(103px,0);opacity:0}}.bubble:nth-child(2){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:56px;height:56px;left:97vw;bottom:47vh;-webkit-animation:3s infinite move2;animation:3s infinite move2}@-webkit-keyframes move2{0%{bottom:-100px}100%{bottom:43vh;transform:translate(127px,0);opacity:0}}@keyframes move2{0%{bottom:-100px}100%{bottom:43vh;transform:translate(127px,0);opacity:0}}.bubble:nth-child(3){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:72px;height:72px;left:49vw;bottom:18vh;-webkit-animation:12s infinite move3;animation:12s infinite move3}@-webkit-keyframes move3{0%{bottom:-100px}100%{bottom:71vh;transform:translate(188px,0);opacity:0}}@keyframes move3{0%{bottom:-100px}100%{bottom:71vh;transform:translate(188px,0);opacity:0}}.bubble:nth-child(4){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:24px;height:24px;left:84vw;bottom:14vh;-webkit-animation:5s infinite move4;animation:5s infinite move4}@-webkit-keyframes move4{0%{bottom:-100px}100%{bottom:76vh;transform:translate(-88px,0);opacity:0}}@keyframes move4{0%{bottom:-100px}100%{bottom:76vh;transform:translate(-88px,0);opacity:0}}.bubble:nth-child(5){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:49px;height:49px;left:46vw;bottom:76vh;-webkit-animation:7s infinite move5;animation:7s infinite move5}@-webkit-keyframes move5{0%{bottom:-100px}100%{bottom:45vh;transform:translate(90px,0);opacity:0}}@keyframes move5{0%{bottom:-100px}100%{bottom:45vh;transform:translate(90px,0);opacity:0}}.bubble:nth-child(6){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:59px;height:59px;left:49vw;bottom:97vh;-webkit-animation:7s infinite move6;animation:7s infinite move6}@-webkit-keyframes move6{0%{bottom:-100px}100%{bottom:82vh;transform:translate(32px,0);opacity:0}}@keyframes move6{0%{bottom:-100px}100%{bottom:82vh;transform:translate(32px,0);opacity:0}}.bubble:nth-child(7){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:25px;height:25px;left:42vw;bottom:6vh;-webkit-animation:13s infinite move7;animation:13s infinite move7}@-webkit-keyframes move7{0%{bottom:-100px}100%{bottom:93vh;transform:translate(112px,0);opacity:0}}@keyframes move7{0%{bottom:-100px}100%{bottom:93vh;transform:translate(112px,0);opacity:0}}.bubble:nth-child(8){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:59px;height:59px;left:88vw;bottom:12vh;-webkit-animation:10s infinite move8;animation:10s infinite move8}@-webkit-keyframes move8{0%{bottom:-100px}100%{bottom:8vh;transform:translate(179px,0);opacity:0}}@keyframes move8{0%{bottom:-100px}100%{bottom:8vh;transform:translate(179px,0);opacity:0}}.bubble:nth-child(9){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:69px;height:69px;left:94vw;bottom:92vh;-webkit-animation:11s infinite move9;animation:11s infinite move9}@-webkit-keyframes move9{0%{bottom:-100px}100%{bottom:69vh;transform:translate(139px,0);opacity:0}}@keyframes move9{0%{bottom:-100px}100%{bottom:69vh;transform:translate(139px,0);opacity:0}}.bubble:nth-child(10){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:51px;height:51px;left:25vw;bottom:79vh;-webkit-animation:4s infinite move10;animation:4s infinite move10}@-webkit-keyframes move10{0%{bottom:-100px}100%{bottom:55vh;transform:translate(161px,0);opacity:0}}@keyframes move10{0%{bottom:-100px}100%{bottom:55vh;transform:translate(161px,0);opacity:0}}.bubble:nth-child(11){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:54px;height:54px;left:2vw;bottom:26vh;-webkit-animation:15s infinite move11;animation:15s infinite move11}@-webkit-keyframes move11{0%{bottom:-100px}100%{bottom:74vh;transform:translate(184px,0);opacity:0}}@keyframes move11{0%{bottom:-100px}100%{bottom:74vh;transform:translate(184px,0);opacity:0}}.bubble:nth-child(12){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:79px;height:79px;left:95vw;bottom:22vh;-webkit-animation:15s infinite move12;animation:15s infinite move12}@-webkit-keyframes move12{0%{bottom:-100px}100%{bottom:50vh;transform:translate(150px,0);opacity:0}}@keyframes move12{0%{bottom:-100px}100%{bottom:50vh;transform:translate(150px,0);opacity:0}}.bubble:nth-child(13){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:37px;height:37px;left:72vw;bottom:12vh;-webkit-animation:8s infinite move13;animation:8s infinite move13}@-webkit-keyframes move13{0%{bottom:-100px}100%{bottom:93vh;transform:translate(188px,0);opacity:0}}@keyframes move13{0%{bottom:-100px}100%{bottom:93vh;transform:translate(188px,0);opacity:0}}.bubble:nth-child(14){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:85px;height:85px;left:26vw;bottom:14vh;-webkit-animation:8s infinite move14;animation:8s infinite move14}@-webkit-keyframes move14{0%{bottom:-100px}100%{bottom:44vh;transform:translate(-24px,0);opacity:0}}@keyframes move14{0%{bottom:-100px}100%{bottom:44vh;transform:translate(-24px,0);opacity:0}}.bubble:nth-child(15){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:12px;height:12px;left:49vw;bottom:82vh;-webkit-animation:9s infinite move15;animation:9s infinite move15}@-webkit-keyframes move15{0%{bottom:-100px}100%{bottom:89vh;transform:translate(137px,0);opacity:0}}@keyframes move15{0%{bottom:-100px}100%{bottom:89vh;transform:translate(137px,0);opacity:0}}.bubble:nth-child(16){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:99px;height:99px;left:56vw;bottom:96vh;-webkit-animation:11s infinite move16;animation:11s infinite move16}@-webkit-keyframes move16{0%{bottom:-100px}100%{bottom:79vh;transform:translate(88px,0);opacity:0}}@keyframes move16{0%{bottom:-100px}100%{bottom:79vh;transform:translate(88px,0);opacity:0}}.bubble:nth-child(17){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:53px;height:53px;left:20vw;bottom:25vh;-webkit-animation:7s infinite move17;animation:7s infinite move17}@-webkit-keyframes move17{0%{bottom:-100px}100%{bottom:89vh;transform:translate(-74px,0);opacity:0}}@keyframes move17{0%{bottom:-100px}100%{bottom:89vh;transform:translate(-74px,0);opacity:0}}.bubble:nth-child(18){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:55px;height:55px;left:72vw;bottom:7vh;-webkit-animation:3s infinite move18;animation:3s infinite move18}@-webkit-keyframes move18{0%{bottom:-100px}100%{bottom:32vh;transform:translate(-50px,0);opacity:0}}@keyframes move18{0%{bottom:-100px}100%{bottom:32vh;transform:translate(-50px,0);opacity:0}}.bubble:nth-child(19){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:76px;height:76px;left:65vw;bottom:12vh;-webkit-animation:3s infinite move19;animation:3s infinite move19}@-webkit-keyframes move19{0%{bottom:-100px}100%{bottom:63vh;transform:translate(-31px,0);opacity:0}}@keyframes move19{0%{bottom:-100px}100%{bottom:63vh;transform:translate(-31px,0);opacity:0}}.bubble:nth-child(20){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:96px;height:96px;left:63vw;bottom:16vh;-webkit-animation:12s infinite move20;animation:12s infinite move20}@-webkit-keyframes move20{0%{bottom:-100px}100%{bottom:23vh;transform:translate(-91px,0);opacity:0}}@keyframes move20{0%{bottom:-100px}100%{bottom:23vh;transform:translate(-91px,0);opacity:0}}.bubble:nth-child(21){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:86px;height:86px;left:34vw;bottom:77vh;-webkit-animation:7s infinite move21;animation:7s infinite move21}@-webkit-keyframes move21{0%{bottom:-100px}100%{bottom:9vh;transform:translate(-40px,0);opacity:0}}@keyframes move21{0%{bottom:-100px}100%{bottom:9vh;transform:translate(-40px,0);opacity:0}}.bubble:nth-child(22){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:99px;height:99px;left:47vw;bottom:67vh;-webkit-animation:12s infinite move22;animation:12s infinite move22}@-webkit-keyframes move22{0%{bottom:-100px}100%{bottom:51vh;transform:translate(3px,0);opacity:0}}@keyframes move22{0%{bottom:-100px}100%{bottom:51vh;transform:translate(3px,0);opacity:0}}.bubble:nth-child(23){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:44px;height:44px;left:49vw;bottom:31vh;-webkit-animation:10s infinite move23;animation:10s infinite move23}@-webkit-keyframes move23{0%{bottom:-100px}100%{bottom:95vh;transform:translate(-35px,0);opacity:0}}@keyframes move23{0%{bottom:-100px}100%{bottom:95vh;transform:translate(-35px,0);opacity:0}}.bubble:nth-child(24){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:58px;height:58px;left:95vw;bottom:72vh;-webkit-animation:15s infinite move24;animation:15s infinite move24}@-webkit-keyframes move24{0%{bottom:-100px}100%{bottom:37vh;transform:translate(72px,0);opacity:0}}@keyframes move24{0%{bottom:-100px}100%{bottom:37vh;transform:translate(72px,0);opacity:0}}.bubble:nth-child(25){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:67px;height:67px;left:7vw;bottom:62vh;-webkit-animation:12s infinite move25;animation:12s infinite move25}@-webkit-keyframes move25{0%{bottom:-100px}100%{bottom:73vh;transform:translate(187px,0);opacity:0}}@keyframes move25{0%{bottom:-100px}100%{bottom:73vh;transform:translate(187px,0);opacity:0}}.bubble:nth-child(26){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:28px;height:28px;left:94vw;bottom:3vh;-webkit-animation:11s infinite move26;animation:11s infinite move26}@-webkit-keyframes move26{0%{bottom:-100px}100%{bottom:54vh;transform:translate(105px,0);opacity:0}}@keyframes move26{0%{bottom:-100px}100%{bottom:54vh;transform:translate(105px,0);opacity:0}}.bubble:nth-child(27){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:66px;height:66px;left:47vw;bottom:42vh;-webkit-animation:11s infinite move27;animation:11s infinite move27}@-webkit-keyframes move27{0%{bottom:-100px}100%{bottom:8vh;transform:translate(-92px,0);opacity:0}}@keyframes move27{0%{bottom:-100px}100%{bottom:8vh;transform:translate(-92px,0);opacity:0}}.bubble:nth-child(28){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:5px;height:5px;left:73vw;bottom:19vh;-webkit-animation:7s infinite move28;animation:7s infinite move28}@-webkit-keyframes move28{0%{bottom:-100px}100%{bottom:71vh;transform:translate(134px,0);opacity:0}}@keyframes move28{0%{bottom:-100px}100%{bottom:71vh;transform:translate(134px,0);opacity:0}}.bubble:nth-child(29){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:99px;height:99px;left:22vw;bottom:17vh;-webkit-animation:3s infinite move29;animation:3s infinite move29}@-webkit-keyframes move29{0%{bottom:-100px}100%{bottom:20vh;transform:translate(102px,0);opacity:0}}@keyframes move29{0%{bottom:-100px}100%{bottom:20vh;transform:translate(102px,0);opacity:0}}.bubble:nth-child(30){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:79px;height:79px;left:90vw;bottom:100vh;-webkit-animation:13s infinite move30;animation:13s infinite move30}@-webkit-keyframes move30{0%{bottom:-100px}100%{bottom:5vh;transform:translate(158px,0);opacity:0}}@keyframes move30{0%{bottom:-100px}100%{bottom:5vh;transform:translate(158px,0);opacity:0}}.bubble:nth-child(31){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:37px;height:37px;left:42vw;bottom:51vh;-webkit-animation:7s infinite move31;animation:7s infinite move31}@-webkit-keyframes move31{0%{bottom:-100px}100%{bottom:20vh;transform:translate(-48px,0);opacity:0}}@keyframes move31{0%{bottom:-100px}100%{bottom:20vh;transform:translate(-48px,0);opacity:0}}.bubble:nth-child(32){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:21px;height:21px;left:38vw;bottom:40vh;-webkit-animation:6s infinite move32;animation:6s infinite move32}@-webkit-keyframes move32{0%{bottom:-100px}100%{bottom:9vh;transform:translate(200px,0);opacity:0}}@keyframes move32{0%{bottom:-100px}100%{bottom:9vh;transform:translate(200px,0);opacity:0}}.bubble:nth-child(33){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:82px;height:82px;left:47vw;bottom:47vh;-webkit-animation:5s infinite move33;animation:5s infinite move33}@-webkit-keyframes move33{0%{bottom:-100px}100%{bottom:20vh;transform:translate(-61px,0);opacity:0}}@keyframes move33{0%{bottom:-100px}100%{bottom:20vh;transform:translate(-61px,0);opacity:0}}.bubble:nth-child(34){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:72px;height:72px;left:18vw;bottom:74vh;-webkit-animation:3s infinite move34;animation:3s infinite move34}@-webkit-keyframes move34{0%{bottom:-100px}100%{bottom:23vh;transform:translate(98px,0);opacity:0}}@keyframes move34{0%{bottom:-100px}100%{bottom:23vh;transform:translate(98px,0);opacity:0}}.bubble:nth-child(35){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:28px;height:28px;left:8vw;bottom:75vh;-webkit-animation:4s infinite move35;animation:4s infinite move35}@-webkit-keyframes move35{0%{bottom:-100px}100%{bottom:28vh;transform:translate(-63px,0);opacity:0}}@keyframes move35{0%{bottom:-100px}100%{bottom:28vh;transform:translate(-63px,0);opacity:0}}.bubble:nth-child(36){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:99px;height:99px;left:28vw;bottom:96vh;-webkit-animation:7s infinite move36;animation:7s infinite move36}@-webkit-keyframes move36{0%{bottom:-100px}100%{bottom:40vh;transform:translate(123px,0);opacity:0}}@keyframes move36{0%{bottom:-100px}100%{bottom:40vh;transform:translate(123px,0);opacity:0}}.bubble:nth-child(37){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:56px;height:56px;left:86vw;bottom:97vh;-webkit-animation:11s infinite move37;animation:11s infinite move37}@-webkit-keyframes move37{0%{bottom:-100px}100%{bottom:84vh;transform:translate(-85px,0);opacity:0}}@keyframes move37{0%{bottom:-100px}100%{bottom:84vh;transform:translate(-85px,0);opacity:0}}.bubble:nth-child(38){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:21px;height:21px;left:37vw;bottom:40vh;-webkit-animation:15s infinite move38;animation:15s infinite move38}@-webkit-keyframes move38{0%{bottom:-100px}100%{bottom:45vh;transform:translate(40px,0);opacity:0}}@keyframes move38{0%{bottom:-100px}100%{bottom:45vh;transform:translate(40px,0);opacity:0}}.bubble:nth-child(39){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:49px;height:49px;left:14vw;bottom:2vh;-webkit-animation:11s infinite move39;animation:11s infinite move39}@-webkit-keyframes move39{0%{bottom:-100px}100%{bottom:90vh;transform:translate(99px,0);opacity:0}}@keyframes move39{0%{bottom:-100px}100%{bottom:90vh;transform:translate(99px,0);opacity:0}}.bubble:nth-child(40){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:94px;height:94px;left:76vw;bottom:48vh;-webkit-animation:5s infinite move40;animation:5s infinite move40}@-webkit-keyframes move40{0%{bottom:-100px}100%{bottom:95vh;transform:translate(114px,0);opacity:0}}@keyframes move40{0%{bottom:-100px}100%{bottom:95vh;transform:translate(114px,0);opacity:0}}.bubble:nth-child(41){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:39px;height:39px;left:88vw;bottom:1vh;-webkit-animation:5s infinite move41;animation:5s infinite move41}@-webkit-keyframes move41{0%{bottom:-100px}100%{bottom:79vh;transform:translate(53px,0);opacity:0}}@keyframes move41{0%{bottom:-100px}100%{bottom:79vh;transform:translate(53px,0);opacity:0}}.bubble:nth-child(42){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:63px;height:63px;left:54vw;bottom:11vh;-webkit-animation:9s infinite move42;animation:9s infinite move42}@-webkit-keyframes move42{0%{bottom:-100px}100%{bottom:56vh;transform:translate(-2px,0);opacity:0}}@keyframes move42{0%{bottom:-100px}100%{bottom:56vh;transform:translate(-2px,0);opacity:0}}.bubble:nth-child(43){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:11px;height:11px;left:14vw;bottom:84vh;-webkit-animation:14s infinite move43;animation:14s infinite move43}@-webkit-keyframes move43{0%{bottom:-100px}100%{bottom:98vh;transform:translate(16px,0);opacity:0}}@keyframes move43{0%{bottom:-100px}100%{bottom:98vh;transform:translate(16px,0);opacity:0}}.bubble:nth-child(44){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:69px;height:69px;left:13vw;bottom:97vh;-webkit-animation:3s infinite move44;animation:3s infinite move44}@-webkit-keyframes move44{0%{bottom:-100px}100%{bottom:22vh;transform:translate(66px,0);opacity:0}}@keyframes move44{0%{bottom:-100px}100%{bottom:22vh;transform:translate(66px,0);opacity:0}}.bubble:nth-child(45){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:47px;height:47px;left:49vw;bottom:62vh;-webkit-animation:11s infinite move45;animation:11s infinite move45}@-webkit-keyframes move45{0%{bottom:-100px}100%{bottom:73vh;transform:translate(156px,0);opacity:0}}@keyframes move45{0%{bottom:-100px}100%{bottom:73vh;transform:translate(156px,0);opacity:0}}.bubble:nth-child(46){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:7px;height:7px;left:74vw;bottom:20vh;-webkit-animation:6s infinite move46;animation:6s infinite move46}@-webkit-keyframes move46{0%{bottom:-100px}100%{bottom:86vh;transform:translate(-53px,0);opacity:0}}@keyframes move46{0%{bottom:-100px}100%{bottom:86vh;transform:translate(-53px,0);opacity:0}}.bubble:nth-child(47){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:82px;height:82px;left:86vw;bottom:56vh;-webkit-animation:13s infinite move47;animation:13s infinite move47}@-webkit-keyframes move47{0%{bottom:-100px}100%{bottom:28vh;transform:translate(185px,0);opacity:0}}@keyframes move47{0%{bottom:-100px}100%{bottom:28vh;transform:translate(185px,0);opacity:0}}.bubble:nth-child(48){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:74px;height:74px;left:14vw;bottom:93vh;-webkit-animation:10s infinite move48;animation:10s infinite move48}@-webkit-keyframes move48{0%{bottom:-100px}100%{bottom:11vh;transform:translate(68px,0);opacity:0}}@keyframes move48{0%{bottom:-100px}100%{bottom:11vh;transform:translate(68px,0);opacity:0}}.bubble:nth-child(49){background:radial-gradient(ellipse at center,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:71px;height:71px;left:14vw;bottom:28vh;-webkit-animation:6s infinite move49;animation:6s infinite move49}@-webkit-keyframes move49{0%{bottom:-100px}100%{bottom:99vh;transform:translate(-65px,0);opacity:0}}@keyframes move49{0%{bottom:-100px}100%{bottom:99vh;transform:translate(-65px,0);opacity:0}}.bubble:nth-child(50){background:radial-gradient(ellipse at top right,#b8c6c6 0,#30b3d3 46%,#20628c 100%);width:41px;height:41px;left:59vw;bottom:4vh;-webkit-animation:13s infinite move50;animation:13s infinite move50}@-webkit-keyframes move50{0%{bottom:-100px}100%{bottom:74vh;transform:translate(197px,0);opacity:0}}@keyframes move50{0%{bottom:-100px}100%{bottom:74vh;transform:translate(197px,0);opacity:0}}
+        </style>
     </head>
-    <body>
-        <header class="mb-5 shadow text-center">
-            <img src="https://ik.imagekit.io/6awugugrs/nivea/faysbook.png" class="p-2" alt="">
+    <body onresize="onResizeFunction()">
+        <header class="mb-5 text-center border-bottom">
+            <img src="https://ik.imagekit.io/6awugugrs/nivea/faysbook.png" class="img-fluid" alt="Fay&#8217;s Book">
         </header>
         <main>
             <section class="text-center mb-5">
                 <h1 class="mb-5">
                     <span class="d-block fw-bold text-shadow">Clean Book</span>
-                    <span class="fw-normal fs-5 fst-italic">sponsored by </span>
-                    <img src="https://ik.imagekit.io/6awugugrs/nivea/nivea.png?tr=w-70" alt="">
+                    <span class="fw-normal fs-5 fst-italic align-middle">sponsored by </span>
+                    <img src="https://ik.imagekit.io/6awugugrs/nivea/nivea.png?tr=w-70" alt="" class="align-middle">
                 </h1>
-                <span class="d-block h4 mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+                <span class="d-block h4 mb-0">Μάθε όλα τα μυστικά για καθαρή και λαμπερή επιδερμίδα.</span>
             </section>
             <section class="mb-5">
                 <div class="container">
-                    <video class="d-block w-100 h-100" controls width="1280" height="720">
+                    <video id="main-video" class="d-block w-100 h-100" width="1280" height="720" controls muted>
                         <source src="https://ik.imagekit.io/6awugugrs/nivea/main-720.mp4" type="video/mp4">
                         Ο φυλλομετρητής σας δεν υποστηρίζει την ετικέτα "βίντεο".
                     </video>
                 </div>
             </section>
-            <section class="vh-100">
-                <div class="row h-100 g-0">
-                    <div class="col-12 col-lg h-100 position-relative" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/christina.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent">
-                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
-                                <h3>ΧΡΙΣΤΙΝΑ</h3>
-                                <span class="h4 d-block">My daily routine</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-                                </svg>
+            <section id="editor-buttons">
+                <div class="row g-0">
+                    <div class="col-12 col-lg h-100 position-relative vh-90 vh-lg-100" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/christina.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent shadow" data-bs-toggle="modal" data-bs-target="#christina-modal">
+                            <span class="d-flex position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
+                                <div class="me-3">
+                                    <h3 class="fw-bold">ΧΡΙΣΤΙΝΑ</h3>
+                                    <span class="typewriter h4 d-block mb-0">Η ρουτίνα μιας μαμάς</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                    </svg>
+                                </div>
                             </span>
                         </button>
                         <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
-                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                            <span class="placeholder d-block h-100 bg-primary"></span>
                         </p>
                     </div>
-                    <div class="col-12 col-lg h-100 position-relative disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/evangelia.jpg');">
+                    <div class="col-12 col-lg h-100 position-relative vh-90 vh-lg-100 disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/evangelia.jpg');">
                         <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" disabled>
-                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
-                                <h3>ΕΥΑΓΓΕΛΙΑ</h3>
-                                <span class="h4 d-block">My daily routine</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-                                </svg>
-                            </span>
+                            <!-- <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
+                                <div class="me-3">
+                                    <h3 class="fw-bold">ΕΥΑΓΓΕΛΙΑ</h3>
+                                    <span class="h4 d-block mb-0">Η ρουτίνα μιας μαμάς</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                    </svg>
+                                </div>
+                            </span> -->
                         </button>
+                        <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
+                            <div class="me-3">
+                                <h3 class="h1 mb-0 satisfy fw-bold">coming soon...</h3>
+                            </div>
+                        </span>
                         <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
-                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                            <span class="placeholder d-block h-100 bg-primary"></span>
                         </span>
                     </div>
-                    <div class="col-12 col-lg h-100 position-relative disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/tina.jpg');">
+                    <div class="col-12 col-lg h-100 position-relative vh-90 vh-lg-100 disabled" style="background-image: url('https://ik.imagekit.io/6awugugrs/nivea/tina.jpg');">
                         <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" disabled>
-                            <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white-transparent">
-                                <h3>ΤΙΝΑ</h3>
-                                <span class="h4 d-block">My daily routine</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-                                </svg>
-                            </span>
+                            <!-- <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
+                                <div class="me-3">
+                                    <h3 class="fw-bold">ΤΙΝΑ</h3>
+                                    <span class="h4 d-block mb-0">Η ρουτίνα μιας μαμάς</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                                    </svg>
+                                </div>
+                            </span> -->
                         </button>
+                        <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
+                            <div class="me-3">
+                                <h3 class="h1 mb-0 satisfy fw-bold">coming soon...</h3>
+                            </div>
+                        </span>
                         <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
-                            <span class="placeholder d-block h-100 bg-nivea-blue"></span>
+                            <span class="placeholder d-block h-100 bg-primary"></span>
                         </p>
                     </div>
                 </div>
             </section>
         </main>
+        <div class="modal fade" id="christina-modal" tabindex="-1" aria-labelledby="item-1-link" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-black position-relative">
+                    <video class="d-block mx-auto" controls autoplay muted>
+                        <source src="https://ik.imagekit.io/6awugugrs/nivea/christina-720.mp4" type="video/mp4">
+                        Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
+                    </video>
+                    <div class="text-center p-3">
+                        <a href="https://elle.gr/moda/afto-to-lefko-poukamiso-einai-all-time-class-chic-3-tropoi-na-to-foreseis-tora/" class="btn btn-primary text-light border-0 rounded-pill px-4">
+                            <small id="item-1-link">Fashion tips για το λευκό πουκάμισο</small>
+                        </a>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                </div>
+            </div>
+        </div>
+        <div class="canvas">
+            <div id="title" class="title h1 position-absolute top-50 start-50 translate-middle mb-0 text-center">
+                <span class="d-block fw-bold text-shadow">Clean Book</span>
+                <span class="fw-normal fs-5 fst-italic align-middle">sponsored by </span>
+                <img src="https://ik.imagekit.io/6awugugrs/nivea/nivea.png?tr=w-70" alt="" class="align-middle">
+            </div>
+            <div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div>
+        </div>
         <script>
+            setTimeout(function() {
+                document.querySelector('.title').classList.add('active');
+            }, 4000);
+            setTimeout(function() {
+                document.querySelectorAll('.bubble').forEach(function(bubble) {
+                    bubble.classList.add('inactive');
+                });
+            }, 6000);
+            setTimeout(function() {
+                document.querySelector('.canvas').classList.add('inactive');
+            }, 8000);
+            setTimeout(function() {
+                document.querySelector('#main-video').play();
+            }, 8500);
+
+
             (function onResizeFunction() {
                 let colWidth = document.querySelector('[class*="col-"]').clientHeight;
                 document.querySelectorAll('[class*="col-"]').forEach(function(col) {
