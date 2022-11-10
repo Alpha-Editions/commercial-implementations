@@ -226,6 +226,8 @@
             <div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div>
         </div>
         <script>
+            const canvas = document.querySelector('.canvas');
+
             setTimeout(function() {
                 document.querySelector('.title').classList.add('active');
             }, 4000);
@@ -235,10 +237,11 @@
                 });
             }, 6000);
             setTimeout(function() {
-                document.querySelector('.canvas').classList.add('inactive');
-                document.body.classList.remove('overflow-hidden');
+                canvas.classList.add('inactive');
             }, 7000);
             setTimeout(function() {
+                canvas.remove();
+                document.body.classList.remove('overflow-hidden');
                 document.querySelector('#main-video').play();
             }, 7500);
 
