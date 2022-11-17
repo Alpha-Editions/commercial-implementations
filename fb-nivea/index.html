@@ -35,10 +35,10 @@
             }
             /* .text-primary {
                 color: var(--bs-primary) !important;
-            }
+            } */
             .bg-primary {
                 background-color: var(--bs-primary) !important;
-            } */
+            }
             .fill-primary {
                 fill: var(--bs-primary);
             }
@@ -68,6 +68,9 @@
             .canvas.inactive {
                 opacity: 0;
                 transition: opacity .5s;
+            }
+            .modal-video {
+                height: calc(100% - 68px);
             }
             @media (min-width: 992px) {
                 [class*="col-"] {
@@ -129,10 +132,10 @@
             </section>
             <section id="editor-buttons">
                 <div class="row g-0">
-                    <div class="col-12 col-lg position-relative vh-90 vh-lg-100 disabled" style="background-image: url('https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" data-bs-toggle="modal" data-bs-target="#christina-modal" disabled>
-                            <!-- <span class="d-flex position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
-                                <div class="me-3">
+                    <div class="col-12 col-lg position-relative vh-90 vh-lg-100" style="background-image: url('https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent shadow" data-bs-toggle="modal" data-bs-target="#christina-modal" onclick="document.querySelector('#christina-modal').show">
+                            <span class="d-flex position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
+                                <div id="christina-button-literal" class="me-3">
                                     <h3 class="fw-bold">ΧΡΙΣΤΙΝΑ</h3>
                                     <span class="typewriter h4 d-block mb-0">Η ρουτίνα μιας μαμάς</span>
                                 </div>
@@ -141,13 +144,13 @@
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                                     </svg>
                                 </div>
-                            </span> -->
+                            </span>
                         </button>
-                        <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
+                        <!-- <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
                             <div class="me-3">
                                 <h3 class="h1 mb-0 satisfy fw-bold">coming soon...</h3>
                             </div>
-                        </span>
+                        </span> -->
                         <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
                             <span class="placeholder d-block h-100 bg-primary"></span>
                         </p>
@@ -201,22 +204,20 @@
                 </div>
             </section>
         </main>
-        <!-- <div class="modal fade" id="christina-modal" tabindex="-1" aria-labelledby="item-1-link" aria-hidden="true">
+        <div class="modal fade" id="christina-modal" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content bg-black position-relative">
-                    <video class="d-block mx-auto" controls autoplay muted>
-                        <source src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina-720.mp4" type="video/mp4">
+                    <video class="d-block mx-auto modal-video" controls autoplay muted>
+                        <source src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina-720-port.mp4" type="video/mp4">
                         Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
                     </video>
-                    <div class="text-center p-3">
-                        <a href="https://elle.gr/moda/afto-to-lefko-poukamiso-einai-all-time-class-chic-3-tropoi-na-to-foreseis-tora/" class="btn btn-primary text-light border-0 rounded-pill px-4">
-                            <small id="item-1-link">Fashion tips για το λευκό πουκάμισο</small>
-                        </a>
+                    <div class="text-center p-3 d-none">
+                        <a href="" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
                     </div>
                     <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="canvas">
             <div id="title" class="title h1 position-absolute top-50 start-50 translate-middle mb-0 text-center w-100">
                 <span class="d-block fw-bold text-shadow">Clean Book</span>
@@ -225,6 +226,7 @@
             </div>
             <div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div><div class='bubble'></div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
         <script>
             const canvas = document.querySelector('.canvas');
 
@@ -245,6 +247,8 @@
                 document.querySelector('#main-video').play();
             }, 7500);
 
+            new bootstrap.Modal(document.querySelector('#christina-modal'));
+
             (function onResizeFunction() {
                 let colWidth = document.querySelector('[class*="col-"]').clientHeight;
                 document.querySelectorAll('[class*="col-"]').forEach(function(col) {
@@ -263,3 +267,4 @@
             gtag('config', 'UA-36031373-1');
         </script>
     </body>
+</html>
