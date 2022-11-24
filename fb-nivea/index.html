@@ -133,7 +133,7 @@
             <section id="editor-buttons">
                 <div class="row g-0">
                     <div class="col-12 col-lg position-relative vh-90 vh-lg-100" style="background-image: url('https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent shadow" data-bs-toggle="modal" data-bs-target="#christina-modal" onclick="document.querySelector('#christina-modal').show">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#christina-modal" onclick="document.querySelector('#christina-modal').show">
                             <span class="d-flex position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
                                 <div id="christina-button-literal" class="me-3">
                                     <h3 class="fw-bold">ΧΡΙΣΤΙΝΑ</h3>
@@ -155,25 +155,25 @@
                             <span class="placeholder d-block h-100 bg-primary"></span>
                         </p>
                     </div>
-                    <div class="col-12 col-lg position-relative vh-90 vh-lg-100 disabled" style="background-image: url('https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/evangelia.jpg');">
-                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent disabled" disabled>
-                            <!-- <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
-                                <div class="me-3">
+                    <div class="col-12 col-lg position-relative vh-90 vh-lg-100" style="background-image: url('https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/evangelia.jpg');">
+                        <button type="button" class="d-block w-100 h-100 position-relative bg-white border-0 rounded-0 p-0 bg-transparent shadow" data-bs-toggle="modal" data-bs-target="#evangelia-modal" onclick="document.querySelector('#evangelia-modal').show">
+                            <span class="d-flex position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white bg-opacity-50">
+                                <div id="evangelia-button-literal" class="me-3">
                                     <h3 class="fw-bold">ΕΥΑΓΓΕΛΙΑ</h3>
-                                    <span class="h4 d-block mb-0">Η ρουτίνα μιας μαμάς</span>
+                                    <span class="h4 d-block mb-0">Ένα always on-the-go girl</span>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
                                     </svg>
                                 </div>
-                            </span> -->
+                            </span>
                         </button>
-                        <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
+                        <!-- <span class="d-block position-absolute bottom-0 end-0 text-center px-5 py-4 bg-white">
                             <div class="me-3">
                                 <h3 class="h1 mb-0 satisfy fw-bold">coming soon...</h3>
                             </div>
-                        </span>
+                        </span> -->
                         <span class="d-block w-100 h-100 placeholder-wave position-absolute top-0">
                             <span class="placeholder d-block h-100 bg-primary"></span>
                         </span>
@@ -213,6 +213,20 @@
                     </video>
                     <div class="text-center p-3">
                         <a href="https://www.faysbook.gr/omorfia/i-routina-peripiisis-tis-epidermidas-mou-me-ton-katharismo-tis-se-proto-plano-shareyourroutine/" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="evangelia-modal" tabindex="-1" aria-labelledby="evangelia-button-literal" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-black position-relative">
+                    <video class="d-block mx-auto modal-video" controls autoplay muted>
+                        <source src="https://www.thenotebook.gr/wp-content/uploads/shared/evangelia-720-port.mp4" type="video/mp4">
+                        Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
+                    </video>
+                    <div class="text-center p-3">
+                        <a href="https://www.faysbook.gr/omorfia/enidatosi-katharismos-ke-lampsi-ta-vasika-charaktiristika-tis-skincare-routine-mou/" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
                     </div>
                     <button type="button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
                 </div>
