@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>THE SPOT IT CHALLENGE - powered by NIVEA</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <style>
+            :root {
+                --transition-time-half: .5s;
+                --transition-time-full: 2s;
+            }
+            .hexagon {
+                fill: #9c7d3b;
+                opacity: 0;
+            }
+            .expandFadeIn {
+                animation-name: expandFadeIn;
+                animation-duration: var(--transition-time-full);
+            }
+            .expandFadeInOut {
+                animation-name: expandFadeInOut;
+                animation-duration: var(--transition-time-full);
+            }
+            /* .hexagon--expand {
+                scale: (1);
+                transition: transform 1s;
+            }
+            .hexagon--fadeIn {
+                opacity: 1;
+                transition: opacity 1s;
+            }
+            .expFull-fadeIn {
+                scale: 100%;
+                opacity: 1;
+                transition-property: all;
+                transition-duration: var(--transition-time-full);
+            }
+            .expHalf-fadeIn {
+                scale: 50%;
+                opacity: 1;
+                transition-property: all;
+                transition-duration: var(--transition-time-half);
+            }
+            .expFull-fadeOut {
+                scale: 100%;
+                opacity: 0;
+                transition-property: all;
+                transition-duration: var(--transition-time-half);
+                transition-delay: var(--transition-time-half);
+            } */
+            @keyframes expandFadeIn {
+                from {
+                    scale: 0;
+                    opacity: 0;
+                }
+                to {
+                    scale: 100%;
+                    opacity: 1;
+                }
+            }
+            @keyframes expandFadeInOut {
+                from {
+                    scale: 0;
+                    opacity: 0;
+                }
+                50% {
+                    /* scale: 50%; */
+                    opacity: 1;
+                }
+                to {
+                    scale: 100%;
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="text-center">
+            <div class="border-bottom mb-3">
+                <a href="https://www.faysbook.gr/" rel="noopener">
+                    <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/faysbook.png" class="img-fluid" alt="Fay’s Book">
+                </a>
+            </div>
+            <h1 class="mb-3">
+                <span class="d-block mb-2">THE SPOT IT CHALLENGE</span>
+                <span class="fw-normal fs-4">powered by </span>
+                <a href="https://www.nivea.gr/" target="_blank" rel="noopener">
+                    <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" alt="Nivea" class="align-middle" style="width: 70px;">
+                </a>
+            </h1>
+        </header>
+        <main>
+            <div class="position-relative" style="height: calc(100vh - 201px);">
+                <div id="effect1-container" class="h-100 position-absolute t-0 w-100"></div>
+                <div class="container h-100 position-relative">
+                    <div id="effect2-container" class="row g-0 h-100"></div>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script>
+            const effect1Container = document.querySelector('#effect1-container');
+            const e1cxmax = effect1Container.clientWidth, e1cymax = effect1Container.clientHeight;
+
+            function createHexagon() {
+                let shape = document.createElement('div');
+                shape.style.left = Math.floor(Math.random() * e1cxmax) + 'px';
+                shape.style.top = Math.floor(Math.random() * e1cymax) + 'px';
+                shape.style.width = (e1cymax - 17) / 3 + 'px';
+                shape.classList.add('hexagon', 'position-absolute', 'text-center');
+                shape.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
+                return shape;
+            }
+
+            function animateHexagon(persistent) {
+                let shape = createHexagon();
+                if (persistent == true) {
+                    shape.classList.add('expandFadeIn');
+                }
+                else {
+                    shape.classList.add('expandFadeInOut');
+                }
+                return shape;
+            }
+
+            let effectIsActive = true;
+
+            if (effectIsActive) {
+                effect1Container.appendChild(animateHexagon(false));
+            }
+            let effect1Interval = setInterval(function() {
+                if (effectIsActive) {
+                    effect1Container.appendChild(animateHexagon(false));
+                }
+                else {
+                    // clearEffect1();
+                    clearInterval(effect1Interval);
+                }
+            }, 175);
+
+            // function setShapeCoordinates(element, x, y) {
+            //     element.style.top = x + 'px';
+            //     element.style.left = y + 'px';
+            // }
+
+            // function clearEffect1() {
+            //     clearInterval(effect1Interval);
+            //     effect1Interval == null;
+            // }
+        </script>
+    </body>
+</html>
