@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>THE SPOT IT CHALLENGE - powered by NIVEA</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <style>
             :root {
-                --transition-time-half: .5s;
-                --transition-time-full: 2s;
+                --swarm-animation-duration: 2s;
             }
             .hexagon {
                 fill: #9c7d3b;
@@ -16,11 +16,30 @@
             }
             .expandFadeIn {
                 animation-name: expandFadeIn;
-                animation-duration: var(--transition-time-full);
+                animation-duration: var(--swarm-animation-duration);
             }
             .expandFadeInOut {
                 animation-name: expandFadeInOut;
-                animation-duration: var(--transition-time-full);
+                animation-duration: var(--swarm-animation-duration);
+            }
+            .expandFadeInOutHalf {
+                animation-name: expandFadeInOutHalf;
+                animation-duration: var(--swarm-animation-duration);
+            }
+            .w-0 {
+                width: 0;
+                transition: width 3s;
+                height: 1px;
+            }
+            .w-0.expandWidth {
+                /* animation-name: expandWidth;
+                animation-duration: 3s; */
+                width: 100%;
+                transition: width 3s;
+            }
+            .contract {
+                animation-name: contract;
+                animation-duration: var(--swarm-animation-duration);
             }
             /* .hexagon--expand {
                 scale: (1);
@@ -34,7 +53,7 @@
                 scale: 100%;
                 opacity: 1;
                 transition-property: all;
-                transition-duration: var(--transition-time-full);
+                transition-duration: var(--transition-duration);
             }
             .expHalf-fadeIn {
                 scale: 50%;
@@ -65,7 +84,6 @@
                     opacity: 0;
                 }
                 50% {
-                    /* scale: 50%; */
                     opacity: 1;
                 }
                 to {
@@ -73,80 +91,297 @@
                     opacity: 0;
                 }
             }
+            @keyframes contract {
+                from {
+                    scale: 100%;
+                }
+                to {
+                    scale: 0;
+                }
+            }
+            @keyframes expandWidth {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+            @keyframes zoomIn {
+                from {
+                    opacity: 0;
+                    transform: scale3d(0, 0, 0);
+                }
+
+                50% {
+                    opacity: 1;
+                    fill: #9c7d3b;
+                }
+
+                to {
+                    fill: #000000;
+                }
+            }
+            @keyframes zoomOut {
+                from {
+                    opacity: 1;
+                    fill: #000000;
+                }
+
+                50% {
+                    opacity: 0;
+                    transform: scale3d(0, 0, 0);
+                    fill: #9c7d3b;
+                }
+
+                to {
+                    opacity: 0;
+                    /* fill: #9c7d3b; */
+                }
+            }
+            @keyframes expandFadeInOutHalf {
+                from {
+                    scale: 0;
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                to {
+                    scale: 1;
+                    opacity: .5;
+                }
+            }
         </style>
     </head>
-    <body>
+    <body class="position-relative overflow-hidden">
         <header class="text-center">
             <div class="border-bottom mb-3">
                 <a href="https://www.faysbook.gr/" rel="noopener">
                     <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/faysbook.png" class="img-fluid" alt="Fay’s Book">
                 </a>
             </div>
-            <h1 class="mb-3">
-                <span class="d-block mb-2">THE SPOT IT CHALLENGE</span>
+            <h1 class="pb-3">
+                <span class="d-block pb-2">THE SPOT IT CHALLENGE</span>
                 <span class="fw-normal fs-4">powered by </span>
-                <a href="https://www.nivea.gr/" target="_blank" rel="noopener">
+                <a href="https://www.nivea.gr/" class="text-decoration-underline" target="_blank" rel="noopener">
                     <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" alt="Nivea" class="align-middle" style="width: 70px;">
                 </a>
             </h1>
         </header>
         <main>
-            <div class="position-relative" style="height: calc(100vh - 201px);">
-                <div id="effect1-container" class="h-100 position-absolute t-0 w-100"></div>
-                <div class="container h-100 position-relative">
-                    <div id="effect2-container" class="row g-0 h-100"></div>
+            <p id="introtext" class="mx-auto mb-0 pb-3 text-center" style="max-width: 700px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quae aperiam dicta rerum itaque aspernatur accusantium, quam ipsam veniam saepe explicabo natus dolores culpa at numquam voluptatum perferendis, ipsa dignissimos.</p>
+            <section id="effects-wrapper" class="position-relative">
+                <div id="swarm-container" class="h-100 position-absolute t-0 w-100"></div>
+                <div id="pattern-container" class="container h-100 position-relative"></div>
+            </section>
+            <section class="vh-100">
+
+            </section>
+        </main>
+        <div id="intro-outro-layer" class="w-100 vh-100 position-absolute top-0 start-0 overflow-hidden d-flex align-items-center bg-white">
+            <div class="text-center w-100">
+                <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/faysbook.png" class="img-fluid d-inline-block animate__animated animate__fadeIn" alt="Fay’s Book">
+                <div class="border-bottom border-dark border-2 mb-3 mx-auto animate__animated animate__zoomIn animate__slower"></div>
+                <div class="h1 mb-0">
+                    <span class="d-block pb-2 animate__animated animate__fadeInUp animate__delay-1s">THE SPOT IT CHALLENGE</span>
+                    <span id="intro-final-animation" class="d-block animate__animated animate__fadeInUp" style="animation-delay: 1.5s">
+                        <span class="fw-normal fs-4">powered by </span>
+                        <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" alt="Nivea" class="align-middle" style="width: 70px;">
+                    </span>
                 </div>
             </div>
-        </main>
+        </div>
+        <div class="modal" id="intro-video-modal" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-transparent position-relative">
+                    <video id="intro-video" class="d-block mx-auto modal-video vh-100" controls>
+                        <source src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina-720-port.mp4" type="video/mp4">
+                        Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
+                    </video>
+                    <!-- <div class="text-center p-3">
+                        <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
+                    </div> -->
+                    <button type="button" id="intro-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <script>
-            const effect1Container = document.querySelector('#effect1-container');
-            const e1cxmax = effect1Container.clientWidth, e1cymax = effect1Container.clientHeight;
+            const hexagonSvg = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
+            const effectsWrapper = document.querySelector('#effects-wrapper');
+            const swarmContainer = document.querySelector('#swarm-container');
+            const patternContainer = document.querySelector('#pattern-container');
+            const introVideoModal = new bootstrap.Modal(document.querySelector('#intro-video-modal'));
+            // let effectsWrapperHeight = 'calc(100vh - ' + document.querySelector('header').offsetHeight + 'px' + ' - ' + document.getElementById('introtext').offsetHeight + 'px)';
+            let effectsWrapperHeight =  window.innerHeight - document.querySelector('header').offsetHeight - document.getElementById('introtext').offsetHeight;
+            effectsWrapper.style.height = effectsWrapperHeight + 'px';
+            let swarmIsActive;
 
-            function createHexagon() {
-                let shape = document.createElement('div');
-                shape.style.left = Math.floor(Math.random() * e1cxmax) + 'px';
-                shape.style.top = Math.floor(Math.random() * e1cymax) + 'px';
-                shape.style.width = (e1cymax - 17) / 3 + 'px';
-                shape.classList.add('hexagon', 'position-absolute', 'text-center');
-                shape.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
-                return shape;
+            function calculateBootstrapTier(literal) {
+                let documentWidth = document.body.clientHeight;
+                if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-sm')) {
+                    return literal == true ? 'xs' : '0';
+                }
+                else if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-md')) {
+                    return literal == true ? 'sm' : '1';
+                }
+                else if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-lg')) {
+                    return literal == true ? 'md' : '2';
+                }
+                else if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-xl')) {
+                    return literal == true ? 'lg' : '3';
+                }
+                else if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-xxl')) {
+                    return literal == true ? 'xl' : '4';
+                }
+                else {
+                    return literal == true ? 'xxl' : '5';
+                }
             }
+
+            let mobile = function determineDeviceType() {
+                if ((+calculateBootstrapTier(false)) <= 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            function appendSwarmItems() {
+                if (swarmIsActive) {
+                    swarmContainer.appendChild(animateHexagon(false));
+                }
+                let swarmInterval = setInterval(function() {
+                    if (swarmIsActive) {
+                        swarmContainer.appendChild(animateHexagon(false));
+                    }
+                    else {
+                        clearInterval(swarmInterval);
+                    }
+                }, 175);
+            };
 
             function animateHexagon(persistent) {
-                let shape = createHexagon();
+                let hexagon = createHexagon(persistent);
                 if (persistent == true) {
-                    shape.classList.add('expandFadeIn');
+                    hexagon.classList.add('expandFadeIn');
                 }
                 else {
-                    shape.classList.add('expandFadeInOut');
+                    hexagon.classList.add('expandFadeInOut');
                 }
-                return shape;
+                return hexagon;
             }
 
-            let effectIsActive = true;
-
-            if (effectIsActive) {
-                effect1Container.appendChild(animateHexagon(false));
+            let hexagonSideSize = function calculateHexagonSideSize() {
+                 
             }
-            let effect1Interval = setInterval(function() {
-                if (effectIsActive) {
-                    effect1Container.appendChild(animateHexagon(false));
+
+            function configureIntroHexagon() {
+                let hexagon = document.createElement('div');
+                hexagon.style.width = '120%';
+                hexagon.style.marginTop = '-60%';
+                hexagon.style.marginLeft = '-60%';
+                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
+                hexagon.classList.add('position-absolute', 'start-50', 'top-50', 'hexagon', 'text-center', 'opacity-100', 'animate__animated', 'animate__zoomIn', 'animate__slow', 'animate__delay-1s');
+                // hexagon.style.animationDelay = '2s';
+                setTimeout(function() {
+                    introVideoModal.show();
+                    document.querySelector('#intro-outro-layer').classList.remove('bg-white');
+                    document.querySelector('#intro-outro-layer > div.text-center.w-100').remove();
+                }, 3000);
+                document.querySelector('#intro-outro-layer').appendChild(hexagon);
+                document.querySelector('#intro-video').addEventListener("ended", function() {document.querySelector('#intro-close-button').click()});
+                // document.querySelector('#intro-close-button').addEventListener('click', function() {introVideoModal.hide()});
+                // introVideoModal.addEventListener('hide.bs.modal', function() {
+                document.querySelector('#intro-close-button').addEventListener('click', function() {
+                    hexagon.classList.remove('animate__zoomIn', 'animate__delay-1s');
+                    hexagon.classList.add('animate__zoomOut', 'animate__slower', 'opacity-100');
+                    document.body.classList.remove('overflow-hidden');
+                    swarmIsActive = true;
+                    appendSwarmItems();
+                    // setTimeout(function() {
+                    //     swarmIsActive = true;
+                    // }, 1000);
+                    setTimeout(function() {
+                        document.querySelector('#intro-outro-layer').remove();
+                    }, 1500);
+                    setTimeout(function() {
+                        swarmIsActive = false;
+                        createPatternGrid();
+                    }, 2000);
+                });
+            }
+
+            function createHexagon(persistent) {
+                let hexagon = document.createElement('div');
+                if (persistent == false) {
+                    hexagon.style.left = Math.floor(Math.random() * (document.body.clientWidth - 250)) + 'px';
+                    hexagon.style.top = Math.floor(Math.random() * (effectsWrapperHeight - 200)) + 'px';
                 }
                 else {
-                    // clearEffect1();
-                    clearInterval(effect1Interval);
+                    
                 }
-            }, 175);
+                hexagon.style.width = effectsWrapperHeight / 3 + 'px';
+                hexagon.classList.add('hexagon', 'position-absolute', 'text-center');
+                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
+                return hexagon;
+            }
 
-            // function setShapeCoordinates(element, x, y) {
+            document.querySelector('#intro-final-animation').addEventListener('animationend', function() {
+                configureIntroHexagon();
+            });
+
+            function createPatternGrid() {
+                let shapesPerRow = Math.floor(patternContainer.clientWidth / (effectsWrapperHeight / 3));
+                let k = 0, jcounter;
+                for (let i = 0; i < 4; i++) {
+                    let row = document.createElement('div');
+                    row.classList.add('row', 'g-0', 'justify-content-center', 'h-25');
+                    if (i % 2 == 0) {
+                        jcounter = shapesPerRow;
+                    }
+                    else {
+                        jcounter = shapesPerRow - 1;
+                    }
+                    for (let j = 0; j < jcounter; j++) {
+                        let col = document.createElement('div');
+                        col.classList.add('col-auto', 'col-' + i + '-' + j, 'text-center');
+                        col.style.width = 100 / shapesPerRow + '%';
+                        // col.style.height = col.clientWidth + 'px';
+                        col.appendChild(createHexagon(true));
+                        col.querySelector('.hexagon').classList.remove('position-absolute');
+                        col.querySelector('.hexagon').id = 'pattern-item-' + k;
+                        row.appendChild(col);
+                        k++;
+                    }
+                    patternContainer.appendChild(row);
+                }
+                pickPatternItems(Math.floor((k + 1) / 2), k);
+            }
+
+            function pickPatternItems(numberOfItems, upperLimit) {
+                let arr = [];
+                while (arr.length < numberOfItems) {
+                    let r = Math.floor(Math.random() * upperLimit);
+                    if (arr.indexOf(r) === -1) arr.push(r);
+                }
+                arr.forEach(function(value, index) {
+                    document.getElementById('pattern-item-' + value).classList.add('expandFadeInOutHalf');
+                    document.getElementById('pattern-item-' + value).style.animationDelay = 175 * (index + 1) + 'ms';
+                    document.getElementById('pattern-item-' + value).addEventListener('animationend', function() {this.classList.add('opacity-50')});
+                });
+            }
+
+            // function sethexagonCoordinates(element, x, y) {
             //     element.style.top = x + 'px';
             //     element.style.left = y + 'px';
             // }
 
             // function clearEffect1() {
-            //     clearInterval(effect1Interval);
-            //     effect1Interval == null;
+            //     clearInterval(swarmInterval);
+            //     swarmInterval == null;
             // }
         </script>
     </body>
