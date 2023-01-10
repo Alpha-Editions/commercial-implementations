@@ -14,6 +14,19 @@
                 fill: #9c7d3b;
                 opacity: 0;
             }
+            .rounded-circle {
+                font-size: 4rem;
+                font-weight: bold;
+                background-color: white !important;
+                color: #9c7d3b !important;
+                line-height: 1;
+                padding: .8rem 2rem 1.2rem 2rem;
+                border-color: #9c7d3b !important;
+                opacity: 0;
+            }
+            .rounded-circle:hover {
+
+            }
             .expandFadeIn {
                 animation-name: expandFadeIn;
                 animation-duration: var(--swarm-animation-duration);
@@ -39,6 +52,10 @@
             }
             .contract {
                 animation-name: contract;
+                animation-duration: var(--swarm-animation-duration);
+            }
+            .rotate {
+                animation-name: rotate;
                 animation-duration: var(--swarm-animation-duration);
             }
             /* .hexagon--expand {
@@ -149,7 +166,15 @@
                 }
                 to {
                     scale: 1;
-                    opacity: .5;
+                    opacity: .3;
+                }
+            }
+            @keyframes rotate {
+                from {
+                    transform: rotate(0);
+                }
+                to {
+                    transform: rotate(180deg);
                 }
             }
         </style>
@@ -174,9 +199,52 @@
             <section id="effects-wrapper" class="position-relative">
                 <div id="swarm-container" class="h-100 position-absolute t-0 w-100"></div>
                 <div id="pattern-container" class="container h-100 position-relative"></div>
+                <div id="video-links" class="container h-100 position-relative">
+                    <div class="row g-0">
+                        <div class="col-3 text-center">
+                            <button type="button" class="btn video-link d-inline-block text-center w-75" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
+                                <h2 class="text-center border border-3 text-body bg-white" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-3 text-body bg-white" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-3 text-body bg-white" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-3 text-body bg-white" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <section class="vh-100">
-
+            <section class="vh-100 position-relative overflow-hidden">
+                <div id="to-be-rotated" class="position-absolute top-50" style="right: -37.5vh; margin-top: -37.5vh">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#9c7d3b" class="bi bi-circle d-block w-100" viewBox="0 0 16 16" style="width: 75vh; height: 75vh;">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    </svg>
+                    <div class="position-absolute w-50 h-100 top-0 bg-white"></div>
+                </div>
+                <button type="button" class="btn d-block position-absolute border border-5 rounded-circle" style="top: calc((25% / 2) + (75% / 4 * 0.5) - 53px); right: 8vw;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-3')).show()">1</button>
+                <button type="button" class="btn d-block position-absolute border border-5 rounded-circle" style="top: calc((25% / 2) + (75% / 4 * 1.5) - 53px); right: 14.3vw;">2</button>
+                <button type="button" class="btn d-block position-absolute border border-5 rounded-circle" style="top: calc((25% / 2) + (75% / 4 * 2.5) - 53px); right: 14.3vw;">3</button>
+                <button type="button" class="btn d-block position-absolute border border-5 rounded-circle" style="top: calc((25% / 2) + (75% / 4 * 3.5) - 53px); right: 8vw;">4</button>
             </section>
         </main>
         <div id="intro-outro-layer" class="w-100 vh-100 position-absolute top-0 start-0 overflow-hidden d-flex align-items-center bg-white">
@@ -203,6 +271,35 @@
                         <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
                     </div> -->
                     <button type="button" id="intro-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="intro-video-modal-2" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-black position-relative">
+                    <video id="intro-video-2" class="d-block mx-auto modal-video vh-100" controls>
+                        <source src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina-720-port.mp4" type="video/mp4">
+                        Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
+                    </video>
+                    <!-- <div class="text-center p-3">
+                        <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
+                    </div> -->
+                    <button type="button" id="intro-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('intro-video-2').pause()"></button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="intro-video-modal-3" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content position-relative pt-5 p-3">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam a quia eum consequatur iste omnis officiis cum tempora et accusamus natus inventore exercitationem dignissimos, temporibus doloribus molestiae quos earum deserunt!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatibus aliquid quidem qui repellendus aspernatur quod asperiores, dolor suscipit optio rem adipisci aliquam consequuntur, praesentium distinctio itaque molestiae, atque quas?</p>
+                    <div class="text-center p-3">
+                        <a href="#" class="btn bg-primary text-light border-0 rounded-pill py-2 px-4">Μάθε περισσότερα</a>
+                    </div>
+                    <!-- <div class="text-center p-3">
+                        <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
+                    </div> -->
+                    <button type="button" id="intro-close-button" class="btn-close position-absolute top-0 end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('intro-video-2').pause()"></button>
                 </div>
             </div>
         </div>
@@ -372,6 +469,30 @@
                     document.getElementById('pattern-item-' + value).style.animationDelay = 175 * (index + 1) + 'ms';
                     document.getElementById('pattern-item-' + value).addEventListener('animationend', function() {this.classList.add('opacity-50')});
                 });
+                videoLinks();
+            }
+
+            function videoLinks() {
+                document.getElementById('video-links').style.marginTop = '-' + effectsWrapperHeight + 'px';
+                let delay = 2;
+                document.querySelectorAll('.video-link').forEach(function(item) {
+                    item.classList.add('animate__animated', 'animate__fadeIn');
+                    item.style.animationDelay = delay + 's';
+                    delay = delay + 0.5;
+                });
+            }
+
+            window.onload = function() {
+                window.onscroll = function() {
+                    document.getElementById('to-be-rotated').classList.add('rotate');
+                    document.getElementById('to-be-rotated').addEventListener('animationend', function() {this.style.transform = 'rotate(180deg)'});
+                    let delay = 1;
+                    document.querySelectorAll('.border-5').forEach(function(item) {
+                        item.classList.add('animate__animated', 'animate__fadeIn');
+                        item.style.animationDelay = delay + 's';
+                        delay = delay + 0.5;
+                    });
+                }
             }
 
             // function sethexagonCoordinates(element, x, y) {
