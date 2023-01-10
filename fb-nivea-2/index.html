@@ -57,6 +57,7 @@
             .rotate {
                 animation-name: rotate;
                 animation-duration: var(--swarm-animation-duration);
+                animation-delay: 0.5s;
             }
             /* .hexagon--expand {
                 scale: (1);
@@ -166,7 +167,7 @@
                 }
                 to {
                     scale: 1;
-                    opacity: .3;
+                    opacity: .5;
                 }
             }
             @keyframes rotate {
@@ -187,7 +188,11 @@
                 </a>
             </div>
             <h1 class="pb-3">
-                <span class="d-block pb-2">THE SPOT IT CHALLENGE</span>
+                <div>
+                    <span class="pb-2">THE</span>
+                    <span style="background-image: url(brush.png); background-position: center center; background-size: 100%; background-repeat: no-repeat;">SPOT IT</span>
+                    <span class="pb-2">CHALLENGE</span>
+                </div>
                 <span class="fw-normal fs-4">powered by </span>
                 <a href="https://www.nivea.gr/" class="text-decoration-underline" target="_blank" rel="noopener">
                     <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" alt="Nivea" class="align-middle" style="width: 70px;">
@@ -234,7 +239,8 @@
                     </div>
                 </div>
             </section>
-            <section class="vh-100 position-relative overflow-hidden">
+            <section class="vh-100 position-relative overflow-hidden" style="background-image: url(section2bg.jpg); background-repeat: no-repeat; background-position: bottom left;">
+                <span class="position-absolute p-3 fs-4 border border-2" style="top: 7rem; left: 5rem; border-color: #9c7d3b !important; width: 35%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum mollitia blanditiis assumenda odit sapiente ex! Labore excepturi neque delectus amet molestiae dolore eius, accusamus voluptatum praesentium quia aut consequatur voluptates.</span>
                 <div id="to-be-rotated" class="position-absolute top-50" style="right: -37.5vh; margin-top: -37.5vh">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#9c7d3b" class="bi bi-circle d-block w-100" viewBox="0 0 16 16" style="width: 75vh; height: 75vh;">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -252,7 +258,11 @@
                 <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/faysbook.png" class="img-fluid d-inline-block animate__animated animate__fadeIn" alt="Fay’s Book">
                 <div class="border-bottom border-dark border-2 mb-3 mx-auto animate__animated animate__zoomIn animate__slower"></div>
                 <div class="h1 mb-0">
-                    <span class="d-block pb-2 animate__animated animate__fadeInUp animate__delay-1s">THE SPOT IT CHALLENGE</span>
+                    <span id="intro-title" class="d-block animate__animated animate__fadeInUp animate__delay-1s">
+                        <span class="pb-2">THE</span>
+                        <span style="background-image: url(brush.png); background-position: center center; background-repeat: no-repeat;">SPOT IT</span>
+                        <span class="pb-2">CHALLENGE</span>
+                    </span>
                     <span id="intro-final-animation" class="d-block animate__animated animate__fadeInUp" style="animation-delay: 1.5s">
                         <span class="fw-normal fs-4">powered by </span>
                         <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" alt="Nivea" class="align-middle" style="width: 70px;">
@@ -263,14 +273,19 @@
         <div class="modal" id="intro-video-modal" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content bg-transparent position-relative">
-                    <video id="intro-video" class="d-block mx-auto modal-video vh-100" controls>
+                    <video id="intro-video" class="d-block mx-auto modal-video vh-100" controls poster="poster.png">
                         <source src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/christina-720-port.mp4" type="video/mp4">
                         Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
                     </video>
+                    <button type="button" class="btn position-absolute top-50 start-50 translate-middle" onclick="document.getElementById('intro-video').play(); this.remove();">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16" style="filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                        </svg>
+                    </button>
                     <!-- <div class="text-center p-3">
                         <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
                     </div> -->
-                    <button type="button" id="intro-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                    <button type="button" id="intro-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('intro-video').pause();"></button>
                 </div>
             </div>
         </div>
@@ -289,11 +304,11 @@
             </div>
         </div>
         <div class="modal fade" id="intro-video-modal-3" tabindex="-1" aria-labelledby="christina-button-literal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content position-relative pt-5 p-3">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content position-relative pt-5 p-3 border-2" style="border-color: #9c7d3b !important;">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam a quia eum consequatur iste omnis officiis cum tempora et accusamus natus inventore exercitationem dignissimos, temporibus doloribus molestiae quos earum deserunt!</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatibus aliquid quidem qui repellendus aspernatur quod asperiores, dolor suscipit optio rem adipisci aliquam consequuntur, praesentium distinctio itaque molestiae, atque quas?</p>
-                    <div class="text-center p-3">
+                    <div class="text-center p-3 pb-0">
                         <a href="#" class="btn bg-primary text-light border-0 rounded-pill py-2 px-4">Μάθε περισσότερα</a>
                     </div>
                     <!-- <div class="text-center p-3">
@@ -486,7 +501,7 @@
                 window.onscroll = function() {
                     document.getElementById('to-be-rotated').classList.add('rotate');
                     document.getElementById('to-be-rotated').addEventListener('animationend', function() {this.style.transform = 'rotate(180deg)'});
-                    let delay = 1;
+                    let delay = 1.5;
                     document.querySelectorAll('.border-5').forEach(function(item) {
                         item.classList.add('animate__animated', 'animate__fadeIn');
                         item.style.animationDelay = delay + 's';
