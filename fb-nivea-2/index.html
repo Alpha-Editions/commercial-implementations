@@ -10,10 +10,6 @@
             :root {
                 --swarm-animation-duration: 2s;
             }
-            body {
-                background: rgb(255,255,255);
-                background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(207,191,161,1) 50%, rgba(207,191,161,1) 100%);
-            }
             .hexagon {
                 fill: #9c7d3b;
                 opacity: 0;
@@ -161,34 +157,6 @@
                     /* fill: #9c7d3b; */
                 }
             }
-            @keyframes zoomInSimple {
-                from {
-                    opacity: 0;
-                    transform: scale3d(0, 0, 0);
-                }
-
-                50% {
-                    opacity: 1;
-                }
-
-                to {
-                }
-            }
-            @keyframes zoomOutSimple {
-                from {
-                    opacity: 1;
-                }
-
-                50% {
-                    opacity: 0;
-                    transform: scale3d(0, 0, 0);
-                }
-
-                to {
-                    opacity: 0;
-                    /* fill: #9c7d3b; */
-                }
-            }
             @keyframes expandFadeInOutHalf {
                 from {
                     scale: 0;
@@ -212,7 +180,7 @@
             }
         </style>
     </head>
-    <body class="position-relative vh-100 overflow-hidden">
+    <body class="position-relative overflow-hidden">
         <header class="text-center">
             <div class="border-bottom mb-3">
                 <a href="https://www.faysbook.gr/" class="d-block" rel="noopener">
@@ -237,51 +205,42 @@
             <section id="effects-wrapper" class="position-relative">
                 <div id="swarm-container" class="h-100 position-absolute t-0 w-100"></div>
                 <div id="pattern-container" class="container h-100 position-relative"></div>
-                <div id="video-links" class="container h-100 position-relative d-flex align-items-center">
-                    <div>
-                        <div class="row g-0">
-                            <div class="col text-center">
-                                <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-100" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                                    <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                                    <img src="intro-video.png" class="img-fluid" alt="">
-                                </button>
-                            </div>
-                            <div class="col"></div>
-                            <div class="col text-center">
-                                <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-100">
-                                    <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                                    <img src="profile.png" class="img-fluid" alt="">
-                                </button>
-                            </div>
-                            <div class="col"></div>
-                            <div class="col text-center">
-                                <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-100">
-                                    <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                                    <img src="profile.png" class="img-fluid" alt="">
-                                </button>
-                            </div>
+                <div id="video-links" class="container h-100 position-relative">
+                    <div class="row g-0">
+                        <div class="col-3 text-center">
+                            <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-75" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
+                                <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
                         </div>
-                        <div class="row g-0">
-                            <div class="col"></div>
-                            <div class="col text-center">
-                                <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-100">
-                                    <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                                    <img src="profile.png" class="img-fluid" alt="">
-                                </button>
-                            </div>
-                            <div class="col"></div>
-                            <div class="col text-center">
-                                <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-100">
-                                    <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                                    <img src="profile.png" class="img-fluid" alt="">
-                                </button>
-                            </div>
-                            <div class="col"></div>
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-3 text-center">
+                            <button type="button" id="profile-1" class="btn video-link d-inline-block text-center w-75">
+                                <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2>
+                                <img src="profile.png" class="img-fluid" alt="">
+                            </button>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="position-relative overflow-hidden d-none" style="background-image: url(section2bg.png); background-repeat: no-repeat; background-position: bottom left; height: 0;">
+            <section class="vh-100 position-relative overflow-hidden" style="background-image: url(section2bg.png); background-repeat: no-repeat; background-position: bottom left;">
                 <span class="position-absolute p-3 fs-4 border border-2 rounded" style="top: 7rem; left: 5rem; border-color: #9c7d3b !important; width: 35%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum mollitia blanditiis assumenda odit sapiente ex! Labore excepturi neque delectus amet molestiae dolore eius, accusamus voluptatum praesentium quia aut consequatur voluptates.</span>
                 <div id="to-be-rotated" class="position-absolute top-50" style="right: -37.5vh; margin-top: -37.5vh">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#9c7d3b" class="bi bi-circle d-block" viewBox="0 0 16 16" style="width: 75vh; height: 75vh;">
@@ -367,7 +326,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <script>
-            const hexagonSvg = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>';
+            const hexagonSvg = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
             const effectsWrapper = document.querySelector('#effects-wrapper');
             const swarmContainer = document.querySelector('#swarm-container');
             const patternContainer = document.querySelector('#pattern-container');
@@ -442,27 +401,22 @@
                 hexagon.style.width = '120%';
                 hexagon.style.marginTop = '-60%';
                 hexagon.style.marginLeft = '-60%';
-                hexagon.style.fill = 'transparent';
-                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>';
-                hexagon.classList.add('position-absolute', 'start-50', 'top-50', 'hexagon', 'text-center', 'opacity-100', 'animate__animated', 'animate__zoomInSimple', 'animate__faster', 'depre-animate__delay-1s');
+                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
+                hexagon.classList.add('position-absolute', 'start-50', 'top-50', 'hexagon', 'text-center', 'opacity-100', 'animate__animated', 'animate__zoomIn', 'animate__slow', 'animate__delay-1s');
                 // hexagon.style.animationDelay = '2s';
                 setTimeout(function() {
-                    // introVideoModal.show();
-                    document.querySelector('#intro-close-button').click();
-                    // document.querySelector('#intro-outro-layer').classList.remove('bg-white');
-                    document.querySelector('#intro-outro-layer').classList.add('animate__animated', 'animate__fadeOut');
-                    // document.querySelector('#intro-outro-layer > div.text-center.w-100').remove();
-                }, 2000);
+                    introVideoModal.show();
+                    document.querySelector('#intro-outro-layer').classList.remove('bg-white');
+                    document.querySelector('#intro-outro-layer > div.text-center.w-100').remove();
+                }, 3000);
                 document.querySelector('#intro-outro-layer').appendChild(hexagon);
                 document.querySelector('#intro-video').addEventListener("ended", function() {document.querySelector('#intro-close-button').click()});
                 // document.querySelector('#intro-close-button').addEventListener('click', function() {introVideoModal.hide()});
                 // introVideoModal.addEventListener('hide.bs.modal', function() {
                 document.querySelector('#intro-close-button').addEventListener('click', function() {
-                    hexagon.classList.remove('animate__zoomIn', 'depre-animate__delay-1s');
-                    hexagon.classList.add('animate__zoomOutSimple', 'animate__faster', 'opacity-100');
-                    // setTimeout(function() {
-                    //     document.body.classList.remove('overflow-hidden');
-                    // }, 1000);
+                    hexagon.classList.remove('animate__zoomIn', 'animate__delay-1s');
+                    hexagon.classList.add('animate__zoomOut', 'animate__slower', 'opacity-100');
+                    document.body.classList.remove('overflow-hidden');
                     swarmIsActive = true;
                     appendSwarmItems();
                     // setTimeout(function() {
@@ -487,9 +441,9 @@
                 else {
                     
                 }
-                hexagon.style.width = effectsWrapperHeight / 3.5 + 'px';
+                hexagon.style.width = effectsWrapperHeight / 3 + 'px';
                 hexagon.classList.add('hexagon', 'position-absolute', 'text-center');
-                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"/></svg>';
+                hexagon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-hexagon-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866L8.5.134z"/></svg>';
                 return hexagon;
             }
 
