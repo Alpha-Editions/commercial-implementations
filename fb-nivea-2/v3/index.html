@@ -19,6 +19,12 @@
             .top-70 {
                 top: 70%;
             }
+            /* .position-absolute {
+                position: static !important;
+            } */
+            .col-lg {
+                min-height: 200px;
+            }
             @media (min-width: 576px) {
 
             }
@@ -26,7 +32,9 @@
 
             }
             @media (min-width: 992px) {
-                
+                .position-absolute {
+                    position: absolute !important;
+                }
             }
             @media (min-width: 1200px) {
 
@@ -36,72 +44,71 @@
             }
         </style>
     </head>
-    <body style="background-image: url(../assets/cream.webp); background-size: cover; background-position: center;">
-        <header class="text-center pb-4">
-            <div class="border-bottom border-dark mb-3 animate__animated animate__fadeIn" style="animation-delay: .5s;">
-                <a href="https://www.faysbook.gr/" class="d-block" rel="noopener">
+    <body class="min-vw-100" style="background-image: url(../assets/cream.webp); background-size: cover; background-position: top center; background-repeat: no-repeat; background-attachment: fixed;">
+        <header class="text-center pb-5 pb-lg-4">
+            <div class="border-bottom border-dark mb-3">
+                <a href="https://www.faysbook.gr/" class="d-block animate__animated animate__fadeIn" rel="noopener" style="animation-delay: .5s;">
                     <img src="../assets/faysbook.png" class="img-fluid py-2" style="width: 294px;" alt="Fay’s Book">
                 </a>
             </div>
             <h1 class="pb-3">
-                <div class="animate__animated animate__fadeIn" style="animation-delay: 1.5s;">
+                <div class="animate__animated animate__fadeIn" style="animation-delay: 1s;">
                     <span class="pb-2">THE</span>
                     <span style="background-image: url(../assets/brush.png); background-position: center center; background-size: 100%; background-repeat: no-repeat;">SPOT IT</span>
                     <span class="pb-2">CHALLENGE</span>
                 </div>
-                <div class="animate__animated animate__fadeIn" style="animation-delay: 2.5s;">
+                <div class="animate__animated animate__fadeIn" style="animation-delay: 1.5s;">
                     <span class="fw-normal fs-4">powered by </span>
                     <a href="https://www.nivea.gr/" class="text-decoration-underline" target="_blank" rel="noopener">
                         <img src="https://alpha-editions.github.io/commercial-implementations/fb-nivea/assets/nivea.png" id="nivea-logo" alt="Nivea" class="align-middle" style="width: 70px;">
                     </a>
                 </div>
             </h1>
-            <p id="introtext" class="mx-auto mb-0 text-center animate__animated animate__fadeIn" style="max-width: 700px; animation-delay: 3.5s;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quae aperiam dicta rerum itaque aspernatur accusantium, quam ipsam veniam saepe explicabo natus dolores culpa at numquam voluptatum perferendis, ipsa dignissimos.</p>
+            <p id="introtext" class="mx-auto px-3 mb-0 text-center animate__animated animate__fadeIn" style="max-width: 700px; animation-delay: 2s;">
+                <span>Λαμπερή επιδερμίδα και αψεγάδιαστη όψη; Πάντα επίκαιρες επιθυμίες, κυρίως τώρα που ο καιρός γίνεται πιο φωτεινός και η θερμοκρασία ανεβαίνει. </span>
+                <br>
+                <span>Τέσσερις γυναίκες με διαφορετικές ανάγκες βρίσκουν τον δικό τους σύμμαχο στη μάχη κατά των κηλίδων, των δυσχρωμιών και των μαύρων κύκλων, την NIVEA Luminous630, μία ολοκληρωμένη σειρά περιποίησης από το πρωί ως το βράδυ.</span>
+            </p>
         </header>
         <main>
             <div class="container-fluid h-100">
                 <div class="row g-0 h-100">
-                    <div class="col-12 col-lg position-relative">
-                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                            <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
+                    <div class="col-6 col-lg position-relative">
+                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0 animate__animated animate__fadeIn" style="animation-delay: 3s;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
                             <img src="../assets/intro-video.png" class="img-fluid" alt="">
                         </button>
                     </div>
+                    <!-- <div class="col-12 col-lg position-relative" style="background-image: url(../assets/arrow.png); background-size: 100% 80%; background-position: center; background-repeat: no-repeat;"> -->
                     <div class="col-12 col-lg position-relative">
-                        <!-- <img src="https://cdn.jsdelivr.net/gh/twbs/icons@main/icons/arrow-down-right.svg" alt="" class="position-absolute start-100 top-50 w-50 translate-middle-x"> -->
-                        <span class="position-absolute w-100 p-2 text-center rounded-4 top-50 start-50 translate-middle bg-opacity-75 text-white" style="background-color: #9c7d3b;">Έχεις παρατηρήσει δυσχρωμίες στην επιδερμίδα σου μεγαλώνοντας;</span>
+                        <span class="position-absolute d-inline-block w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle animate__animated animate__fadeIn" style="animation-delay: 3.1s;">Έχεις δυσχρωμίες στην επιδερμίδα σου μεγαλώνοντας;</span>
                     </div>
-                    <div class="col-12 col-lg position-relative">
-                        <button type="button" id="profile-1" class="btn position-absolute w-100 bottom-0 p-0">
-                            <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                            <img src="../assets/profile.png" class="img-fluid" alt="">
+                    <div class="col-6 offset-6 col-lg offset-lg-0 position-relative">
+                        <button type="button" id="profile-1" class="btn position-absolute w-100 bottom-0 end-0 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.2s;">
+                            <img src="../assets/marinelli.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative">
-                        <span class="position-absolute w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle">Μήπως το καλοκαίρι εμφανίζονται κηλίδες στην επιδερμίδα σου;</span>
+                        <span class="position-absolute d-inline-block w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle animate__animated animate__fadeIn" style="animation-delay: 3.3s;">Μήπως το καλοκαίρι εμφανίζονται κηλίδες στην επιδερμίδα σου;</span>
                     </div>
-                    <div class="col-12 col-lg position-relative">
-                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                            <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                            <img src="../assets/profile.png" class="img-fluid" alt="">
+                    <div class="col-6 col-lg position-relative">
+                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.4s;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
+                            <img src="../assets/tina.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative">
-                        <span class="position-absolute w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle">Μετά την εγκυμοσύνη, έχεις αποκτήσει ένα μόνιμο σημάδι στην επιδερμίδα σου;</span>
+                        <span class="position-absolute d-inline-block w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle animate__animated animate__fadeIn" style="animation-delay: 3.5s;">Μετά την γέννα, έχεις μόνιμα σημάδια στην επιδερμίδα σου;</span>
                     </div>
-                    <div class="col-12 col-lg position-relative">
-                        <button type="button" id="profile-1" class="btn position-absolute w-100 bottom-0 p-0">
-                            <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                            <img src="../assets/profile.png" class="img-fluid" alt="">
+                    <div class="col-6 offset-6 col-lg offset-lg-0 position-relative">
+                        <button type="button" id="profile-1" class="btn position-absolute w-100 bottom-0 end-0 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.6s;">
+                            <img src="../assets/rea.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative">
-                        <span class="position-absolute w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle">Έχεις σκεφτεί τι μπορεί να προκαλεί τους μαύρους κύκλους σου, πέραν του προφανές;</span>
+                        <span class="position-absolute d-inline-block w-100 p-2 bg-white text-center rounded-4 top-50 start-50 translate-middle animate__animated animate__fadeIn" style="animation-delay: 3.7s;">Έχεις σκεφτεί τι μπορεί να προκαλεί τους μαύρους κύκλους σου;</span>
                     </div>
-                    <div class="col-12 col-lg position-relative">
-                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                            <!-- <h2 class="text-center border border-2 text-body bg-white rounded" style="border-color: #9c7d3b !important;">ONOMA</h2> -->
-                            <img src="../assets/profile.png" class="img-fluid" alt="">
+                    <div class="col-6 col-lg position-relative">
+                        <button type="button" id="profile-1" class="btn position-absolute w-100 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.8s;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
+                            <img src="../assets/christina.png" class="img-fluid" alt="">
                         </button>
                     </div>
                 </div>
@@ -144,8 +151,6 @@
             </div>
         </main>
         <script>
-            calculateMainHeight();
-
             function calculateBootstrapTier(literal) {
                 let documentWidth = document.body.clientHeight;
                 if (documentWidth < getComputedStyle(document.documentElement).getPropertyValue('--bs-breakpoint-sm')) {
@@ -168,10 +173,19 @@
                 }
             }
 
-            function calculateMainHeight() {
-                if (parseInt(calculateBootstrapTier()) >= 3) {
-                    document.querySelector('main').style.height = 'calc(100vh - ' + document.querySelector('header').clientHeight + 'px)';
+            function screenOrientation() {
+                if (document.body.clientHeight > document.body.clientWidth) {
+                    return 'portrait';
                 }
+                else {
+                    return 'landscape';
+                }
+            }
+
+            if (parseInt(calculateBootstrapTier()) >= 3) {
+                document.getElementById('introtext').addEventListener('animationend', () => {
+                    document.querySelector('main').style.height = 'calc(100vh - ' + document.querySelector('header').clientHeight + 'px)';
+                });
             }
         </script>
     </body>
