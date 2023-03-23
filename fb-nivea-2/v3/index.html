@@ -54,7 +54,7 @@
                 </div>
             </h1>
             <div id="introtext" class="mx-auto px-3 text-center fs-5" style="max-width: 700px;">
-                <span class="d-inline-block animate__animated animate__fadeIn pb-3 pb-lg-0" style="animation-delay: 2s;">Λαμπερή επιδερμίδα και αψεγάδιαστη όψη;</span>
+                <span class="d-inline-block animate__animated animate__fadeIn pb-3 pb-lg-2" style="animation-delay: 2s;">Λαμπερή επιδερμίδα και αψεγάδιαστη όψη;</span>
                 <br>
                 <span class="d-inline-block p-2 rounded-4 text-white shadow bg-opacity-50 animate__animated animate__zoomIn" style="background-color: #9c7d3b; animation-delay: 2.5s;">Τέσσερις γυναίκες με διαφορετικές ανάγκες βρίσκουν τον δικό τους σύμμαχο στην σειρά NIVEA Luminous630.</span>
             </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-6 offset-6 col-lg offset-lg-0 position-relative active">
                         <button type="button" id="thumbnail-2" class="thumbnail btn position-absolute w-100 bottom-0 end-0 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.2s;">
-                            <img src="../assets/marinelli.png" class="img-fluid" alt="">
+                            <img src="../assets/marinelli-new.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative overflow-hidden active">
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-6 col-lg position-relative active">
                         <button type="button" id="thumbnail-3" class="thumbnail btn position-absolute w-100 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.4s;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                            <img src="../assets/tina.png" class="img-fluid" alt="">
+                            <img src="../assets/tina-new.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative">
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-6 offset-6 col-lg offset-lg-0 position-relative">
                         <button type="button" id="thumbnail-4" class="thumbnail btn position-absolute w-100 bottom-0 end-0 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.6s;">
-                            <img src="../assets/rea.png" class="img-fluid" alt="">
+                            <img src="../assets/rea-new.png" class="img-fluid" alt="">
                         </button>
                     </div>
                     <div class="col-12 col-lg position-relative">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-6 col-lg position-relative">
                         <button type="button" id="thumbnail-5" class="thumbnail btn position-absolute w-100 p-0 animate__animated animate__fadeIn" style="animation-delay: 3.8s;" onclick="new bootstrap.Modal(document.querySelector('#intro-video-modal-2')).show()">
-                            <img src="../assets/christina.png" class="img-fluid" alt="">
+                            <img src="../assets/christina-new.png" class="img-fluid" alt="">
                         </button>
                     </div>
                 </div>
@@ -180,11 +180,14 @@
                         col.style.height = height + 'px';
                     });
                     let side1 = document.querySelector('.col-lg').clientHeight;
-                    let side2 = document.querySelector('.col-lg').clientWidth - document.querySelector('.thumbnail').clientWidth;
-                    let angle = Math.atan(side1 / side2) * 180 / Math.PI;
+                    let side2 = document.querySelector('.col-12').clientWidth - document.querySelector('.thumbnail').clientWidth;
+                    let angle = Math.atan(side2 / side1) * 180 / Math.PI;
                     document.querySelectorAll('.line').forEach(function(line, index) {
-                        line.style.height = '3px';
-                        line.style.width = '100%';
+                        line.style.width = '3px';
+                        line.style.height = '200%';
+                        line.style.left = '50%';
+                        line.style.top = '-50%';
+                        line.style.marginTop = '100%;'
                         if (index % 2 == 0) {
                             line.style.transform = 'rotate(-' + angle + 'deg)';
                         }
