@@ -115,7 +115,7 @@
                         <source src="../assets/intro-video.mp4" type="video/mp4">
                         Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
                     </video>
-                    <button type="button" class="btn position-absolute top-50 start-50 translate-middle" onclick="document.getElementById('video-1').play(); this.remove();">
+                    <button type="button" id="video-1-play-button" class="btn position-absolute top-50 start-50 translate-middle" onclick="document.getElementById('video-1').play(); this.style.display = 'none';">
                         <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16" style="filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));">
                             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                         </svg>
@@ -123,7 +123,7 @@
                     <!-- <div class="text-center p-3">
                         <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
                     </div> -->
-                    <button type="button" id="video-1-modal-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('video-1').pause()"></button>
+                    <button type="button" id="video-1-modal-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('video-1').pause(); document.getElementById('video-1').currentTime = 0; document.getElementById('video-1-play-button').style.display = 'block';"></button>
                 </div>
             </div>
         </div>
