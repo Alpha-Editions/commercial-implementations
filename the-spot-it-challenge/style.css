@@ -5,6 +5,7 @@ body {
     background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/main-bg.webp");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 .heebo {
     font-family: "Heebo", sans-serif;
@@ -17,8 +18,8 @@ body {
     bottom: -10px;
 }
 .gradient-bg {
-    background: rgb(200,151,128);
-    background: linear-gradient(90deg, rgba(200,151,128,1) 0%, rgba(219,185,167,1) 100%);
+    background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-bg-m.webp");
+    background-size: 100% auto;
 }
 .bracket-bg {
     background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/left-bracket.webp"), url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/right-bracket.webp");
@@ -43,8 +44,8 @@ body {
 }
 .text-bg {
     bottom: 10px;
-    width: calc(100% - 17px);
-    left: 10px;
+    width: calc(100% - 50px);
+    left: 25px;
 }
 .inverted {
     filter: invert(1);
@@ -56,12 +57,25 @@ body {
     filter: grayscale(0);
 }
 .text-prompt {
-    top: 60%;
+    top: 65%;
+    width: calc(100% - 50px);
+    left: 25px;
 }
 .button-bg {
     width: calc(100% - 2rem);
     margin-left: 1rem;
     margin-right: 1rem;
+}
+.fb-logo-sm {
+    width: 200px;
+}
+.btn-close {
+    width: 6em;
+    padding: .25em 1.5rem .75rem .25rem;
+    background-position: 85% center;
+}
+.thumbnail:disabled .text-bg, .thumbnail:disabled .text-prompt {
+    opacity: 0;
 }
 @media (min-width: 576px) {
 
@@ -88,15 +102,12 @@ body {
         width: 160px;
         height: 100vh;
     }
-    .og > .row {
-        height: calc(100% / 2.5);
-    }
-    .alt > .row {
+    .thumbnails .row {
         height: calc(100% / 2.5);
     }
     .thumbnail {
         width: auto;
-        height: 100%;
+        height: calc(100% / 2.5);
     }
     .thumbs-col {
         width: calc(100vw - 860px) !important;
@@ -108,7 +119,23 @@ body {
         height: calc(100vh - 62px);
     }
     .gradient-bg {
-        background: linear-gradient(180deg, rgba(200,151,128,1) 0%, rgba(219,185,167,1) 100%);
+        background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-bg-d.webp");
+        background-size: auto 100%;
+    }
+    .button-bg {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .text-bg {
+        bottom: 10px;
+        width: calc(100% - 17px);
+        left: 10px;
+    }
+    .text-prompt {
+        top: 63%;
+        width: calc(100% - 17px);
+        left: 10px;
     }
     .thumbnail {
         z-index: 1;
@@ -123,9 +150,6 @@ body {
     .thumbnail:hover .text-bg, .thumbnail:hover .text-prompt {
         opacity: 1;
         transition: opacity .5s;
-    }
-    .thumbnail:disabled .text-bg, .thumbnail:disabled .text-prompt {
-        opacity: 0;
     }
 }
 @media (min-width: 1200px) {
