@@ -11,6 +11,7 @@ body {
 }
 .arrow {
     width: 100vw;
+    height: 80px;
 }
 .gold-arrow {
     bottom: -10px;
@@ -56,6 +57,11 @@ body {
 }
 .text-prompt {
     top: 60%;
+}
+.button-bg {
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 @media (min-width: 576px) {
 

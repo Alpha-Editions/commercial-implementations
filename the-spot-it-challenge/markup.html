@@ -13,8 +13,8 @@
     </head>
     <body>
         <div class="row g-0">
-            <div class="header-col col-12 col-lg-auto order-lg-last">
-                <div class="position-relative animate__animated animate__fadeInRight animate__delay-2s" style="animation-duration: 1.5s;">
+            <div class="header-col col-12 col-lg-auto mb-5 mb-lg-0 order-lg-last">
+                <div class="header-col-animation position-relative animate__animated animate__fadeIn animate__delay-2s" style="animation-duration: 1.5s;">
                     <div class="gold-arrow position-absolute top-0">
                         <picture>
                             <source media="(min-width:767px)" srcset="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gold-arrow-d.webp">
@@ -22,16 +22,10 @@
                         </picture>
                     </div>
                     <div class="row g-0 d-inline-flex position-relative">
-                        <div class="col-auto">
-                            <picture>
-                                <source media="(min-width:767px)" srcset="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-d.webp">
-                                <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-m.webp" alt="" class="arrow">
-                            </picture>
-                        </div>
-                        <div class="gradient-bg col d-flex align-items-center">
+                        <div class="gradient-bg col d-flex align-items-center order-lg-last">
                             <header class="p-3 p-lg-5 ps-lg-0 text-center text-white">
                                 <div class="text-center d-lg-none ">
-                                    <a href="https://www.faysbook.gr/" class="p-3 d-inline-block">
+                                    <a href="https://www.faysbook.gr/" class="p-3 pb-4 d-inline-block">
                                         <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/faysbook.webp" alt="" class="inverted">
                                     </a>
                                 </div>
@@ -45,7 +39,7 @@
                                 <span class="fs-4 d-block fw-bold mb-3 mb-lg-5 text-center">Λαμπερή επιδερμίδα και αψεγάδιαστη όψη;</span>
                                 <p class="text-center fs-5 mb-3 mb-lg-5">Τέσσερις γυναίκες με διαφορετικές ανάγκες βρίσκουν τον δικό τους σύμμαχο στην σειρά NIVEA Luminous630.</p>
                                 <div class="text-center">
-                                    <button type="button" id="intro-video-button" class="btn py-2 px-5 text-white position-relative">
+                                    <button type="button" id="intro-video-button" class="btn py-2 px-5 text-white position-relative" data-bs-toggle="modal" data-bs-target="#intro-video-modal">
                                         <span class="position-relative d-block">
                                             <span class="d-block fs-4 heebo">Start the Challenge</span>
                                             <span class="d-block fw-bold fs-5">by Φαίη Σκορδά</span>
@@ -54,6 +48,12 @@
                                     </button>
                                 </div>
                             </header>
+                        </div>
+                        <div class="col-auto order-lg-first">
+                            <picture>
+                                <source media="(min-width:767px)" srcset="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-d.webp">
+                                <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-m.webp" alt="" class="arrow">
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -67,8 +67,8 @@
                     </div>
                     <div class="thumbnails py-3 position-relative text-center og">
                         <div class="row g-0 justify-content-center position-relative first">
-                            <div class="col-auto h-100">
-                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" data-bs-toggle="modal" data-bs-target="#intro-video-modal">
+                            <div class="col-12 col-lg-auto h-100">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0">
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
                                         <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-1.webp" alt="" class="profile-image position-relative h-100">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="row g-0 justify-content-center position-relative">
-                            <div class="col-auto h-100">
+                            <div class="col-12 col-lg-auto h-100">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -88,7 +88,7 @@
                                     </span>
                                 </button>
                             </div>
-                            <div class="col-auto h-100">
+                            <div class="col-12 col-lg-auto h-100">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="row g-0 justify-content-center position-relative last">
-                            <div class="col-auto h-100">
+                            <div class="col-12 col-lg-auto h-100">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="thumbnails py-3 position-relative text-center alt">
                         <div class="row g-0 justify-content-center position-relative first">
-                            <div class="col-auto h-100 even">
+                            <div class="col-12 col-lg-auto h-100 even">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0">
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="row g-0 justify-content-center position-relative">
-                            <div class="col-auto h-100 odd">
+                            <div class="col-12 col-lg-auto h-100 odd">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="row g-0 justify-content-center position-relative">
-                            <div class="col-auto h-100 even">
+                            <div class="col-12 col-lg-auto h-100 even">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         <div class="row g-0 justify-content-center position-relative last">
-                            <div class="col-auto h-100 odd">
+                            <div class="col-12 col-lg-auto h-100 odd">
                                 <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
                                     <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
                                     <span class="button-content d-block position-absolute w-100 h-100 top-0">
@@ -226,58 +226,7 @@
             }
             main();
             window.onresize = main;
-            //     document.querySelector('.thumbnails .last .thumbnail > img').addEventListener('load', function() {
-            //         document.querySelectorAll('.thumbnails > .row').forEach(function(row, index) {
-            //             if (getComputedStyle(row).getPropertyValue('display') != 'none') {
-            //                 thumbnail = row.querySelector('.thumbnail');
-            //                 thumbnail.style.animationDelay = animateDelay + 's';
-            //                 thumbnail.classList.add('animate__animated', 'animate__fadeIn');
-            //                 animateDelay += .5;
-            //                 document.querySelector
-            //                 // if (index != 0) {
-            //                 //     row.style.marginTop = '-' + (getComputedStyle(row).getPropertyValue('height') / 4) + 'px';
-            //                 // }
-            //                 if (location.href.includes('?')) {
-            //                     if (getComputedStyle(thumbnail).getPropertyValue('display') != 'none') {
-            //                         thumbnailWidth = getComputedStyle(thumbnail).getPropertyValue('width');
-            //                         if (thumbnail.classList.contains('even')) {
-            //                             thumbnail.parentElement.style.paddingLeft = (thumbnailWidth / 2) + 'px';
-            //                         }
-            //                         else {
-            //                             thumbnail.parentElement.style.paddingRight = (thumbnailWidth / 2) + 'px';
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //         });
-            //     });
-            // }
-            
-            // if (location.href.includes('?')) {
-            //     console.log('URL has "?"');
-            //     document.querySelector('.og').style.display = 'none';
-            //     (function setButtonPositions() {
-            //         function main() {
-            //             document.querySelectorAll('.thumbnail').forEach(function(thumbnail) {
-            //                 if (getComputedStyle(thumbnail).getPropertyValue('display') != 'none') {
-            //                     if (thumbnail.classList.contains('even')) {
-            //                         thumbnail.parentElement.style.paddingLeft = (getComputedStyle(thumbnail).getPropertyValue('width') / 2) + 'px';
-            //                     }
-            //                     else {
-            //                         thumbnail.parentElement.style.paddingRight = (getComputedStyle(thumbnail).getPropertyValue('width') / 2) + 'px';
-            //                     }
-            //                 }
-            //             });
-            //         };
-            //         main();
-            //         window.onresize = main;
-            //     })();
-            // }
-            // else {
-            //     console.log('URL does not have "?"');
-            //     document.querySelector('.alt').style.display = 'none';
-            // }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>
