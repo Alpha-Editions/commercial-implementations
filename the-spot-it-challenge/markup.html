@@ -4,27 +4,280 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>The Spot It Challenge - powered by NIVEA</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <!-- <link rel="stylesheet" href="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/style.css"> --> <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;700&display=swap">
     </head>
-    <body class="min-vh-100">
-        <div class="row g-0 min-vh-100">
-            <div class="col-12 col-lg order-lg-first">
-                <main>
-
+    <body>
+        <div class="row g-0">
+            <div class="header-col col-12 col-lg-auto order-lg-last">
+                <div class="position-relative animate__animated animate__fadeInRight animate__delay-2s" style="animation-duration: 1.5s;">
+                    <div class="gold-arrow position-absolute top-0">
+                        <picture>
+                            <source media="(min-width:767px)" srcset="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gold-arrow-d.webp">
+                            <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gold-arrow-m.webp" alt="" class="arrow">
+                        </picture>
+                    </div>
+                    <div class="row g-0 d-inline-flex position-relative">
+                        <div class="col-auto">
+                            <picture>
+                                <source media="(min-width:767px)" srcset="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-d.webp">
+                                <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/gradient-arrow-m.webp" alt="" class="arrow">
+                            </picture>
+                        </div>
+                        <div class="gradient-bg col d-flex align-items-center">
+                            <header class="p-3 p-lg-5 ps-lg-0 text-center text-white">
+                                <div class="text-center d-lg-none ">
+                                    <a href="https://www.faysbook.gr/" class="p-3 d-inline-block">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/faysbook.webp" alt="" class="inverted">
+                                    </a>
+                                </div>
+                                <h1 class="mb-3 mb-lg-5 heebo">
+                                    <span class="display-5 d-block">THE<span class="brush-bg fw-bold"> SPOT IT </span>CHALLENGE</span>
+                                    <span class="d-block">
+                                        <span class="fs-4 fw-light">powered by </span>
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/nivea.webp" alt="NIVEA">
+                                    </span>
+                                </h1>
+                                <span class="fs-4 d-block fw-bold mb-3 mb-lg-5 text-center">Λαμπερή επιδερμίδα και αψεγάδιαστη όψη;</span>
+                                <p class="text-center fs-5 mb-3 mb-lg-5">Τέσσερις γυναίκες με διαφορετικές ανάγκες βρίσκουν τον δικό τους σύμμαχο στην σειρά NIVEA Luminous630.</p>
+                                <div class="text-center">
+                                    <button type="button" id="intro-video-button" class="btn py-2 px-5 text-white position-relative">
+                                        <span class="position-relative d-block">
+                                            <span class="d-block fs-4 heebo">Start the Challenge</span>
+                                            <span class="d-block fw-bold fs-5">by Φαίη Σκορδά</span>
+                                        </span>
+                                        <span class="d-block position-absolute w-100 h-100 top-0 start-0 bracket-bg animate__animated animate__pulse animate__infinite animate__delay-5s" style="animation-duration: 1.5s;"></span>
+                                    </button>
+                                </div>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbs-col col-12 col-lg order-lg-first">
+                <main class="h-100">
+                    <div class="d-none d-lg-inline-block">
+                        <a href="https://www.faysbook.gr/" class="p-3 d-inline-block animate__animated animate__fadeInLeft">
+                            <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/faysbook.webp" alt="FAY'S BOOK">
+                        </a>
+                    </div>
+                    <div class="thumbnails py-3 position-relative text-center og">
+                        <div class="row g-0 justify-content-center position-relative first">
+                            <div class="col-auto h-100">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" data-bs-toggle="modal" data-bs-target="#intro-video-modal">
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-1.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                        <span class="text-prompt w-100 px-3 text-center position-absolute start-0 fw-bold">Έχεις δυσχρωμίες στην επιδερμίδα σου μεγαλώνοντας;</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-0 justify-content-center position-relative">
+                            <div class="col-auto h-100">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-2.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="col-auto h-100">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-3.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-0 justify-content-center position-relative last">
+                            <div class="col-auto h-100">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-4.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thumbnails py-3 position-relative text-center alt">
+                        <div class="row g-0 justify-content-center position-relative first">
+                            <div class="col-auto h-100 even">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0">
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-1.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                        <span class="text-prompt w-100 px-3 text-center position-absolute start-0 fw-bold">Έχεις δυσχρωμίες στην επιδερμίδα σου μεγαλώνοντας;</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-0 justify-content-center position-relative">
+                            <div class="col-auto h-100 odd">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-2.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-0 justify-content-center position-relative">
+                            <div class="col-auto h-100 even">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-3.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-0 justify-content-center position-relative last">
+                            <div class="col-auto h-100 odd">
+                                <button type="button" class="thumbnail btn p-0 border-0 position-relative d-block mb-5 mb-lg-0" disabled>
+                                    <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-bg.webp" alt="" class="button-bg position-relative h-100">
+                                    <span class="button-content d-block position-absolute w-100 h-100 top-0">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/profile-4.webp" alt="" class="profile-image position-relative h-100">
+                                        <img src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/text-bg.webp" alt="" class="text-bg position-absolute">
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
-            <div class="col-12 col-lg-auto order-lg-last d-flex align-items-center">
-                <header class="p-3 p-lg-5 text-center">
-                    <h1>
-                        <span class="display-5 d-block">THE<span class="fw-bold"> SPOT IT </span>CHALLENGE</span>
-                        <span class="d-block">
-                            <span class="fs-4 fw-light">powered by </span>
-                            <img src="" alt="NIVEA">
-                        </span>
-                    </h1>
-                </header>
+        </div>
+        <div class="modal fade" id="intro-video-modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-black position-relative">
+                    <video id="intro-video" class="d-block mx-auto modal-video vh-100" controls>
+                        <source src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/intro-video.mp4" type="video/mp4">
+                        Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
+                    </video>
+                    <button type="button" id="intro-video-play-button" class="btn position-absolute top-50 start-50 translate-middle" onclick="document.getElementById('intro-video').play(); this.style.display = 'none';">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16" style="filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                        </svg>
+                    </button>
+                    <!-- <div class="text-center p-3">
+                        <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
+                    </div> -->
+                    <button type="button" id="intro-video-modal-close-button" class="btn-close btn-close-white position-absolute end-0 p-3" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('intro-video').pause(); document.getElementById('intro-video').currentTime = 0; document.getElementById('intro-video-play-button').style.display = 'block';"></button>
+                </div>
             </div>
         </div>
+        <script>
+            let isDesktop;
+            if (document.body.clientWidth >= 992) {
+                isDesktop = true;
+            }
+            function main() {
+                if (location.href.includes('?')) {
+                    document.querySelector('.og').style.display = 'none';
+                    let animateDelay = 3;
+                    document.querySelectorAll('.alt .row').forEach(function(item, index) {
+                        if ((index != 0) && (isDesktop)) {
+                            item.style.marginTop = '-' + (item.clientHeight / 2) + 'px';
+                        }
+                        item.querySelectorAll('.thumbnail').forEach(function(item) {
+                            if (isDesktop) {
+                                item.querySelector('img:first-child').addEventListener('load', function() {
+                                    if (item.parentElement.classList.contains('even')) {
+                                        item.style.left = '-' + (item.clientWidth / 2) + 'px';
+                                    }
+                                    else {
+                                        item.style.left = (item.clientWidth / 2) + 'px';
+                                    }
+                                });
+                            }
+                            item.style.animationDelay = animateDelay + 's';
+                            item.classList.add('animate__animated', 'animate__fadeIn');
+                            animateDelay += .5;
+                        });
+                    });
+                }
+                else {
+                    document.querySelector('.alt').style.display = 'none';
+                    let animateDelay = 3;
+                    document.querySelectorAll('.og .row').forEach(function(item, index) {
+                        if ((index != 0) && (isDesktop)) {
+                            item.style.marginTop = '-' + (item.clientHeight / 4) + 'px';
+                        }
+                        item.querySelectorAll('.thumbnail').forEach(function(item) {
+                            item.style.animationDelay = animateDelay + 's';
+                            item.classList.add('animate__animated', 'animate__fadeIn');
+                            animateDelay += .5;
+                        });
+                    });
+                }
+            }
+            main();
+            window.onresize = main;
+            //     document.querySelector('.thumbnails .last .thumbnail > img').addEventListener('load', function() {
+            //         document.querySelectorAll('.thumbnails > .row').forEach(function(row, index) {
+            //             if (getComputedStyle(row).getPropertyValue('display') != 'none') {
+            //                 thumbnail = row.querySelector('.thumbnail');
+            //                 thumbnail.style.animationDelay = animateDelay + 's';
+            //                 thumbnail.classList.add('animate__animated', 'animate__fadeIn');
+            //                 animateDelay += .5;
+            //                 document.querySelector
+            //                 // if (index != 0) {
+            //                 //     row.style.marginTop = '-' + (getComputedStyle(row).getPropertyValue('height') / 4) + 'px';
+            //                 // }
+            //                 if (location.href.includes('?')) {
+            //                     if (getComputedStyle(thumbnail).getPropertyValue('display') != 'none') {
+            //                         thumbnailWidth = getComputedStyle(thumbnail).getPropertyValue('width');
+            //                         if (thumbnail.classList.contains('even')) {
+            //                             thumbnail.parentElement.style.paddingLeft = (thumbnailWidth / 2) + 'px';
+            //                         }
+            //                         else {
+            //                             thumbnail.parentElement.style.paddingRight = (thumbnailWidth / 2) + 'px';
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         });
+            //     });
+            // }
+            
+            // if (location.href.includes('?')) {
+            //     console.log('URL has "?"');
+            //     document.querySelector('.og').style.display = 'none';
+            //     (function setButtonPositions() {
+            //         function main() {
+            //             document.querySelectorAll('.thumbnail').forEach(function(thumbnail) {
+            //                 if (getComputedStyle(thumbnail).getPropertyValue('display') != 'none') {
+            //                     if (thumbnail.classList.contains('even')) {
+            //                         thumbnail.parentElement.style.paddingLeft = (getComputedStyle(thumbnail).getPropertyValue('width') / 2) + 'px';
+            //                     }
+            //                     else {
+            //                         thumbnail.parentElement.style.paddingRight = (getComputedStyle(thumbnail).getPropertyValue('width') / 2) + 'px';
+            //                     }
+            //                 }
+            //             });
+            //         };
+            //         main();
+            //         window.onresize = main;
+            //     })();
+            // }
+            // else {
+            //     console.log('URL does not have "?"');
+            //     document.querySelector('.alt').style.display = 'none';
+            // }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>script>
     </body>
 </html>

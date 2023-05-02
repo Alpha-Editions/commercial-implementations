@@ -1,0 +1,130 @@
+:root {
+    --animate-delay: 0.5s;
+  }
+body {
+    background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/main-bg.webp");
+    background-size: cover;
+    background-position: center;
+}
+.heebo {
+    font-family: "Heebo", sans-serif;
+}
+.arrow {
+    width: 100vw;
+}
+.gold-arrow {
+    bottom: -10px;
+}
+.gradient-bg {
+    background: rgb(200,151,128);
+    background: linear-gradient(90deg, rgba(200,151,128,1) 0%, rgba(219,185,167,1) 100%);
+}
+.bracket-bg {
+    background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/left-bracket.webp"), url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/right-bracket.webp");
+    background-position: left center, right center;
+    background-size: auto 100%, auto 100%;
+    background-repeat: no-repeat, no-repeat;
+}
+.brush-bg {
+    background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/brush.webp");
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: 1px 1px 2px black;
+}
+.thumbnail {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+.button-content {
+    padding: 10px;
+}
+.text-bg {
+    bottom: 10px;
+    width: calc(100% - 17px);
+    left: 10px;
+}
+.inverted {
+    filter: invert(1);
+}
+:disabled .profile-image {
+    filter: grayscale(1);
+}
+.profile-image {
+    filter: grayscale(0);
+}
+.text-prompt {
+    top: 60%;
+}
+@media (min-width: 576px) {
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+    .row {
+        height: 100vh;
+    }
+    .gold-arrow {
+        left: -10px;
+        bottom: auto;
+    }
+    header {
+        width: calc(700px - 3rem);
+    }
+    .arrow {
+        width: 160px;
+        height: 100vh;
+    }
+    .og > .row {
+        height: calc(100% / 2.5);
+    }
+    .alt > .row {
+        height: calc(100% / 2.5);
+    }
+    .thumbnail {
+        width: auto;
+        height: 100%;
+    }
+    .thumbs-col {
+        width: calc(100vw - 860px) !important;
+    }
+    .header-col {
+        width: calc(860px - 3rem);
+    }
+    .thumbnails {
+        height: calc(100vh - 62px);
+    }
+    .gradient-bg {
+        background: linear-gradient(180deg, rgba(200,151,128,1) 0%, rgba(219,185,167,1) 100%);
+    }
+    .thumbnail {
+        z-index: 1;
+    }
+    .thumbnail:disabled {
+        z-index: 0;
+    }
+    .thumbnail .text-bg, .thumbnail .text-prompt {
+        opacity: 0;
+        transition: opacity .5s;
+    }
+    .thumbnail:hover .text-bg, .thumbnail:hover .text-prompt {
+        opacity: 1;
+        transition: opacity .5s;
+    }
+    .thumbnail:disabled .text-bg, .thumbnail:disabled .text-prompt {
+        opacity: 0;
+    }
+}
+@media (min-width: 1200px) {
+
+}
+@media (min-width: 1400px) {
+
+}
