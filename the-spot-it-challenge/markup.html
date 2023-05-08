@@ -147,7 +147,7 @@
         <div class="modal fade" id="intro-video-modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content bg-black position-relative">
-                    <video id="intro-video" class="d-block mx-auto modal-video vh-100" controls>
+                    <video id="intro-video" class="d-block mx-auto modal-video" controls>
                         <source src="https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/intro-video.mp4" type="video/mp4">
                         Το πρόγραμμα περιήγησης που χρησιμοποιείτε δεν υποστηρίζει την αναπαραγωγή βίντεο.
                     </video>
@@ -156,9 +156,9 @@
                             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                         </svg>
                     </button>
-                    <!-- <div class="text-center p-3">
+                    <div class="text-center p-3 pt-0">
                         <a href="#" class="btn bg-primary text-light border-0 rounded-pill px-4 small">Μάθε περισσότερα</a>
-                    </div> -->
+                    </div>
                     <div class="position-absolute end-0 p-3">
                         <!-- <span class="align-text-bottom text-black-50">Κλείσιμο</span> -->
                         <button type="button" id="intro-video-modal-close-button" class="btn-close fw-semibold bg-white rounded-pill" data-bs-dismiss="modal" aria-label="Κλείσιμο" onclick="document.getElementById('intro-video').pause(); document.getElementById('intro-video').currentTime = 0; document.getElementById('intro-video-play-button').style.display = 'block';">Κλείσιμο</button>
