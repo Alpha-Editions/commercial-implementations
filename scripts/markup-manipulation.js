@@ -5,29 +5,21 @@ function initializeStructure() {
 }
 
 async function appendMarkup() {
-    const response = await fetch('https://alpha-editions.github.io/commercial-implementations/' + getAliasFormUrl() + '/markup.html');
+    const response = await fetch('https://alpha-editions.github.io/commercial-implementations/' + getAliasFromUrl() + '/markup.html');
     const htmlString = await response.text();
     initializeStructure();
     document.head.innerHTML = new XMLSerializer().serializeToString(returnHtmlHead(returnHtmlFromString(htmlString)));
     document.body.innerHTML = new XMLSerializer().serializeToString(returnNoScriptsHtml(returnHtmlBody(returnHtmlFromString(htmlString))));
-    appendExternalScripts();
-    appendInternalScript();
+    appendImplementationScripts();
 }
 
-function returnNoScriptsHtml(html) {
-    let externalScripts = [];
+function stripHtmlFromScripts(html) {
+    let implementationScriptSrcs = [];
     html.querySelectorAll('script').forEach(function(script) {
-        externalScripts.push(script.src);
-        script.remove();
-        if (script.src != '') {
-            externalScripts.push(script.src);
-        }
-        else {
-            sessionStorage.setItem('internalScript', script.innerText);
-        }
+        implementationScriptSrcs.push(script.src);
         script.remove();
     });
-    sessionStorage.setItem('externalScripts', JSON.stringify(externalScripts));
+    sessionStorage.setItem('implementationScriptSrcs', JSON.stringify(implementationScriptSrcs));
     return html;
 }
 
@@ -44,22 +36,16 @@ function returnHtmlFromString(string) {
     return parser.parseFromString(string, 'text/html');
 }
 
-function appendExternalScripts() {
+function appendImplementationScripts() {
     let script;
-    JSON.parse(sessionStorage.getItem('externalScripts')).forEach(function(scriptSrc) {
+    JSON.parse(sessionStorage.getItem('implementationScriptSrcs')).forEach(function(scriptSrc) {
         script = document.createElement('script');
         script.src = scriptSrc;
         document.body.append(script);
     });
 }
 
-function appendInternalScript() {
-    const script = document.createElement('script');
-    script.innerText = sessionStorage.getItem('internalScript');
-    document.body.append('script');
-}
-
-function getAliasFormUrl() {
+function getAliasFromUrl() {
     let url = location.pathname;
     const urlLastIndex = url.length - 1;
     if (url[urlLastIndex] == '/') {
