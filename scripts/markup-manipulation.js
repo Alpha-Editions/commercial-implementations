@@ -9,7 +9,7 @@ async function appendMarkup() {
     const htmlString = await response.text();
     initializeStructure();
     document.head.innerHTML = new XMLSerializer().serializeToString(returnHtmlHead(returnHtmlFromString(htmlString)));
-    document.body.innerHTML = new XMLSerializer().serializeToString(returnNoScriptsHtml(returnHtmlBody(returnHtmlFromString(htmlString))));
+    document.body.innerHTML = new XMLSerializer().serializeToString(stripHtmlFromScripts(returnHtmlBody(returnHtmlFromString(htmlString))));
     appendImplementationScripts();
 }
 
