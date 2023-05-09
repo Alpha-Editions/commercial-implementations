@@ -61,8 +61,9 @@ function appendInternalScript() {
 
 function getAliasFormUrl() {
     let url = location.pathname;
-    if (url[url.length - 1] == '/') {
-        url = url.pop();
+    const urlLastIndex = url.length - 1;
+    if (url[urlLastIndex] == '/') {
+        url = url.slice(0, urlLastIndex);
     }
     return url.substring(url.lastIndexOf('/') + 1);
 }
