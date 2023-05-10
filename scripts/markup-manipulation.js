@@ -1,15 +1,16 @@
 appendMarkup();
 
 function initializeStructure() {
-    document.write('<!doctype html><html lang="el"><head><body></body></html>');
+    document.querySelector('header, footer').remove();
+    document.querySelector('.blog-standard').innerHTML('<div id="root" class="position-relative"></div>')
 }
 
 async function appendMarkup() {
     const response = await fetch('https://alpha-editions.github.io/commercial-implementations/' + getAliasFromUrl() + '/markup.html');
     const htmlString = await response.text();
     initializeStructure();
-    document.head.innerHTML = new XMLSerializer().serializeToString(returnHtmlHead(returnHtmlFromString(htmlString)));
-    document.body.innerHTML = new XMLSerializer().serializeToString(stripHtmlFromScripts(returnHtmlBody(returnHtmlFromString(htmlString))));
+    document.head.append(new XMLSerializer().serializeToString(extractLinksFromHtml(returnHtmlHead(returnHtmlFromString(htmlString)))));
+    document.querySelector('#root').innerHTML = new XMLSerializer().serializeToString(stripHtmlFromScripts(returnHtmlBody(returnHtmlFromString(htmlString))));
     appendImplementationScripts();
 }
 
@@ -21,6 +22,14 @@ function stripHtmlFromScripts(html) {
     });
     sessionStorage.setItem('implementationScriptSrcs', JSON.stringify(implementationScriptSrcs));
     return html;
+}
+
+function extractLinksFromHtml(html) {
+    let implementationLinks = '', clone;
+    html.querySelectorAll('link').forEach(function(link) {
+        implementationLinks = implementationLinks.concat(JSON.stringify(link));
+    });
+    sessionStorage.setItem('implementationLinks', implementationLinks);
 }
 
 function returnHtmlHead(html) {

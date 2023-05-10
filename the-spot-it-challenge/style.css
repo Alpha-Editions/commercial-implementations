@@ -1,7 +1,7 @@
 :root {
     --animate-delay: 0.5s;
   }
-body {
+#root {
     background-image: url("https://alpha-editions.github.io/commercial-implementations/the-spot-it-challenge/assets/main-bg.webp");
     background-size: cover;
     background-position: center;
@@ -87,7 +87,7 @@ body {
 
 }
 @media (min-width: 992px) {
-    body {
+    #root {
         height: 100vh;
         overflow: hidden;
     }
