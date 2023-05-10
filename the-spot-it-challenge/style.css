@@ -80,12 +80,6 @@
 .modal-video {
     height: calc(100vh - 68px + 1rem);
 }
-@media (min-width: 576px) {
-
-}
-@media (min-width: 768px) {
-
-}
 @media (min-width: 992px) {
     #root {
         height: 100vh;
@@ -154,10 +148,4 @@
         opacity: 1;
         transition: opacity .5s;
     }
-}
-@media (min-width: 1200px) {
-
-}
-@media (min-width: 1400px) {
-
 }

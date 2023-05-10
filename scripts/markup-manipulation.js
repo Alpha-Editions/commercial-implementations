@@ -2,7 +2,7 @@ appendMarkup();
 
 function initializeStructure() {
     document.querySelector('header, footer').remove();
-    document.querySelector('.blog-standard').innerHTML('<div id="root" class="position-relative"></div>')
+    document.getElementsByClassName('blog-standard')[0].innerHTML('<div id="root" class="position-relative"></div>')
 }
 
 async function appendMarkup() {
