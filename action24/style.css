@@ -1,0 +1,20 @@
+body {
+    background: rgb(3, 46, 122);
+    background: linear-gradient(180deg, rgb(3, 46, 122) 0%, rgb(3, 63, 144) 50%, rgb(0, 150, 255) 100%);
+}
+.social-media svg {
+    width: 32px;
+    height: 32px;
+    fill: #0096FF;
+}
+.social-media a:hover svg {
+    fill: #ffffff;
+}
+@media (min-width: 768px) {
+    html {
+        height: 100%;
+    }
+    body {
+        height: 100%;
+    }
+}
